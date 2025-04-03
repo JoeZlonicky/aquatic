@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="PodUpgradeTierData" load_steps=8 format=3 uid="uid://igly5dsxhw0c"]
+
+[ext_resource type="Script" uid="uid://riljo1c6lqb7" path="res://components/pod_components/pod_upgrade/item_cost.gd" id="1_ousei"]
+[ext_resource type="Resource" uid="uid://d4m6s41bs2t2x" path="res://content/items/ore/ore.tres" id="2_3f4y6"]
+[ext_resource type="Script" uid="uid://bx6hvrnhx2bvg" path="res://content/pod_modifiers/pod_modifier.gd" id="3_suygm"]
+[ext_resource type="Script" uid="uid://c2mlt0h2epkq0" path="res://content/pod_modifiers/general_modifiers/pod_health_modifier.gd" id="4_bxxdl"]
+[ext_resource type="Script" uid="uid://b0sv352hjjvba" path="res://components/pod_components/pod_upgrade/pod_upgrade_tier_data.gd" id="5_en6v5"]
+
+[sub_resource type="Resource" id="Resource_vbbod"]
+script = ExtResource("1_ousei")
+item = ExtResource("2_3f4y6")
+quantity = 3
+
+[sub_resource type="Resource" id="Resource_4jdwx"]
+script = ExtResource("4_bxxdl")
+modifier = 50
+heal_to_full = true
+
+[resource]
+script = ExtResource("5_en6v5")
+modifiers = Array[ExtResource("3_suygm")]([SubResource("Resource_4jdwx")])
+item_costs = Array[ExtResource("1_ousei")]([SubResource("Resource_vbbod")])

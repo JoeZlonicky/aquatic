@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="119.39037"
+   height="161.80179"
+   viewBox="0 0 119.39037 161.80179"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="pebble_pile.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#2b2b2b"
+     inkscape:document-units="px"
+     inkscape:zoom="3.1835937"
+     inkscape:cx="70.203682"
+     inkscape:cy="120.14724"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-9.8675155,-2.4906991)">
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#2e222f;stroke-width:8.27224;stroke-linecap:round;stroke-dasharray:none"
+       d="M 28.645827,51.317778 39.674295,13.042502 62.379969,44.506076 56.217,90.566155 Z"
+       id="path3" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#2e222f;stroke-width:8.27224;stroke-linecap:round;stroke-dasharray:none"
+       d="M 51.307511,144.82771 55.568268,42.884241 70.16477,11.096301 88.653675,39.964941 91.932534,143.59731 Z"
+       id="path1"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#2e222f;stroke-width:8.27224;stroke-linecap:square;stroke-dasharray:none"
+       d="M 75.567153,149.79602 99.496795,67.454388 125.12177,42.802514 v 33.409777 l -14.23279,83.306599"
+       id="path1-8"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#2e222f;stroke-width:8.27224;stroke-linecap:square;stroke-dasharray:none"
+       d="M 68.990471,149.66133 52.000233,77.591485 24.104692,40.938042 l -10.05537,46.06008 7.372855,72.220918"
+       id="path2"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#2e222f;stroke-width:8.27224;stroke-linecap:square;stroke-dasharray:none"
+       d="m 22.627195,157.6981 4.002049,-19.18725 12.720686,-30.75326 27.168102,30.42132 24.081846,-51.180788 19.786372,48.979368 -0.37477,23.95295"
+       id="path4"
+       sodipodi:nodetypes="ccccccc" />
+  </g>
+</svg>

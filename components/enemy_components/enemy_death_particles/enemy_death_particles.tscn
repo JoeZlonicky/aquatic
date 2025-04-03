@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://df5pxe7kfqaxa"]
+
+[ext_resource type="Texture2D" uid="uid://bn7lpkprue8p5" path="res://common/art/particles/husk.svg" id="1_opbfj"]
+[ext_resource type="Script" uid="uid://bfeai4xf56u4" path="res://components/enemy_components/enemy_death_particles/enemy_death_particles.gd" id="2_nwy36"]
+
+[sub_resource type="Curve" id="Curve_kxy5a"]
+_data = [Vector2(0, 0.473742), 0.0, 0.0, 0, 0, Vector2(0.153257, 1), -0.449523, -0.449523, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_w5ucx"]
+curve = SubResource("Curve_kxy5a")
+
+[sub_resource type="Curve" id="Curve_hokub"]
+_data = [Vector2(0, 0.473742), 0.0, 0.0, 0, 0, Vector2(0.141762, 1), -0.592055, -0.592055, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jr7hb"]
+curve = SubResource("Curve_hokub")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3y0gr"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 250.0
+initial_velocity_max = 300.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+gravity = Vector3(0, 0, 0)
+damping_min = 500.0
+damping_max = 500.0
+scale_min = 0.6
+scale_max = 0.8
+scale_curve = SubResource("CurveTexture_jr7hb")
+alpha_curve = SubResource("CurveTexture_w5ucx")
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+
+[node name="EnemyDeathParticles" type="GPUParticles2D"]
+modulate = Color(0.941176, 0.309804, 0.470588, 1)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_3y0gr")
+texture = ExtResource("1_opbfj")
+lifetime = 2.0
+one_shot = true
+preprocess = 0.05
+explosiveness = 1.0
+script = ExtResource("2_nwy36")

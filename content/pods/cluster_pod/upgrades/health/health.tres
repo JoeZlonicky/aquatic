@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PodUpgradeData" load_steps=4 format=3 uid="uid://bpxrkqlujauha"]
+
+[ext_resource type="Script" uid="uid://blwc4no86q1je" path="res://components/pod_components/pod_upgrade/pod_upgrade_data.gd" id="1_pdou6"]
+[ext_resource type="Script" uid="uid://b0sv352hjjvba" path="res://components/pod_components/pod_upgrade/pod_upgrade_tier_data.gd" id="2_86jct"]
+[ext_resource type="Resource" uid="uid://degxyqr6u4anv" path="res://content/pods/cluster_pod/upgrades/health/t1.tres" id="3_w833u"]
+
+[resource]
+script = ExtResource("1_pdou6")
+name = "Extra Plating"
+description = "Increased health"
+tiers = Array[ExtResource("2_86jct")]([ExtResource("3_w833u")])
+unlock_prereq_tier = 1

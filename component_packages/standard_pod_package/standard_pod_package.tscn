@@ -1,0 +1,56 @@
+[gd_scene load_steps=12 format=3 uid="uid://rhm8eg0f6om2"]
+
+[ext_resource type="Script" uid="uid://dq2mal2rmy74e" path="res://component_packages/standard_pod_package/standard_pod_package.gd" id="1_8wqjb"]
+[ext_resource type="PackedScene" uid="uid://deahsha3celd1" path="res://components/general_components/health/health.tscn" id="1_txxma"]
+[ext_resource type="PackedScene" uid="uid://drb2imi4bsiwr" path="res://components/ui_components/dialogue_popup/dialogue_popup.tscn" id="2_8tqnw"]
+[ext_resource type="PackedScene" uid="uid://xljt1kvw57lj" path="res://components/pod_components/pod_capsule/pod_capsule.tscn" id="3_3ya7e"]
+[ext_resource type="PackedScene" uid="uid://bow7keh8y0ylp" path="res://components/pod_components/pod_stats/pod_stats.tscn" id="3_idjch"]
+[ext_resource type="PackedScene" uid="uid://bvjpe52nfgc8" path="res://components/pod_components/pod_destroyed_particles/pod_destroyed_particles.tscn" id="4_gtcvv"]
+[ext_resource type="PackedScene" uid="uid://dg3e6gt4b4lot" path="res://components/pod_components/pod_health_bar/pod_health_bar.tscn" id="5_kww8w"]
+[ext_resource type="Shader" uid="uid://xa3qoxlvdsyx" path="res://common/shaders/radial_bar.gdshader" id="6_40adu"]
+[ext_resource type="PackedScene" uid="uid://deqtwxkoaxfu5" path="res://components/pod_components/pod_buff_display/pod_buff_display.tscn" id="7_8suth"]
+[ext_resource type="PackedScene" uid="uid://cto37jn5y8nek" path="res://components/pod_components/pod_ability_indicator/pod_ability_indicator.tscn" id="7_ylojc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ro4ji"]
+shader = ExtResource("6_40adu")
+
+[node name="StandardPodPackage" type="Node2D"]
+script = ExtResource("1_8wqjb")
+
+[node name="Health" parent="." instance=ExtResource("1_txxma")]
+
+[node name="PodStats" parent="." instance=ExtResource("3_idjch")]
+
+[node name="DialoguePopup" parent="." instance=ExtResource("2_8tqnw")]
+offset_left = -154.0
+offset_top = -193.0
+offset_right = 149.0
+offset_bottom = -80.0
+
+[node name="Capsule" parent="." instance=ExtResource("3_3ya7e")]
+
+[node name="PodDestroyedParticles" parent="." instance=ExtResource("4_gtcvv")]
+
+[node name="PodHealthBar" parent="." instance=ExtResource("5_kww8w")]
+material = SubResource("ShaderMaterial_ro4ji")
+offset_left = -77.0
+offset_top = -76.0
+offset_right = 76.0
+offset_bottom = 77.0
+
+[node name="PodBuffDisplay" parent="." instance=ExtResource("7_8suth")]
+offset_top = -82.0
+offset_bottom = -42.0
+
+[node name="PodAbilityIndicator" parent="." instance=ExtResource("7_ylojc")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -24.0
+offset_top = 38.0
+offset_right = 24.0
+offset_bottom = 86.0
+grow_horizontal = 1
+grow_vertical = 1

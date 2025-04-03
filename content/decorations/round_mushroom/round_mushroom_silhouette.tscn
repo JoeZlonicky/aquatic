@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbeh3mhbft1og"]
+
+[ext_resource type="Material" uid="uid://dm2lxa8fkw8s7" path="res://common/materials/sway.tres" id="1_v4osa"]
+[ext_resource type="Texture2D" uid="uid://8wkfkih0g0pu" path="res://content/decorations/round_mushroom/round_mushroom_silhouette.svg" id="2_nye0l"]
+
+[node name="RoundMushroomSilhouette" type="Sprite2D"]
+material = ExtResource("1_v4osa")
+position = Vector2(-12, 43)
+texture = ExtResource("2_nye0l")

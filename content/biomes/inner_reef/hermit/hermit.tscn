@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://blbh87qbhtjyi"]
+
+[ext_resource type="Texture2D" uid="uid://c4ivtt28m52cb" path="res://content/biomes/inner_reef/hermit/hermit_body.svg" id="1_2sxg6"]
+[ext_resource type="Texture2D" uid="uid://c2pntnio5f1a0" path="res://content/biomes/inner_reef/hermit/hermit_eyes.svg" id="2_rp6fo"]
+[ext_resource type="Script" uid="uid://ct2gqqedvi8yj" path="res://content/biomes/inner_reef/hermit/hermit.gd" id="2_tx2n8"]
+[ext_resource type="Texture2D" uid="uid://cpko0tfun0de1" path="res://content/biomes/inner_reef/hermit/hermit_shell.svg" id="3_tx2n8"]
+[ext_resource type="PackedScene" uid="uid://kel86f0b8nov" path="res://components/general_components/interactable_area/interactable_area.tscn" id="4_1d4tr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lt20l"]
+radius = 340.037
+
+[node name="Hermit" type="Sprite2D"]
+self_modulate = Color(0.917647, 0.309804, 0.211765, 1)
+z_index = -1
+texture = ExtResource("1_2sxg6")
+script = ExtResource("2_tx2n8")
+
+[node name="Eyes" type="Sprite2D" parent="."]
+self_modulate = Color(0.960784, 0.490196, 0.290196, 1)
+position = Vector2(39, -58)
+texture = ExtResource("2_rp6fo")
+
+[node name="Shell" type="Sprite2D" parent="."]
+self_modulate = Color(0.964706, 0.505882, 0.505882, 1)
+position = Vector2(-108, -21)
+texture = ExtResource("3_tx2n8")
+
+[node name="InteractableArea" parent="." node_paths=PackedStringArray("show_when_prioritized") instance=ExtResource("4_1d4tr")]
+show_when_prioritized = NodePath("Label")
+
+[node name="Label" type="Label" parent="InteractableArea"]
+offset_left = -174.0
+offset_top = -195.0
+offset_right = 46.0
+offset_bottom = -122.0
+theme_override_font_sizes/font_size = 48
+text = "Talk? [E]"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
+position = Vector2(-67, -32)
+shape = SubResource("CircleShape2D_lt20l")
+
+[connection signal="interacted_with" from="InteractableArea" to="." method="_on_interactable_area_interacted_with"]

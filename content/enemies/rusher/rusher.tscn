@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmaq6tsjfia7t"]
+
+[ext_resource type="Script" uid="uid://kb3dede75jd2" path="res://content/enemies/enemy.gd" id="1_f116o"]
+[ext_resource type="Texture2D" uid="uid://eqtlmpwo8ug6" path="res://content/enemies/rusher/rusher.svg" id="2_7d7an"]
+[ext_resource type="Texture2D" uid="uid://dxkq857gjr0o5" path="res://content/enemies/rusher/rusher_eye.svg" id="5_0667o"]
+[ext_resource type="PackedScene" uid="uid://bhuu6ey13ich3" path="res://component_packages/standard_enemy_package/standard_enemy_package.tscn" id="12_hi38k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_22bnk"]
+radius = 32.0624
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4nxj1"]
+radius = 26.0768
+
+[node name="Rusher" type="CharacterBody2D" node_paths=PackedStringArray("health", "statuses")]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("1_f116o")
+health = NodePath("StandardEnemyPackage/Health")
+statuses = NodePath("StandardEnemyPackage/Statuses")
+
+[node name="StandardEnemyPackage" parent="." instance=ExtResource("12_hi38k")]
+
+[node name="Health" parent="StandardEnemyPackage" index="0"]
+_max = 5
+
+[node name="FlashSpriteOnHit" parent="StandardEnemyPackage" index="2"]
+self_modulate = Color(0.941176, 0.309804, 0.470588, 1)
+position = Vector2(-21, 0)
+texture = ExtResource("2_7d7an")
+
+[node name="Eye" type="Sprite2D" parent="StandardEnemyPackage/FlashSpriteOnHit" index="1"]
+position = Vector2(0.000137329, 22)
+texture = ExtResource("5_0667o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StandardEnemyPackage/AttackPlayerArea" index="0"]
+shape = SubResource("CircleShape2D_22bnk")
+
+[node name="ChasePlayer" parent="StandardEnemyPackage" index="4" node_paths=PackedStringArray("_character")]
+_character = NodePath("../..")
+move_speed = 450.0
+
+[node name="TunnelingDetection" parent="StandardEnemyPackage" index="6" node_paths=PackedStringArray("enemy")]
+enemy = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4nxj1")
+
+[editable path="StandardEnemyPackage"]

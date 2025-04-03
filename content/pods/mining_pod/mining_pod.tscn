@@ -1,0 +1,130 @@
+[gd_scene load_steps=22 format=3 uid="uid://dgjt12a3vt6ou"]
+
+[ext_resource type="Script" uid="uid://c5r52mai2x5v4" path="res://content/pods/pod.gd" id="1_ulcpk"]
+[ext_resource type="PackedScene" uid="uid://deebe8w6t5g55" path="res://components/ability_components/actives/projectile_shooter/projectile_shooter.tscn" id="2_b1xor"]
+[ext_resource type="PackedScene" uid="uid://rhm8eg0f6om2" path="res://component_packages/standard_pod_package/standard_pod_package.tscn" id="2_beo8k"]
+[ext_resource type="Texture2D" uid="uid://cilcxsxa22d2b" path="res://content/pods/mining_pod/assets/laser.svg" id="3_46xge"]
+[ext_resource type="Script" uid="uid://c1b7q2gy7op1k" path="res://content/on_hit_effects/on_hit_data.gd" id="5_4m2di"]
+[ext_resource type="Shader" uid="uid://xa3qoxlvdsyx" path="res://common/shaders/radial_bar.gdshader" id="5_pco6f"]
+[ext_resource type="Script" uid="uid://cjpyi6r3mun8s" path="res://content/on_hit_effects/damage/damage_data.gd" id="6_ki440"]
+[ext_resource type="Texture2D" uid="uid://durrqhsvivnot" path="res://content/pods/mining_pod/assets/mining_laser.svg" id="7_2os8m"]
+[ext_resource type="Script" uid="uid://b0ibossnko05g" path="res://components/ability_components/actives/projectile_shooter/projectile/projectile_data.gd" id="7_3lcx4"]
+[ext_resource type="PackedScene" uid="uid://cikuv1asqnpit" path="res://components/general_components/nearest_in_area/nearest_in_area.tscn" id="7_pt5g8"]
+[ext_resource type="PackedScene" uid="uid://br11hw42cki67" path="res://components/ability_components/triggers/ability_timer/ability_timer.tscn" id="9_vii1s"]
+[ext_resource type="AudioStream" uid="uid://boof2o8xyel56" path="res://common/sfx/laser_pews/laser_1.wav" id="10_o4ps4"]
+[ext_resource type="PackedScene" uid="uid://cbtkm8xnvspw5" path="res://content/pods/mining_pod/assets/spark_particles.tscn" id="10_yssow"]
+[ext_resource type="AudioStream" uid="uid://dsty75dg1c4vm" path="res://common/sfx/laser_pews/laser_2.wav" id="11_duvbh"]
+[ext_resource type="AudioStream" uid="uid://ckunei5vd4b8q" path="res://common/sfx/laser_pews/laser_3.wav" id="12_wuomb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ro4ji"]
+shader = ExtResource("5_pco6f")
+
+[sub_resource type="Resource" id="Resource_g1ptu"]
+script = ExtResource("6_ki440")
+amount = 20
+can_crit = true
+
+[sub_resource type="Resource" id="Resource_3ngty"]
+script = ExtResource("7_3lcx4")
+on_hit = Array[ExtResource("5_4m2di")]([SubResource("Resource_g1ptu")])
+mining_power = 1
+speed = 3000.0
+rotation_speed = 0.0
+collision_radius = 10.0
+pierce = 100
+track_nearest_enemy = false
+track_rotate_speed = 1.0
+tracking_radius = 100.0
+override_rotation_with_tracking = false
+spawn_at_collision = ExtResource("10_yssow")
+hit_enemies = true
+hit_resource_piles = true
+hit_terrain = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3a1gm"]
+radius = 1600.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ffsei"]
+streams_count = 3
+stream_0/stream = ExtResource("10_o4ps4")
+stream_1/stream = ExtResource("11_duvbh")
+stream_2/stream = ExtResource("12_wuomb")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qbssb"]
+radius = 53.0377
+
+[node name="MiningPod" type="CharacterBody2D" node_paths=PackedStringArray("_health", "_stats")]
+collision_layer = 2
+collision_mask = 0
+wall_min_slide_angle = 0.0
+script = ExtResource("1_ulcpk")
+_health = NodePath("StandardPodPackage/Health")
+_stats = NodePath("StandardPodPackage/PodStats")
+
+[node name="StandardPodPackage" parent="." instance=ExtResource("2_beo8k")]
+scale = Vector2(0.75, 0.75)
+
+[node name="Health" parent="StandardPodPackage" index="0"]
+_max = 30
+
+[node name="PodStats" parent="StandardPodPackage" index="1"]
+crit_chance = 5.0
+
+[node name="Capsule" parent="StandardPodPackage" index="3" node_paths=PackedStringArray("_pod")]
+self_modulate = Color(0.301961, 0.607843, 0.901961, 1)
+_pod = NodePath("../..")
+primary_color = Color(0.301961, 0.607843, 0.901961, 1)
+pilot_color = Color(0.301961, 0.607843, 0.901961, 1)
+
+[node name="PodDestroyedParticles" parent="StandardPodPackage" index="4" node_paths=PackedStringArray("_pod")]
+_pod = NodePath("../..")
+
+[node name="PodHealthBar" parent="StandardPodPackage" index="5" node_paths=PackedStringArray("_pod")]
+material = SubResource("ShaderMaterial_ro4ji")
+instance_shader_parameters/filled_color = Color(0.560784, 0.827451, 1, 1)
+_pod = NodePath("../..")
+_color = Color(0.560784, 0.827451, 1, 1)
+
+[node name="PodBuffDisplay" parent="StandardPodPackage" index="6" node_paths=PackedStringArray("_pod")]
+_pod = NodePath("../..")
+
+[node name="PodAbilityIndicator" parent="StandardPodPackage" index="7"]
+modulate = Color(0.560784, 0.827451, 1, 1)
+
+[node name="MiningLaser" parent="." node_paths=PackedStringArray("spawn_pos_override", "track_nearest", "play_audio", "pod") instance=ExtResource("2_b1xor")]
+sprite = ExtResource("3_46xge")
+projectile_data = SubResource("Resource_3ngty")
+spawn_pos_override = NodePath("Sprite2D")
+track_nearest = NodePath("NearestInArea")
+play_audio = NodePath("PewSFX")
+pod = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="MiningLaser"]
+modulate = Color(0.607843, 0.670588, 0.698039, 1)
+position = Vector2(66, 0)
+scale = Vector2(1, 0.75)
+texture = ExtResource("7_2os8m")
+
+[node name="NearestInArea" parent="MiningLaser" instance=ExtResource("7_pt5g8")]
+collision_mask = 72
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiningLaser/NearestInArea"]
+shape = SubResource("CircleShape2D_3a1gm")
+
+[node name="AbilityTimer" parent="MiningLaser" node_paths=PackedStringArray("pod", "abilities", "play_sfx", "ability_indiciator", "require_nearest_to_activate") instance=ExtResource("9_vii1s")]
+pod = NodePath("../..")
+abilities = [NodePath("..")]
+play_sfx = NodePath("../PewSFX")
+cooldown = 0.5
+ability_indiciator = NodePath("../../StandardPodPackage/PodAbilityIndicator")
+ability_color = Color(0.560784, 0.827451, 1, 1)
+require_nearest_to_activate = NodePath("../NearestInArea")
+
+[node name="PewSFX" type="AudioStreamPlayer2D" parent="MiningLaser"]
+stream = SubResource("AudioStreamRandomizer_ffsei")
+bus = &"SFX"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qbssb")
+
+[editable path="StandardPodPackage"]

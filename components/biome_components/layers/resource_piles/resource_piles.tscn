@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwpglxampuib0"]
+
+[ext_resource type="TileSet" uid="uid://clcfwadsb2h4u" path="res://content/tilesets/resource_piles.tres" id="1_6frop"]
+
+[node name="ResourcePilesLayer" type="TileMapLayer"]
+position = Vector2(3, 0)
+tile_set = ExtResource("1_6frop")

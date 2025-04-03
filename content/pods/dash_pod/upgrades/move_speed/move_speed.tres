@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PodUpgradeData" load_steps=5 format=3 uid="uid://dqe5yro2ew4f5"]
+
+[ext_resource type="Script" uid="uid://blwc4no86q1je" path="res://components/pod_components/pod_upgrade/pod_upgrade_data.gd" id="1_lt83s"]
+[ext_resource type="Script" uid="uid://b0sv352hjjvba" path="res://components/pod_components/pod_upgrade/pod_upgrade_tier_data.gd" id="2_54h1x"]
+[ext_resource type="Resource" uid="uid://buoelv4vlpt7e" path="res://content/pods/dash_pod/upgrades/move_speed/t1.tres" id="3_qe0ui"]
+[ext_resource type="Resource" uid="uid://dg22wkikpd31e" path="res://content/pods/dash_pod/upgrades/move_speed/t2.tres" id="4_dul6x"]
+
+[resource]
+script = ExtResource("1_lt83s")
+name = "Engine Strength"
+description = "Increased move speed"
+tiers = Array[ExtResource("2_54h1x")]([ExtResource("3_qe0ui"), ExtResource("4_dul6x")])
+unlock_prereq_tier = 1

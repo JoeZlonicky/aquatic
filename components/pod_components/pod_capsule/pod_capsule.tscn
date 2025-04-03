@@ -1,0 +1,145 @@
+[gd_scene load_steps=17 format=3 uid="uid://xljt1kvw57lj"]
+
+[ext_resource type="Texture2D" uid="uid://i8ocrsrkgh6g" path="res://components/pod_components/pod_capsule/assets/capsule.svg" id="1_8yh74"]
+[ext_resource type="Script" uid="uid://ckwcpk0oa8rec" path="res://components/pod_components/pod_capsule/pod_capsule.gd" id="2_6dpmu"]
+[ext_resource type="Texture2D" uid="uid://buepx8vjetvpa" path="res://components/pod_components/pod_capsule/assets/body.svg" id="3_kmv1h"]
+[ext_resource type="Texture2D" uid="uid://wp04yeqqiws4" path="res://components/pod_components/pod_capsule/assets/eye.svg" id="4_7pv4b"]
+[ext_resource type="Texture2D" uid="uid://cvrsfsqkyq4uj" path="res://components/pod_components/pod_capsule/assets/head.svg" id="4_cg56a"]
+[ext_resource type="Shader" uid="uid://bumb3mexa7ckv" path="res://common/shaders/flash.gdshader" id="5_76788"]
+[ext_resource type="Texture2D" uid="uid://dtrjmwitdmkj3" path="res://components/pod_components/pod_capsule/assets/capsule_window.svg" id="6_bn1yv"]
+
+[sub_resource type="GDScript" id="GDScript_1jhwa"]
+script/source = "@tool
+extends Sprite2D
+"
+
+[sub_resource type="GDScript" id="GDScript_krf66"]
+script/source = "@tool
+extends Sprite2D
+"
+
+[sub_resource type="GDScript" id="GDScript_ckwtd"]
+script/source = "@tool
+extends Sprite2D
+"
+
+[sub_resource type="GDScript" id="GDScript_4vgm2"]
+script/source = "@tool
+extends Sprite2D
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5yaxf"]
+shader = ExtResource("5_76788")
+
+[sub_resource type="GDScript" id="GDScript_fgrrg"]
+script/source = "@tool
+extends Sprite2D
+"
+
+[sub_resource type="Animation" id="Animation_xxvyd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlashSprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlashSprite:instance_shader_parameters/flash_strength")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_pb1gb"]
+resource_name = "hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlashSprite:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlashSprite:instance_shader_parameters/flash_strength")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hxn67"]
+_data = {
+&"RESET": SubResource("Animation_xxvyd"),
+&"hit": SubResource("Animation_pb1gb")
+}
+
+[node name="Capsule" type="Sprite2D"]
+texture = ExtResource("1_8yh74")
+script = ExtResource("2_6dpmu")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("3_kmv1h")
+script = SubResource("GDScript_1jhwa")
+
+[node name="Head" type="Sprite2D" parent="."]
+texture = ExtResource("4_cg56a")
+script = SubResource("GDScript_krf66")
+
+[node name="LeftEye" type="Sprite2D" parent="Head"]
+position = Vector2(-14, -10)
+texture = ExtResource("4_7pv4b")
+
+[node name="RightEye" type="Sprite2D" parent="Head"]
+position = Vector2(14, -10)
+texture = ExtResource("4_7pv4b")
+
+[node name="Costume" type="Sprite2D" parent="Head"]
+script = SubResource("GDScript_ckwtd")
+
+[node name="Window" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+use_parent_material = true
+texture = ExtResource("6_bn1yv")
+
+[node name="Front" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.596078)
+texture = ExtResource("1_8yh74")
+script = SubResource("GDScript_4vgm2")
+
+[node name="FlashSprite" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_5yaxf")
+instance_shader_parameters/flash_strength = 0.0
+texture = ExtResource("1_8yh74")
+
+[node name="Armor" type="Sprite2D" parent="FlashSprite"]
+script = SubResource("GDScript_fgrrg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hxn67")
+}

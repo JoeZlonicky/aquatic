@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="60.926357"
+   height="110"
+   viewBox="0 0 60.926358 110"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="winter_hat.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="5.8083612"
+     inkscape:cx="25.394426"
+     inkscape:cy="41.750158"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-288.80766,-54.937057)">
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#2e222f;stroke-width:6.46171"
+       d="m 300.4115,80.595941 c 0,0 -1.80444,-13.493248 2.65493,-17.207863 8.79288,-7.324381 26.01176,-6.889279 34.3174,0.983307 4.05776,3.846187 1.37663,16.71621 1.37663,16.71621 z"
+       id="path3"
+       sodipodi:nodetypes="caacc" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#2e222f;stroke-width:6.46171"
+       d="m 294.86137,92.439946 c 4.21679,0.740389 6.74673,-1.662657 11.87686,-1.26527 9.92022,0.768432 13.10727,0.578032 25.9379,-0.612198 4.19623,-0.389263 7.57351,2.154343 10.36427,1.395699 3.56951,-0.970341 4.48184,-8.239644 2.11436,-11.219082 -10.49164,-13.203538 -38.48751,-13.892104 -50.54935,-2.105673 -3.29215,3.216986 -3.63789,13.122837 0.25596,13.806524 z"
+       id="path2"
+       sodipodi:nodetypes="ssssaas" />
+  </g>
+</svg>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="201.51822"
+   height="197.30594"
+   viewBox="0 0 201.51822 197.30594"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="decorated_nine_patch_rect.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#494949"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#2b2b2b"
+     inkscape:document-units="px"
+     inkscape:zoom="3.1835938"
+     inkscape:cx="86.694476"
+     inkscape:cy="78.998771"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer3" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="88.20793,-10.445061"
+       end_point="88.20793,186.86088"
+       center_point="88.20793,88.207908"
+       id="path-effect6"
+       is_visible="true"
+       lpeversion="1.2"
+       lpesatellites=""
+       mode="vertical"
+       discard_orig_path="false"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false"
+       link_styles="false" />
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="-12.551179,88.207908"
+       end_point="188.96704,88.207908"
+       center_point="88.20793,88.207908"
+       id="path-effect5"
+       is_visible="true"
+       lpeversion="1.2"
+       lpesatellites=""
+       mode="horizontal"
+       discard_orig_path="false"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false"
+       link_styles="false" />
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="0,88.207916"
+       end_point="176.41585,88.207916"
+       center_point="88.207924,88.207916"
+       id="path-effect4"
+       is_visible="false"
+       lpeversion="1.2"
+       lpesatellites=""
+       mode="horizontal"
+       discard_orig_path="false"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false"
+       link_styles="false" />
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="88.207924,0"
+       end_point="88.207924,176.41583"
+       center_point="88.207924,88.207916"
+       id="path-effect3"
+       is_visible="true"
+       lpeversion="1.2"
+       lpesatellites=""
+       mode="vertical"
+       discard_orig_path="false"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false"
+       link_styles="false" />
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="162.30449,77.789665"
+       end_point="162.30449,254.2055"
+       center_point="162.30449,165.99758"
+       id="path-effect2"
+       is_visible="true"
+       lpeversion="1.2"
+       lpesatellites=""
+       mode="vertical"
+       discard_orig_path="false"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false"
+       link_styles="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect1"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,8.0000002,0,1 @ F,0,0,1,0,8.0000002,0,1 @ F,0,0,1,0,8.0000002,0,1 @ F,0,0,1,0,8.0000002,0,1"
+       radius="8"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-60.656948,-67.788824)">
+    <path
+       style="fill:#2e222f;stroke:#ffffff;stroke-width:5.71187;stroke-linecap:square;stroke-miterlimit:9.8;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1"
+       width="112.00001"
+       height="112"
+       x="77.208122"
+       y="82.233879"
+       inkscape:path-effect="#path-effect1"
+       sodipodi:type="rect"
+       d="m 85.208122,82.233879 96.000008,0 a 8.0000002,8.0000002 45 0 1 8,8 l 0,96.000001 a 8.0000002,8.0000002 135 0 1 -8,8 H 85.208122 a 8.0000002,8.0000002 45 0 1 -8,-8 V 90.233879 a 8.0000002,8.0000002 135 0 1 8,-8 z"
+       transform="matrix(1.4005906,0,0,1.4005906,-25.153997,-27.167271)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Layer 2"
+     inkscape:path-effect="#path-effect5;#path-effect6"
+     transform="translate(12.551179,10.445061)">
+    <path
+       style="fill:#2e222f;stroke:#ffffff;stroke-width:9.31232;stroke-linecap:round;stroke-miterlimit:9.8;stroke-dasharray:none;stroke-opacity:1"
+       id="path2"
+       sodipodi:type="arc"
+       sodipodi:cx="12.105"
+       sodipodi:cy="21.165422"
+       sodipodi:rx="20"
+       sodipodi:ry="20"
+       d="m 32.105,21.165422 c 0,10.990721 -8.868681,19.92209 -19.859129,19.999504 C 1.2554234,41.24234 -7.7381915,32.436789 -7.893016,21.447159 -8.0478405,10.457529 0.69414488,1.4021146 11.682412,1.1698874 22.670679,0.9376603 31.787444,9.6156461 32.097062,20.602005 M 32.105,155.25039 c 0,-10.99072 -8.868681,-19.92209 -19.859129,-19.9995 -10.9904476,-0.0774 -19.9840625,8.72814 -20.138887,19.71777 -0.1548245,10.98963 8.58716088,20.04504 19.575428,20.27727 10.988267,0.23223 20.105032,-8.44576 20.41465,-19.43212 M 144.31086,21.165422 c 0,10.990721 8.86868,19.92209 19.85913,19.999504 10.99045,0.07741 19.98406,-8.728137 20.13889,-19.717767 C 184.4637,10.457529 175.72172,1.4021146 164.73345,1.1698874 153.74518,0.9376603 144.62842,9.6156461 144.3188,20.602005 m -0.008,134.648385 c 0,-10.99072 8.86868,-19.92209 19.85913,-19.9995 10.99045,-0.0774 19.98406,8.72814 20.13889,19.71777 0.15482,10.98963 -8.58716,20.04504 -19.57543,20.27727 -10.98827,0.23223 -20.10503,-8.44576 -20.41465,-19.43212"
+       sodipodi:start="0"
+       sodipodi:end="6.2550107"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc" />
+    <path
+       style="fill:#2e222f;stroke:#ffffff;stroke-width:8.00002;stroke-linecap:round;stroke-miterlimit:9.8;stroke-dasharray:none;stroke-opacity:1"
+       id="path2-7-2"
+       sodipodi:type="arc"
+       sodipodi:cx="48.942421"
+       sodipodi:cy="9.5549488"
+       sodipodi:rx="16"
+       sodipodi:ry="16"
+       d="m 64.942421,9.5549488 c 0,8.8365562 -7.163444,16.0000002 -16,16.0000002 -8.836556,0 -16,-7.163444 -16,-16.0000002 0,-8.83655599 7.163444,-16 16,-16 8.836556,0 16,7.16344401 16,16 z m 0,157.3059212 c 0,-8.83656 -7.163444,-16 -16,-16 -8.836556,0 -16,7.16344 -16,16 0,8.83655 7.163444,16 16,16 8.836556,0 16,-7.16345 16,-16 z M 111.47344,9.5549488 c 0,8.8365562 7.16344,16.0000002 16,16.0000002 8.83656,0 16,-7.163444 16,-16.0000002 0,-8.83655599 -7.16344,-16 -16,-16 -8.83656,0 -16,7.16344401 -16,16 z m 0,157.3059212 c 0,-8.83656 7.16344,-16 16,-16 8.83656,0 16,7.16344 16,16 0,8.83655 -7.16344,16 -16,16 -8.83656,0 -16,-7.16345 -16,-16 z" />
+  </g>
+</svg>

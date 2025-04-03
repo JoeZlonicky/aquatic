@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d31g6ekrgwk5n"]
+
+[ext_resource type="Material" uid="uid://dm2lxa8fkw8s7" path="res://common/materials/sway.tres" id="1_irvnj"]
+[ext_resource type="Texture2D" uid="uid://8msk3sjkyae2" path="res://content/decorations/corrupted_hint/corrupted_hint.svg" id="2_ekbe1"]
+
+[node name="CorruptedHint" type="Sprite2D"]
+self_modulate = Color(0.941176, 0.309804, 0.470588, 1)
+material = ExtResource("1_irvnj")
+rotation = 4.71239
+texture = ExtResource("2_ekbe1")

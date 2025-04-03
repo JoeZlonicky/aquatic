@@ -1,0 +1,129 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqd7mehbhk6ku"]
+
+[ext_resource type="Texture2D" uid="uid://8msk3sjkyae2" path="res://content/decorations/corrupted_hint/corrupted_hint.svg" id="1_103m0"]
+[ext_resource type="Script" uid="uid://ddqhyy5opveoa" path="res://content/structures/corrupted_gate/corrupted_gate.gd" id="1_amlad"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6paf8"]
+size = Vector2(724, 59)
+
+[sub_resource type="Animation" id="Animation_82fn4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.4)]
+}
+
+[sub_resource type="Animation" id="Animation_lh7pi"]
+resource_name = "close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftSprite:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 0.4), Vector2(1, 1.55651)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightSprite:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 0.4), Vector2(1, 1.557)]
+}
+
+[sub_resource type="Animation" id="Animation_tfv2m"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftSprite:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1.557), Vector2(1, 0.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightSprite:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1.557), Vector2(1, 0.4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s5oyi"]
+_data = {
+&"RESET": SubResource("Animation_82fn4"),
+&"close": SubResource("Animation_lh7pi"),
+&"open": SubResource("Animation_tfv2m")
+}
+
+[node name="CorruptedGate" type="Node2D"]
+position = Vector2(736, 1038)
+script = ExtResource("1_amlad")
+
+[node name="LeftSprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.941176, 0.309804, 0.470588, 1)
+position = Vector2(38, 11)
+rotation = -1.57079
+scale = Vector2(1, 0.4)
+texture = ExtResource("1_103m0")
+offset = Vector2(0, 91)
+
+[node name="RightSprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.941176, 0.309804, 0.470588, 1)
+position = Vector2(491, 13)
+rotation = 1.57079
+scale = Vector2(1, 0.4)
+texture = ExtResource("1_103m0")
+offset = Vector2(0, 91)
+
+[node name="Blocker" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker"]
+position = Vector2(275, -19.5)
+shape = SubResource("RectangleShape2D_6paf8")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s5oyi")
+}

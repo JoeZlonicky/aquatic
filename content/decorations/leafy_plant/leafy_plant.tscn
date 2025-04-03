@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn50csbuwjkr1"]
+
+[ext_resource type="Material" uid="uid://dm2lxa8fkw8s7" path="res://common/materials/sway.tres" id="1_qvc4d"]
+[ext_resource type="Texture2D" uid="uid://d21xlh15otvw6" path="res://content/decorations/leafy_plant/leafy_plant.svg" id="2_jda55"]
+
+[node name="LeafyPlant" type="Sprite2D"]
+self_modulate = Color(0.0862745, 0.352941, 0.298039, 1)
+material = ExtResource("1_qvc4d")
+position = Vector2(0, -53)
+texture = ExtResource("2_jda55")

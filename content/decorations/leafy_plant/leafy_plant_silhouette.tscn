@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3a3ejeb0lirf"]
+
+[ext_resource type="Material" uid="uid://dm2lxa8fkw8s7" path="res://common/materials/sway.tres" id="1_klrbe"]
+[ext_resource type="Texture2D" uid="uid://b12eaq7h2tswl" path="res://content/decorations/leafy_plant/leafy_plant_silhouette.svg" id="2_tdqc3"]
+
+[node name="LeafyPlantSilhouette" type="Sprite2D"]
+material = ExtResource("1_klrbe")
+position = Vector2(0, 35)
+texture = ExtResource("2_tdqc3")

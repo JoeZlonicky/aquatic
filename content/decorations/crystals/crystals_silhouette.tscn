@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://6m7oejiiehqy"]
+
+[ext_resource type="Texture2D" uid="uid://c352jax4cf7gk" path="res://content/decorations/crystals/crystals_silhouette.svg" id="1_mb71k"]
+
+[node name="CrystalsSilhouette" type="Sprite2D"]
+position = Vector2(20, 19)
+texture = ExtResource("1_mb71k")

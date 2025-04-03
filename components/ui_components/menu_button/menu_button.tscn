@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://owdet52m6jja"]
+
+[ext_resource type="Script" uid="uid://pw4fx7ij7458" path="res://components/ui_components/menu_button/menu_button.gd" id="1_5vhm0"]
+[ext_resource type="Texture2D" uid="uid://gywx6dhrcexe" path="res://components/ui_components/menu_button/hover_sprite.svg" id="1_sc47f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fefse"]
+
+[node name="MenuButton" type="Button"]
+offset_left = 500.0
+offset_top = 287.0
+offset_right = 583.0
+offset_bottom = 345.0
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_colors/font_disabled_color = Color(0.212305, 0.212305, 0.212305, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.212305, 0.212305, 0.212305, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.733005, 0.733005, 0.733005, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.212305, 0.212305, 0.212305, 1)
+theme_override_font_sizes/font_size = 72
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fefse")
+text = "Button"
+flat = true
+script = ExtResource("1_5vhm0")
+
+[node name="SpritesContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 83
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="SpritesContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("1_sc47f")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="SpritesContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("1_sc47f")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

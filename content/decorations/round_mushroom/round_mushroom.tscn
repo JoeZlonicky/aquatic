@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dup527f5qnm6a"]
+
+[ext_resource type="Material" uid="uid://dm2lxa8fkw8s7" path="res://common/materials/sway.tres" id="1_b1dg6"]
+[ext_resource type="Texture2D" uid="uid://bmm5sj45hiocp" path="res://content/decorations/round_mushroom/round_mushroom_stem.svg" id="2_m5yyi"]
+[ext_resource type="Texture2D" uid="uid://md5onhomc8au" path="res://content/decorations/round_mushroom/round_mushroom_top.svg" id="3_f43iv"]
+[ext_resource type="Texture2D" uid="uid://kaw1g2n8l0v2" path="res://content/decorations/round_mushroom/round_mushroom_spots.svg" id="4_wqb76"]
+
+[node name="RoundMushroom" type="Sprite2D"]
+self_modulate = Color(0.215686, 0.305882, 0.290196, 1)
+material = ExtResource("1_b1dg6")
+position = Vector2(-12, 28)
+texture = ExtResource("2_m5yyi")
+
+[node name="Top" type="Sprite2D" parent="."]
+self_modulate = Color(0.282353, 0.290196, 0.466667, 1)
+use_parent_material = true
+position = Vector2(18, -97)
+texture = ExtResource("3_f43iv")
+
+[node name="Spots" type="Sprite2D" parent="."]
+self_modulate = Color(0.137255, 0.564706, 0.388235, 1)
+use_parent_material = true
+position = Vector2(7, -92)
+texture = ExtResource("4_wqb76")

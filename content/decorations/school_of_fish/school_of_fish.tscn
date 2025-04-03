@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnbdkly4mcpga"]
+
+[ext_resource type="Script" uid="uid://b0argvnvctaiq" path="res://content/decorations/school_of_fish/school_of_fish.gd" id="1_m61tm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_415me"]
+radius = 858.755
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_70f67"]
+radius = 498.121
+
+[node name="SchoolOfFish" type="Node2D"]
+script = ExtResource("1_m61tm")
+
+[node name="StartleArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartleArea"]
+shape = SubResource("CircleShape2D_415me")
+
+[node name="FleeArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FleeArea"]
+shape = SubResource("CircleShape2D_70f67")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(117, -107)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(-76, -67)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(-2, 2)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(98, 71)
+
+[node name="Marker2D5" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(-128, 123)
+
+[node name="Marker2D6" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(-128, 123)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(18.0001, 1.5)
+scale = Vector2(119, 115.75)
+
+[connection signal="body_entered" from="StartleArea" to="." method="_on_startle_area_body_entered"]
+[connection signal="body_exited" from="StartleArea" to="." method="_on_startle_area_body_exited"]
+[connection signal="body_entered" from="FleeArea" to="." method="_on_flee_area_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

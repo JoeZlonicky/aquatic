@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://cto37jn5y8nek"]
+
+[ext_resource type="Texture2D" uid="uid://dvt53a163621" path="res://components/pod_components/pod_ability_indicator/pod_ability_indicator.svg" id="1_kgehw"]
+[ext_resource type="Script" uid="uid://5cdk1ghly4e1" path="res://components/pod_components/pod_ability_indicator/pod_ability_indicator.gd" id="2_eydyk"]
+[ext_resource type="Shader" uid="uid://xa3qoxlvdsyx" path="res://common/shaders/radial_bar.gdshader" id="3_fukxr"]
+[ext_resource type="Texture2D" uid="uid://daefwxou2v824" path="res://common/art/particles/circle.png" id="4_vx1yu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ig7hn"]
+shader = ExtResource("3_fukxr")
+
+[sub_resource type="GDScript" id="GDScript_iqg0c"]
+script/source = "@tool
+extends TextureRect
+"
+
+[node name="PodAbilityIndicator" type="TextureRect"]
+custom_minimum_size = Vector2(48, 48)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_kgehw")
+stretch_mode = 3
+script = ExtResource("2_eydyk")
+
+[node name="Circle" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ig7hn")
+instance_shader_parameters/fill_ratio = 0.75
+instance_shader_parameters/fill_span_offset_rad = 1.57
+instance_shader_parameters/inner_radius = 0.0
+instance_shader_parameters/outer_radius = 30.5
+instance_shader_parameters/unfilled_color = Color(0.180392, 0.133333, 0.184314, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_vx1yu")
+script = SubResource("GDScript_iqg0c")

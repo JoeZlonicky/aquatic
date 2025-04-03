@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfun6x8u7trhj"]
+
+[ext_resource type="Script" uid="uid://lofehpve7qb8" path="res://content/decorations/school_of_fish/fish/fish.gd" id="1_hb0bi"]
+[ext_resource type="Texture2D" uid="uid://d2y6bc5codvha" path="res://content/decorations/school_of_fish/fish/fish.svg" id="1_i2ypc"]
+[ext_resource type="Texture2D" uid="uid://cw5jnffksf5gl" path="res://content/decorations/school_of_fish/fish/fish_eye.svg" id="2_4k4c8"]
+[ext_resource type="PackedScene" uid="uid://cr6uct0oaber6" path="res://components/visual_components/trail_particles/trail_particles.tscn" id="4_umueq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ujc5"]
+
+[node name="Fish" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_hb0bi")
+
+[node name="Sprite" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="Sprite"]
+self_modulate = Color(0.0862745, 0.352941, 0.298039, 1)
+texture = ExtResource("1_i2ypc")
+
+[node name="Eye" type="Sprite2D" parent="Sprite"]
+self_modulate = Color(0.568627, 0.858824, 0.411765, 1)
+position = Vector2(30, -3)
+texture = ExtResource("2_4k4c8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(37, 1)
+shape = SubResource("CircleShape2D_5ujc5")
+
+[node name="TrailParticles" parent="." instance=ExtResource("4_umueq")]
+amount = 8
+
+[node name="WaitTimer" type="Timer" parent="."]
+one_shot = true

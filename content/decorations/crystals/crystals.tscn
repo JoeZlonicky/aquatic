@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbqhkbhuyjyvx"]
+
+[ext_resource type="Texture2D" uid="uid://d2v7w06tbn1r" path="res://content/decorations/crystals/crystal_3.svg" id="2_jfke5"]
+[ext_resource type="Texture2D" uid="uid://fhd1ewxma0t6" path="res://content/decorations/crystals/crystal_2.svg" id="3_lwrpy"]
+[ext_resource type="Texture2D" uid="uid://bpx6ec5c3xy0s" path="res://content/decorations/crystals/crystal_1.svg" id="4_3x1m6"]
+
+[node name="Crystals" type="Node2D"]
+
+[node name="Center" type="Sprite2D" parent="."]
+self_modulate = Color(0.42, 0.243, 0.459, 1)
+position = Vector2(-15, 21)
+texture = ExtResource("2_jfke5")
+
+[node name="Left" type="Sprite2D" parent="."]
+self_modulate = Color(0.287, 0.296, 0.47, 1)
+position = Vector2(-46, 14)
+texture = ExtResource("3_lwrpy")
+
+[node name="Right" type="Sprite2D" parent="."]
+self_modulate = Color(0.682, 0.137, 0.204, 1)
+position = Vector2(27, -4)
+texture = ExtResource("4_3x1m6")

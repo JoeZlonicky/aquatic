@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://dcnepg4bi2vfi"]
+
+[ext_resource type="Script" uid="uid://dvk05fap2do7b" path="res://component_packages/primary_pod_package/primary_pod_package.gd" id="1_t1jtd"]
+[ext_resource type="PackedScene" uid="uid://ctetnw3oksm7f" path="res://components/general_components/interact_handler/interact_handler.tscn" id="3_u51pq"]
+[ext_resource type="PackedScene" uid="uid://buo5ifa2ymwub" path="res://components/movement_components/player/player_move_controller.tscn" id="4_0c4j1"]
+[ext_resource type="PackedScene" uid="uid://cr6uct0oaber6" path="res://components/visual_components/trail_particles/trail_particles.tscn" id="4_5d4cp"]
+[ext_resource type="PackedScene" uid="uid://ch56dvfw6m3sn" path="res://components/pod_components/pod_light/pod_light.tscn" id="5_w8q0e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_74evy"]
+radius = 305.984
+
+[node name="PrimaryPodPackage" type="Node2D"]
+script = ExtResource("1_t1jtd")
+
+[node name="InteractHandler" parent="." instance=ExtResource("3_u51pq")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractHandler"]
+shape = SubResource("CircleShape2D_74evy")
+
+[node name="PlayerMoveController" parent="." node_paths=PackedStringArray("emit_particles_while_moving") instance=ExtResource("4_0c4j1")]
+emit_particles_while_moving = NodePath("../TrailParticles")
+
+[node name="TrailParticles" parent="." instance=ExtResource("4_5d4cp")]
+_restart_on_biome_change = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="PodLight" parent="." instance=ExtResource("5_w8q0e")]

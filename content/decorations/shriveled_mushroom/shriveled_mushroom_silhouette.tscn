@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3q2dtxhpucex"]
+
+[ext_resource type="Material" uid="uid://dm2lxa8fkw8s7" path="res://common/materials/sway.tres" id="1_l7qui"]
+[ext_resource type="Texture2D" uid="uid://cxfl3p1cxfmli" path="res://content/decorations/shriveled_mushroom/shriveled_mushroom_silhouette.svg" id="2_7c34m"]
+
+[node name="ShriveledMushroomSilhouette" type="Sprite2D"]
+material = ExtResource("1_l7qui")
+position = Vector2(-12, 49)
+texture = ExtResource("2_7c34m")
+offset = Vector2(0, -20)

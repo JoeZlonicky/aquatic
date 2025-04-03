@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh6av2205m8te"]
+
+[ext_resource type="Script" uid="uid://bgvcpu0cqyjqf" path="res://components/mission_components/enemy_spawner/enemy_spawner.gd" id="1_qfleq"]
+
+[node name="EnemySpawner" type="Node"]
+script = ExtResource("1_qfleq")
+_max_cluster_size = 5

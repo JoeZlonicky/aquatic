@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BiomeData" load_steps=3 format=3 uid="uid://bsbh3wtb4m8dr"]
+
+[ext_resource type="Script" uid="uid://dydst10vlq2vl" path="res://content/biomes/biome_data.gd" id="1_7lfu6"]
+[ext_resource type="PackedScene" uid="uid://cgg8586s6l5xr" path="res://content/biomes/inner_reef/inner_reef.tscn" id="1_tpcmu"]
+
+[resource]
+script = ExtResource("1_7lfu6")
+name = "Inner Reef"
+scene = ExtResource("1_tpcmu")
+light_tint = Color(0.560784, 0.827451, 1, 1)

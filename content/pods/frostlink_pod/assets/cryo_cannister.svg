@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="90.552345"
+   height="36.642071"
+   viewBox="0 0 90.552343 36.64207"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="cryo_cannister.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#2b2b2b"
+     inkscape:document-units="px"
+     inkscape:zoom="3.1835937"
+     inkscape:cx="36.750921"
+     inkscape:cy="28.741105"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-44.635067,-100.75225)">
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:#2e222f;stroke-width:8;stroke-linecap:round;stroke-dasharray:none"
+       id="path6"
+       cx="116.94286"
+       cy="119.14977"
+       r="14.244549" />
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:#2e222f;stroke-width:8;stroke-linecap:round;stroke-dasharray:none"
+       id="path6-5"
+       cx="62.879616"
+       cy="119.12231"
+       r="14.244549" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#2e222f;stroke-width:8;stroke-linecap:round;stroke-dasharray:none"
+       id="rect6"
+       width="50.000393"
+       height="28.57291"
+       x="65.119186"
+       y="104.75225" />
+  </g>
+</svg>

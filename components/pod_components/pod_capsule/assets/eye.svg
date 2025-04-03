@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="23.878155"
+   height="23.87816"
+   viewBox="0 0 23.878155 23.87816"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="eye.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="11.616722"
+     inkscape:cx="1.5925319"
+     inkscape:cy="5.8105893"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="326.49503,71.733715"
+       end_point="326.49503,164.32759"
+       center_point="326.49503,118.03065"
+       id="path-effect1"
+       is_visible="false"
+       lpeversion="1.2"
+       lpesatellites=""
+       mode="vertical"
+       discard_orig_path="false"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false"
+       link_styles="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-283.60362,-71.733748)">
+    <ellipse
+       style="display:inline;fill:#000000;fill-opacity:1;stroke:#2e222f;stroke-width:11.5586;stroke-dasharray:none;stroke-opacity:1"
+       id="path6-7"
+       cx="295.54269"
+       cy="83.672829"
+       rx="6.1597772"
+       ry="6.15978" />
+    <circle
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:1.14942;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       id="path1-4-2"
+       cx="295.41779"
+       cy="83.236595"
+       r="3.0673103" />
+  </g>
+</svg>

@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://x12ya5huagwm"]
+
+[ext_resource type="Texture2D" uid="uid://bihpribsvrvhs" path="res://content/menus/lab_menu/upgrade_button/assets/upgrade_button.svg" id="1_4hldj"]
+[ext_resource type="Script" uid="uid://ukx114ew16rj" path="res://content/menus/lab_menu/upgrade_button/upgrade_button.gd" id="1_s7bim"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yoxjb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yoxjb"]
+texture = ExtResource("1_4hldj")
+modulate_color = Color(0.196078, 0.2, 0.32549, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ea8gc"]
+texture = ExtResource("1_4hldj")
+modulate_color = Color(0.301961, 0.607843, 0.901961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m4knd"]
+texture = ExtResource("1_4hldj")
+modulate_color = Color(0.282353, 0.290196, 0.466667, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wicpq"]
+texture = ExtResource("1_4hldj")
+modulate_color = Color(0.301961, 0.396078, 0.705882, 1)
+
+[sub_resource type="GDScript" id="GDScript_hwqp0"]
+script/source = "@tool
+extends Label
+"
+
+[sub_resource type="GDScript" id="GDScript_2fxy5"]
+script/source = "@tool
+extends Label
+"
+
+[sub_resource type="GDScript" id="GDScript_6xy62"]
+script/source = "@tool
+extends Label
+"
+
+[node name="UpgradeButton" type="Button"]
+custom_minimum_size = Vector2(680, 680)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yoxjb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_yoxjb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ea8gc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_m4knd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_wicpq")
+script = ExtResource("1_s7bim")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_right = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Title"
+horizontal_alignment = 1
+script = SubResource("GDScript_hwqp0")
+
+[node name="DescriptionLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Description"
+horizontal_alignment = 1
+script = SubResource("GDScript_2fxy5")
+
+[node name="CostLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Cost: ..."
+horizontal_alignment = 1
+
+[node name="TierLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "0/1"
+horizontal_alignment = 1
+script = SubResource("GDScript_6xy62")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

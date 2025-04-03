@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BiomeData" load_steps=3 format=3 uid="uid://bac7ard2csc7"]
+
+[ext_resource type="PackedScene" uid="uid://ci0ggrlxt1531" path="res://content/biomes/corrupted_reef/corrupted_reef.tscn" id="1_dcvwo"]
+[ext_resource type="Script" uid="uid://dydst10vlq2vl" path="res://content/biomes/biome_data.gd" id="1_xtbpu"]
+
+[resource]
+script = ExtResource("1_xtbpu")
+name = "The Corrupted Reef"
+scene = ExtResource("1_dcvwo")
+light_tint = Color(0.560784, 0.827451, 1, 1)

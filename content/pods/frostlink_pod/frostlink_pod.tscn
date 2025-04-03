@@ -1,0 +1,189 @@
+[gd_scene load_steps=34 format=3 uid="uid://c7k1gwl11e86g"]
+
+[ext_resource type="Script" uid="uid://c5r52mai2x5v4" path="res://content/pods/pod.gd" id="1_ptmu6"]
+[ext_resource type="PackedScene" uid="uid://rhm8eg0f6om2" path="res://component_packages/standard_pod_package/standard_pod_package.tscn" id="3_0odmy"]
+[ext_resource type="Texture2D" uid="uid://boudc51ib4yfk" path="res://content/pods/frostlink_pod/assets/winter_hat.svg" id="3_54vto"]
+[ext_resource type="Texture2D" uid="uid://dpierxiq1hcxs" path="res://content/pods/frostlink_pod/assets/pipes.svg" id="3_ghwc0"]
+[ext_resource type="Shader" uid="uid://xa3qoxlvdsyx" path="res://common/shaders/radial_bar.gdshader" id="5_jheta"]
+[ext_resource type="Texture2D" uid="uid://dl7npfcf0jo1k" path="res://common/art/particles/snowflake.svg" id="7_05fk0"]
+[ext_resource type="PackedScene" uid="uid://deebe8w6t5g55" path="res://components/ability_components/actives/projectile_shooter/projectile_shooter.tscn" id="8_6nfct"]
+[ext_resource type="Texture2D" uid="uid://kbyl3iwxsdrj" path="res://content/pods/frostlink_pod/assets/cryo_cannister.svg" id="9_xnres"]
+[ext_resource type="PackedScene" uid="uid://cikuv1asqnpit" path="res://components/general_components/nearest_in_area/nearest_in_area.tscn" id="10_b3sg4"]
+[ext_resource type="Script" uid="uid://c1b7q2gy7op1k" path="res://content/on_hit_effects/on_hit_data.gd" id="10_rvfkc"]
+[ext_resource type="Script" uid="uid://poe8qhtcspq3" path="res://content/on_hit_effects/chill/chill_data.gd" id="10_vtmoy"]
+[ext_resource type="Script" uid="uid://b0ibossnko05g" path="res://components/ability_components/actives/projectile_shooter/projectile/projectile_data.gd" id="11_1rmfj"]
+[ext_resource type="Script" uid="uid://ldx7p75yd3tt" path="res://content/on_hit_effects/knockback/knockback_data.gd" id="11_c7cmv"]
+[ext_resource type="PackedScene" uid="uid://br11hw42cki67" path="res://components/ability_components/triggers/ability_timer/ability_timer.tscn" id="12_0mj44"]
+[ext_resource type="PackedScene" uid="uid://crox1sriup3wi" path="res://content/pods/frostlink_pod/assets/snow_explosion.tscn" id="13_4w17o"]
+[ext_resource type="PackedScene" uid="uid://ctvhnsrupshum" path="res://components/ability_components/actives/apply_buff/apply_buff.tscn" id="16_glmbg"]
+[ext_resource type="Texture2D" uid="uid://cmxaa5xtvkx77" path="res://content/pods/frostlink_pod/assets/chill_icon.svg" id="17_b86tf"]
+[ext_resource type="Script" uid="uid://bv8yo6ed4uyap" path="res://content/pod_modifiers/general_modifiers/pod_on_hit_modifier.gd" id="18_x252p"]
+[ext_resource type="Script" uid="uid://ds1oqwiaahna7" path="res://components/pod_components/pod_buff/pod_buff_data.gd" id="19_pgawj"]
+[ext_resource type="PackedScene" uid="uid://c1j6sd2caxd2l" path="res://components/ability_components/actives/charge_timer/charge_timer.tscn" id="20_cuv5o"]
+[ext_resource type="PackedScene" uid="uid://dou73b2vrdu0f" path="res://components/ability_components/triggers/ability_activated_trigger/ability_activated_trigger.tscn" id="20_nmlcf"]
+
+[sub_resource type="Curve" id="Curve_e4jp1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.741379, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_cr4ux"]
+curve = SubResource("Curve_e4jp1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vuxj5"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 16.0
+direction = Vector3(0, -1, 0)
+spread = 5.0
+initial_velocity_min = 40.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+alpha_curve = SubResource("CurveTexture_cr4ux")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ro4ji"]
+shader = ExtResource("5_jheta")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0l8tq"]
+radius = 75.7143
+
+[sub_resource type="Resource" id="Resource_myvin"]
+script = ExtResource("10_vtmoy")
+stacks = 1
+
+[sub_resource type="Resource" id="Resource_1nnmc"]
+script = ExtResource("11_c7cmv")
+distance = 100.0
+
+[sub_resource type="Resource" id="Resource_wxd4c"]
+script = ExtResource("11_1rmfj")
+on_hit = Array[ExtResource("10_rvfkc")]([SubResource("Resource_myvin"), SubResource("Resource_1nnmc")])
+mining_power = 0
+speed = 600.0
+rotation_speed = 10.0
+collision_radius = 1.0
+pierce = 0
+track_nearest_enemy = true
+track_rotate_speed = 1.0
+tracking_radius = 100.0
+override_rotation_with_tracking = false
+spawn_at_collision = ExtResource("13_4w17o")
+hit_enemies = true
+hit_resource_piles = false
+hit_terrain = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yxm84"]
+radius = 2224.01
+
+[sub_resource type="Resource" id="Resource_vlb4r"]
+script = ExtResource("10_vtmoy")
+stacks = 1
+
+[sub_resource type="Resource" id="Resource_fykwt"]
+script = ExtResource("18_x252p")
+effect = SubResource("Resource_vlb4r")
+
+[sub_resource type="Resource" id="Resource_6rutd"]
+script = ExtResource("19_pgawj")
+icon = ExtResource("17_b86tf")
+modulate = Color(0.560784, 0.827451, 1, 1)
+modifier = SubResource("Resource_fykwt")
+
+[node name="FrostlinkPod" type="CharacterBody2D" node_paths=PackedStringArray("_health", "_stats")]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_ptmu6")
+_health = NodePath("StandardPodPackage/Health")
+_stats = NodePath("StandardPodPackage/PodStats")
+
+[node name="Snow" type="GPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.552941)
+show_behind_parent = true
+position = Vector2(-42, -56)
+scale = Vector2(0.75, 0.75)
+amount = 16
+texture = ExtResource("7_05fk0")
+lifetime = 1.5
+preprocess = 3.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_vuxj5")
+
+[node name="Snow2" type="GPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.552941)
+show_behind_parent = true
+position = Vector2(42, -56)
+scale = Vector2(0.75, 0.75)
+amount = 16
+texture = ExtResource("7_05fk0")
+lifetime = 1.5
+preprocess = 3.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_vuxj5")
+
+[node name="StandardPodPackage" parent="." instance=ExtResource("3_0odmy")]
+scale = Vector2(0.75, 0.75)
+
+[node name="Health" parent="StandardPodPackage" index="0"]
+_max = 30
+
+[node name="Capsule" parent="StandardPodPackage" index="3" node_paths=PackedStringArray("_pod")]
+self_modulate = Color(0.560784, 0.827451, 1, 1)
+_pod = NodePath("../..")
+primary_color = Color(0.560784, 0.827451, 1, 1)
+pilot_color = Color(0.560784, 0.827451, 1, 1)
+armor_sprite = ExtResource("3_ghwc0")
+costume_sprite = ExtResource("3_54vto")
+pilot_y_offset = 9.1
+
+[node name="PodDestroyedParticles" parent="StandardPodPackage" index="4" node_paths=PackedStringArray("_pod")]
+_pod = NodePath("../..")
+
+[node name="PodHealthBar" parent="StandardPodPackage" index="5" node_paths=PackedStringArray("_pod")]
+material = SubResource("ShaderMaterial_ro4ji")
+_pod = NodePath("../..")
+
+[node name="PodBuffDisplay" parent="StandardPodPackage" index="6" node_paths=PackedStringArray("_pod")]
+_pod = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_0l8tq")
+
+[node name="CryoCannister" parent="." node_paths=PackedStringArray("track_nearest", "pod") instance=ExtResource("8_6nfct")]
+sprite = ExtResource("9_xnres")
+sprite_modulate = Color(0.560784, 0.827451, 1, 1)
+projectile_data = SubResource("Resource_wxd4c")
+track_nearest = NodePath("NearestInArea")
+pod = NodePath("..")
+
+[node name="NearestInArea" parent="CryoCannister" instance=ExtResource("10_b3sg4")]
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CryoCannister/NearestInArea"]
+shape = SubResource("CircleShape2D_yxm84")
+
+[node name="AbilityTimer" parent="CryoCannister" node_paths=PackedStringArray("pod", "abilities", "ability_indiciator", "require_nearest_to_activate") instance=ExtResource("12_0mj44")]
+pod = NodePath("../..")
+abilities = [NodePath("..")]
+cooldown = 25.01
+ability_indiciator = NodePath("../../StandardPodPackage/PodAbilityIndicator")
+require_nearest_to_activate = NodePath("../NearestInArea")
+
+[node name="ApplyChillBuff" parent="." node_paths=PackedStringArray("pod") instance=ExtResource("16_glmbg")]
+buff_data = SubResource("Resource_6rutd")
+apply_to = 1
+activate_on_ready = true
+pod = NodePath("..")
+
+[node name="ChargeTimer" parent="." node_paths=PackedStringArray("ability_timer", "pod") instance=ExtResource("20_cuv5o")]
+position = Vector2(0, -59)
+amount = 2.0
+ability_timer = NodePath("../CryoCannister/AbilityTimer")
+pod = NodePath("..")
+
+[node name="AbilityActivatedTrigger" parent="ChargeTimer" node_paths=PackedStringArray("pod", "abilities") instance=ExtResource("20_nmlcf")]
+pod = NodePath("../..")
+abilities = [NodePath("..")]
+
+[editable path="StandardPodPackage"]

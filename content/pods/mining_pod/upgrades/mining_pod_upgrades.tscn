@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://bk6xgwefa76gt"]
+
+[ext_resource type="Script" uid="uid://dommtquhg7g04" path="res://components/pod_components/pod_upgrade/pod_upgrade_grid.gd" id="1_a42c0"]
+[ext_resource type="PackedScene" uid="uid://x12ya5huagwm" path="res://content/menus/lab_menu/upgrade_button/upgrade_button.tscn" id="3_eqt7r"]
+[ext_resource type="Resource" uid="uid://gtu33yf0bre7" path="res://content/pods/mining_pod/upgrades/damage/damage.tres" id="4_fqnpb"]
+[ext_resource type="Resource" uid="uid://cust6vhu5uxyv" path="res://content/pods/mining_pod/upgrades/ability_speed/ability_speed.tres" id="5_n0psc"]
+[ext_resource type="Resource" uid="uid://cjil5sf0yb6k1" path="res://content/pods/mining_pod/upgrades/health/health.tres" id="6_u0iwi"]
+[ext_resource type="PackedScene" uid="uid://dhahdkc7mmggx" path="res://content/menus/lab_menu/upgrade_grid_gap/upgrade_grid_gap.tscn" id="8_g5lod"]
+
+[node name="MiningPodUpgrades" type="GridContainer"]
+offset_right = 908.0
+offset_bottom = 604.0
+columns = 3
+script = ExtResource("1_a42c0")
+
+[node name="UpgradeButton" parent="." instance=ExtResource("3_eqt7r")]
+layout_mode = 2
+upgrade = ExtResource("4_fqnpb")
+
+[node name="UpgradeButton2" parent="." instance=ExtResource("3_eqt7r")]
+layout_mode = 2
+upgrade = ExtResource("5_n0psc")
+
+[node name="UpgradeButton3" parent="." instance=ExtResource("3_eqt7r")]
+layout_mode = 2
+upgrade = ExtResource("6_u0iwi")
+
+[node name="UpgradeGridGap" parent="." instance=ExtResource("8_g5lod")]
+layout_mode = 2

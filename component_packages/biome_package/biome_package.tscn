@@ -1,0 +1,101 @@
+[gd_scene load_steps=16 format=3 uid="uid://sncxai6gcgji"]
+
+[ext_resource type="PackedScene" uid="uid://dkykvcchksyqn" path="res://components/biome_components/biome_theme/biome_theme.tscn" id="1_jg536"]
+[ext_resource type="PackedScene" uid="uid://b53hjf2y7ds5f" path="res://components/biome_components/layers/terrain/terrain.tscn" id="1_umr0r"]
+[ext_resource type="PackedScene" uid="uid://bo5om08d88ded" path="res://components/biome_components/layers/background_decorations/background_decorations.tscn" id="2_oxcmw"]
+[ext_resource type="PackedScene" uid="uid://bwpglxampuib0" path="res://components/biome_components/layers/resource_piles/resource_piles.tscn" id="3_f0ov4"]
+[ext_resource type="PackedScene" uid="uid://bsd6i7yddm1a4" path="res://components/biome_components/layers/water_particles/water_particles.tscn" id="3_uolg4"]
+[ext_resource type="Shader" uid="uid://d3fsme1viks3s" path="res://common/shaders/water.gdshader" id="4_4gc2d"]
+[ext_resource type="PackedScene" uid="uid://ca8u7dsohg6ef" path="res://components/biome_components/layers/foreground_decorations/foreground_decorations.tscn" id="5_2xm3i"]
+[ext_resource type="PackedScene" uid="uid://lvh4i6fsducp" path="res://components/biome_components/water_shader/water_shader.tscn" id="5_4dmil"]
+
+[sub_resource type="GDScript" id="GDScript_4js4y"]
+script/source = "@tool
+extends ColorRect
+"
+
+[sub_resource type="GDScript" id="GDScript_w7lkg"]
+script/source = "@tool
+extends ColorRect
+"
+
+[sub_resource type="GDScript" id="GDScript_iipmy"]
+script/source = "@tool
+extends TileMapLayer
+"
+
+[sub_resource type="GDScript" id="GDScript_depqc"]
+script/source = "@tool
+extends TileMapLayer
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2ju5k"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_054td"]
+seamless = true
+noise = SubResource("FastNoiseLite_2ju5k")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_haw1l"]
+shader = ExtResource("4_4gc2d")
+shader_parameter/refraction_map = SubResource("NoiseTexture2D_054td")
+shader_parameter/refraction_stretch = Vector2(1, 1)
+shader_parameter/refraction_strength = 0.005
+shader_parameter/speed = 0.05
+
+[node name="BiomePackage" type="Node2D"]
+
+[node name="BiomeTheme" parent="." node_paths=PackedStringArray("background_color", "water_particles", "terrain_layer", "silhouette_layer", "water_shader") instance=ExtResource("1_jg536")]
+background_color = NodePath("../Background/BackgroundColor")
+water_particles = NodePath("../WaterParticles")
+terrain_layer = NodePath("../TerrainLayer")
+silhouette_layer = NodePath("../SilhouetteLayer")
+water_shader = NodePath("../WaterShader")
+
+[node name="Bounds" type="ColorRect" parent="."]
+offset_right = 3840.0
+offset_bottom = 2174.0
+color = Color(1, 1, 1, 0)
+script = SubResource("GDScript_4js4y")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -3
+
+[node name="BackgroundColor" type="ColorRect" parent="Background"]
+modulate = Color(0.2, 0.2, 0.2, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_w7lkg")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground"]
+color = Color(0, 0, 0, 0.15)
+
+[node name="WaterParticles" parent="." node_paths=PackedStringArray("bounds") instance=ExtResource("3_uolg4")]
+bounds = NodePath("../Bounds")
+
+[node name="BackgroundDecorationsLayer" parent="." instance=ExtResource("2_oxcmw")]
+
+[node name="ResourcePilesLayer" parent="." instance=ExtResource("3_f0ov4")]
+z_index = -1
+
+[node name="TerrainLayer" parent="." instance=ExtResource("1_umr0r")]
+modulate = Color(0.745098, 0.745098, 0.745098, 1)
+z_index = -1
+script = SubResource("GDScript_iipmy")
+
+[node name="SilhouetteLayer" parent="." instance=ExtResource("5_2xm3i")]
+modulate = Color(0.745098, 0.745098, 0.745098, 1)
+script = SubResource("GDScript_depqc")
+
+[node name="WaterShader" parent="." node_paths=PackedStringArray("bounds") instance=ExtResource("5_4dmil")]
+z_index = 2
+material = SubResource("ShaderMaterial_haw1l")
+offset_right = 3840.0
+offset_bottom = 2174.0
+color = Color(1, 1, 1, 1)
+bounds = NodePath("../Bounds")

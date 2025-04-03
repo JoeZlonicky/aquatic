@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2n04jro02fsi"]
+
+[ext_resource type="Material" uid="uid://dm2lxa8fkw8s7" path="res://common/materials/sway.tres" id="1_ie6sg"]
+[ext_resource type="Texture2D" uid="uid://8l013v02jhav" path="res://content/decorations/tall_mushrooms/tall_mushrooms_silhouette.svg" id="2_rm4lt"]
+
+[node name="TallMushroomsSilhouette" type="Sprite2D"]
+material = ExtResource("1_ie6sg")
+position = Vector2(0, 35)
+texture = ExtResource("2_rm4lt")

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg3e6gt4b4lot"]
+
+[ext_resource type="Shader" uid="uid://xa3qoxlvdsyx" path="res://common/shaders/radial_bar.gdshader" id="1_4c2sa"]
+[ext_resource type="Texture2D" uid="uid://daefwxou2v824" path="res://common/art/particles/circle.png" id="2_lce35"]
+[ext_resource type="Script" uid="uid://bcb2usxjqd304" path="res://components/pod_components/pod_health_bar/pod_health_bar.gd" id="3_2k7wb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hk1nr"]
+shader = ExtResource("1_4c2sa")
+
+[node name="PodHealthBar" type="TextureRect"]
+material = SubResource("ShaderMaterial_hk1nr")
+instance_shader_parameters/fill_ratio = 0.75
+instance_shader_parameters/fill_span_offset_rad = 3.97
+instance_shader_parameters/fill_span_rad = 4.79
+instance_shader_parameters/inner_radius = 46.5
+instance_shader_parameters/outer_radius = 58.5
+instance_shader_parameters/unfilled_color = Color(0.180392, 0.133333, 0.184314, 1)
+custom_minimum_size = Vector2(153, 153)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -76.5
+offset_top = -76.5
+offset_right = -3763.5
+offset_bottom = -2083.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lce35")
+script = ExtResource("3_2k7wb")

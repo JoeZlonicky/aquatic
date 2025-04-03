@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt4tqgkmjgcc8"]
+
+[ext_resource type="Script" uid="uid://bwvybd0h4bpqn" path="res://components/movement_components/follow_target/follow_target.gd" id="1_weolf"]
+
+[node name="FollowMoveController" type="Node"]
+script = ExtResource("1_weolf")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d12ummtmpg0gj"]
+
+[ext_resource type="Script" uid="uid://cm6ag3xem2jth" path="res://content/scenes/game_world/game_world.gd" id="1_lyskl"]
+[ext_resource type="PackedScene" uid="uid://ciyua6j5d8shu" path="res://content/overlays/hud/hud.tscn" id="3_15yh2"]
+[ext_resource type="PackedScene" uid="uid://cgg8586s6l5xr" path="res://content/biomes/inner_reef/inner_reef.tscn" id="4_gegr6"]
+
+[node name="GameWorld" type="Node2D"]
+script = ExtResource("1_lyskl")
+
+[node name="SpawnMarker" type="Marker2D" parent="."]
+position = Vector2(4120, 2032)
+
+[node name="HUD" parent="." instance=ExtResource("3_15yh2")]
+
+[node name="InnerReef" parent="." instance=ExtResource("4_gegr6")]
+
+[node name="Camera" type="Camera2D" parent="."]
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="Darkness" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0, 0, 0, 1)

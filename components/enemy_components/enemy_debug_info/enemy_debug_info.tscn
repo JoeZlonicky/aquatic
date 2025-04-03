@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://btmjorc33o3y4"]
+
+[ext_resource type="Script" uid="uid://bjms37luhba7" path="res://components/enemy_components/enemy_debug_info/enemy_debug_info.gd" id="1_bwyvm"]
+
+[node name="EnemyDebugInfo" type="VBoxContainer"]
+z_index = 1
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -149.0
+offset_right = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 1050)
+alignment = 2
+script = ExtResource("1_bwyvm")
+
+[node name="DamageContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 1000)
+layout_mode = 2
+alignment = 2
+
+[node name="Gap" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Labels" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="DamageTakenLabel" type="Label" parent="Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Damage Taken: 0"
+horizontal_alignment = 1
+
+[node name="DPSLabel" type="Label" parent="Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "DPS: 0/s"
+horizontal_alignment = 1
+
+[node name="ChillLabel" type="Label" parent="Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[node name="ResetTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(250, 1050)

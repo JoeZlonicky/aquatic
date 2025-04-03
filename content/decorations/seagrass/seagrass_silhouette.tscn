@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://clq4b8nwsp3yp"]
+
+[ext_resource type="Material" uid="uid://dm2lxa8fkw8s7" path="res://common/materials/sway.tres" id="1_r1hsb"]
+[ext_resource type="Texture2D" uid="uid://4jt8nu51ucwm" path="res://content/decorations/seagrass/seagrass_silhouette.svg" id="2_jk5v6"]
+
+[node name="SeagrassSilhouette" type="Sprite2D"]
+material = ExtResource("1_r1hsb")
+position = Vector2(0, 58)
+texture = ExtResource("2_jk5v6")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1j6sd2caxd2l"]
+
+[ext_resource type="Script" uid="uid://cmych55237lau" path="res://components/ability_components/actives/charge_timer/charge_timer.gd" id="1_wwx75"]
+
+[node name="ChargeTimer" type="Node2D"]
+script = ExtResource("1_wwx75")

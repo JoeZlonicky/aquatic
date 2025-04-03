@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PodUpgradeData" load_steps=7 format=3 uid="uid://t6ub54cbx6qt"]
+
+[ext_resource type="Script" uid="uid://blwc4no86q1je" path="res://components/pod_components/pod_upgrade/pod_upgrade_data.gd" id="1_130yv"]
+[ext_resource type="Script" uid="uid://b0sv352hjjvba" path="res://components/pod_components/pod_upgrade/pod_upgrade_tier_data.gd" id="2_ndx3s"]
+[ext_resource type="Resource" uid="uid://d36d6xjrn8eu1" path="res://content/pods/dash_pod/upgrades/stamina/t1.tres" id="3_6hgw6"]
+[ext_resource type="Resource" uid="uid://cpugoumva4cfc" path="res://content/pods/dash_pod/upgrades/stamina/t2.tres" id="4_q6b2c"]
+[ext_resource type="Resource" uid="uid://du0nlwc42b3lq" path="res://content/pods/dash_pod/upgrades/stamina/t3.tres" id="5_cavy4"]
+[ext_resource type="Resource" uid="uid://dqe5yro2ew4f5" path="res://content/pods/dash_pod/upgrades/move_speed/move_speed.tres" id="6_wm377"]
+
+[resource]
+script = ExtResource("1_130yv")
+name = "Engine Efficiency"
+description = "Increased stamina"
+tiers = Array[ExtResource("2_ndx3s")]([ExtResource("3_6hgw6"), ExtResource("4_q6b2c"), ExtResource("5_cavy4")])
+unlock_prereq = ExtResource("6_wm377")
+unlock_prereq_tier = 1

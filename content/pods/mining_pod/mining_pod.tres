@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PodData" load_steps=4 format=3 uid="uid://dagtcpr3aslxv"]
+
+[ext_resource type="Script" uid="uid://wtpilr7afan0" path="res://content/pods/pod_data.gd" id="1_6sjvh"]
+[ext_resource type="PackedScene" uid="uid://dgjt12a3vt6ou" path="res://content/pods/mining_pod/mining_pod.tscn" id="1_t11pb"]
+[ext_resource type="PackedScene" uid="uid://bk6xgwefa76gt" path="res://content/pods/mining_pod/upgrades/mining_pod_upgrades.tscn" id="3_wq10e"]
+
+[resource]
+script = ExtResource("1_6sjvh")
+name = "Mining Pod"
+description = "Shoots a laser at the nearest target."
+scene = ExtResource("1_t11pb")
+upgrade_grid = ExtResource("3_wq10e")

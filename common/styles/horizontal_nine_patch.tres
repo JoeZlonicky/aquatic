@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bud50rkm8v14f"]
+
+[ext_resource type="Texture2D" uid="uid://dph3aeaoww7dl" path="res://common/art/ui/banner_nine_patch_rect.svg" id="1_e4yr2"]
+
+[resource]
+texture = ExtResource("1_e4yr2")
+texture_margin_left = 42.0
+texture_margin_top = 24.0
+texture_margin_right = 42.0
+texture_margin_bottom = 24.0

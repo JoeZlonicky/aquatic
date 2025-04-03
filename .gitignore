@@ -1,0 +1,6 @@
+# https://github.com/godotengine/godot/issues/82270
+*.tmp
+
+# Godot 4+ specific ignores
+.godot/
+/android/

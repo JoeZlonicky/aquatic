@@ -1,0 +1,136 @@
+[gd_scene load_steps=22 format=3 uid="uid://b4dub70vxyul5"]
+
+[ext_resource type="Script" uid="uid://bts7yp84kvhcc" path="res://content/pods/cluster_pod/cluster_pod.gd" id="1_es74r"]
+[ext_resource type="PackedScene" uid="uid://rhm8eg0f6om2" path="res://component_packages/standard_pod_package/standard_pod_package.tscn" id="2_wgdbg"]
+[ext_resource type="PackedScene" uid="uid://deebe8w6t5g55" path="res://components/ability_components/actives/projectile_shooter/projectile_shooter.tscn" id="4_3kupw"]
+[ext_resource type="Script" uid="uid://c1b7q2gy7op1k" path="res://content/on_hit_effects/on_hit_data.gd" id="4_42pox"]
+[ext_resource type="Texture2D" uid="uid://cllf52isds8u5" path="res://content/pods/cluster_pod/assets/cluster_rocket.svg" id="5_hvfht"]
+[ext_resource type="Script" uid="uid://cjpyi6r3mun8s" path="res://content/on_hit_effects/damage/damage_data.gd" id="5_wi538"]
+[ext_resource type="Shader" uid="uid://xa3qoxlvdsyx" path="res://common/shaders/radial_bar.gdshader" id="6_4ojax"]
+[ext_resource type="Script" uid="uid://b0ibossnko05g" path="res://components/ability_components/actives/projectile_shooter/projectile/projectile_data.gd" id="6_d4cse"]
+[ext_resource type="Texture2D" uid="uid://dld2x2j301aod" path="res://content/pods/cluster_pod/assets/cluster_launcher.svg" id="7_3evww"]
+[ext_resource type="PackedScene" uid="uid://br11hw42cki67" path="res://components/ability_components/triggers/ability_timer/ability_timer.tscn" id="9_74gjs"]
+[ext_resource type="PackedScene" uid="uid://cikuv1asqnpit" path="res://components/general_components/nearest_in_area/nearest_in_area.tscn" id="11_kbp2m"]
+[ext_resource type="PackedScene" uid="uid://g8anbsrqcm3a" path="res://components/ability_components/actives/explosion_generator/explosion_generator.tscn" id="12_xkiyd"]
+[ext_resource type="Script" uid="uid://gcoxtspcdxon" path="res://components/ability_components/actives/explosion_generator/explosion/explosion_data.gd" id="13_vrc5f"]
+[ext_resource type="PackedScene" uid="uid://mrofpwpkxqig" path="res://content/pods/cluster_pod/assets/cluster_explosion.tscn" id="14_yg6eo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ro4ji"]
+shader = ExtResource("6_4ojax")
+
+[sub_resource type="Resource" id="Resource_j0qop"]
+script = ExtResource("5_wi538")
+amount = 10
+can_crit = true
+
+[sub_resource type="Resource" id="Resource_rcleq"]
+script = ExtResource("6_d4cse")
+on_hit = Array[ExtResource("4_42pox")]([SubResource("Resource_j0qop")])
+mining_power = 1
+speed = 600.0
+rotation_speed = 0.0
+collision_radius = 1.0
+pierce = 0
+track_nearest_enemy = true
+track_rotate_speed = 1.0
+tracking_radius = 1000.0
+override_rotation_with_tracking = true
+hit_enemies = true
+hit_resource_piles = false
+hit_terrain = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_841x6"]
+radius = 1500.0
+
+[sub_resource type="Resource" id="Resource_hfe32"]
+script = ExtResource("5_wi538")
+amount = 10
+can_crit = true
+
+[sub_resource type="Resource" id="Resource_6vag3"]
+script = ExtResource("13_vrc5f")
+on_hit = Array[ExtResource("4_42pox")]([SubResource("Resource_hfe32")])
+mining_power = 0
+collision_radius = 100.0
+active_duration = 0.05
+n_sub_iterations = 2
+n_sub_explosions = 7
+time_between_iterations = 0.5
+time_between_sub_explosions = 0.06
+distance_per_sub_explosion = 300.0
+spawn_at_explosion = ExtResource("14_yg6eo")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gl4r8"]
+radius = 74.2994
+
+[node name="ClusterPod" type="CharacterBody2D" node_paths=PackedStringArray("_health", "_stats")]
+collision_layer = 2
+script = ExtResource("1_es74r")
+_health = NodePath("StandardPodPackage/Health")
+_stats = NodePath("StandardPodPackage/PodStats")
+
+[node name="StandardPodPackage" parent="." instance=ExtResource("2_wgdbg")]
+scale = Vector2(0.75, 0.75)
+
+[node name="Health" parent="StandardPodPackage" index="0"]
+_max = 30
+
+[node name="Capsule" parent="StandardPodPackage" index="3" node_paths=PackedStringArray("_pod")]
+self_modulate = Color(0.909804, 0.231373, 0.231373, 1)
+_pod = NodePath("../..")
+primary_color = Color(0.909804, 0.231373, 0.231373, 1)
+pilot_color = Color(0.909804, 0.231373, 0.231373, 1)
+
+[node name="PodDestroyedParticles" parent="StandardPodPackage" index="4" node_paths=PackedStringArray("_pod")]
+_pod = NodePath("../..")
+
+[node name="PodHealthBar" parent="StandardPodPackage" index="5" node_paths=PackedStringArray("_pod")]
+material = SubResource("ShaderMaterial_ro4ji")
+instance_shader_parameters/filled_color = Color(0.984314, 0.419608, 0.113725, 1)
+_pod = NodePath("../..")
+_color = Color(0.984314, 0.419608, 0.113725, 1)
+
+[node name="PodBuffDisplay" parent="StandardPodPackage" index="6" node_paths=PackedStringArray("_pod")]
+_pod = NodePath("../..")
+
+[node name="PodAbilityIndicator" parent="StandardPodPackage" index="7"]
+modulate = Color(0.984314, 0.419608, 0.113725, 1)
+
+[node name="ClusterRocket" parent="." node_paths=PackedStringArray("trigger_explosion_on_hit", "spawn_pos_override", "track_nearest", "pod") instance=ExtResource("4_3kupw")]
+sprite = ExtResource("5_hvfht")
+sprite_modulate = Color(0.984314, 0.419608, 0.113725, 1)
+projectile_data = SubResource("Resource_rcleq")
+trigger_explosion_on_hit = NodePath("ExplosionGenerator")
+spawn_pos_override = NodePath("Barrel")
+track_nearest = NodePath("NearestInArea")
+pod = NodePath("..")
+
+[node name="NearestInArea" parent="ClusterRocket" instance=ExtResource("11_kbp2m")]
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClusterRocket/NearestInArea"]
+shape = SubResource("CircleShape2D_841x6")
+
+[node name="Barrel" type="Sprite2D" parent="ClusterRocket"]
+modulate = Color(0.607843, 0.670588, 0.698039, 1)
+position = Vector2(64, 0)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_3evww")
+
+[node name="AbilityTimer" parent="ClusterRocket" node_paths=PackedStringArray("pod", "abilities", "ability_indiciator", "require_nearest_to_activate") instance=ExtResource("9_74gjs")]
+pod = NodePath("../..")
+abilities = [NodePath("..")]
+cooldown = 6.0
+ability_indiciator = NodePath("../../StandardPodPackage/PodAbilityIndicator")
+ability_color = Color(0.984314, 0.419608, 0.113725, 1)
+require_nearest_to_activate = NodePath("../NearestInArea")
+
+[node name="ExplosionGenerator" parent="ClusterRocket" node_paths=PackedStringArray("pod") instance=ExtResource("12_xkiyd")]
+explosion_data = SubResource("Resource_6vag3")
+pod = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_gl4r8")
+
+[editable path="StandardPodPackage"]

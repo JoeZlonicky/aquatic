@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c362cd6lr1qla"]
+
+[ext_resource type="Script" uid="uid://c16egfl6gau8g" path="res://components/audio_components/sfx_on_damaged/sfx_on_damaged.gd" id="1_3pbdl"]
+
+[node name="SFXOnDamaged" type="AudioStreamPlayer2D"]
+bus = &"SFX"
+script = ExtResource("1_3pbdl")

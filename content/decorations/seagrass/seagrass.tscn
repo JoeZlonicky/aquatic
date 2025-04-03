@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbi4j5o23dnk6"]
+
+[ext_resource type="Material" uid="uid://dm2lxa8fkw8s7" path="res://common/materials/sway.tres" id="1_wy37t"]
+[ext_resource type="Texture2D" uid="uid://b7re2sd4t2rh0" path="res://content/decorations/seagrass/seagrass.svg" id="2_0haxo"]
+
+[node name="Seagrass" type="Sprite2D"]
+modulate = Color(0.215686, 0.305882, 0.290196, 1)
+material = ExtResource("1_wy37t")
+position = Vector2(0, -32)
+texture = ExtResource("2_0haxo")

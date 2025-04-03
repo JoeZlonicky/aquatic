@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqis0x4xsfpnm"]
+
+[ext_resource type="Texture2D" uid="uid://c7bvfn8unp7w3" path="res://content/decorations/ruins/ruins_silhouette.svg" id="1_dsg5l"]
+
+[node name="RuinsSilhouette" type="Sprite2D"]
+position = Vector2(-1, 45)
+texture = ExtResource("1_dsg5l")

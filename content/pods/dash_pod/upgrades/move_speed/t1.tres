@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PodUpgradeTierData" load_steps=8 format=3 uid="uid://buoelv4vlpt7e"]
+
+[ext_resource type="Script" uid="uid://bx6hvrnhx2bvg" path="res://content/pod_modifiers/pod_modifier.gd" id="1_7y5i5"]
+[ext_resource type="Script" uid="uid://riljo1c6lqb7" path="res://components/pod_components/pod_upgrade/item_cost.gd" id="1_qer75"]
+[ext_resource type="Script" uid="uid://b0sv352hjjvba" path="res://components/pod_components/pod_upgrade/pod_upgrade_tier_data.gd" id="2_13jsn"]
+[ext_resource type="Script" uid="uid://bjjlkc65pluu2" path="res://content/pods/dash_pod/modifiers/dash_pod_move_speed_modifier.gd" id="2_po0u6"]
+[ext_resource type="Resource" uid="uid://bjyuhgfah8ie1" path="res://content/items/husk/husk.tres" id="2_vhkti"]
+
+[sub_resource type="Resource" id="Resource_efb4b"]
+script = ExtResource("1_qer75")
+item = ExtResource("2_vhkti")
+quantity = 3
+
+[sub_resource type="Resource" id="Resource_lv2k3"]
+script = ExtResource("2_po0u6")
+max_speed_modifier = 150.0
+
+[resource]
+script = ExtResource("2_13jsn")
+modifiers = Array[ExtResource("1_7y5i5")]([SubResource("Resource_lv2k3")])
+item_costs = Array[ExtResource("1_qer75")]([SubResource("Resource_efb4b")])

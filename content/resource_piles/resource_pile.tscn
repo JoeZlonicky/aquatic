@@ -1,0 +1,157 @@
+[gd_scene load_steps=15 format=3 uid="uid://bgdbhcapqw2dn"]
+
+[ext_resource type="Script" uid="uid://d0v0sobqdr2vv" path="res://content/resource_piles/resource_pile.gd" id="1_5l7qu"]
+[ext_resource type="Shader" uid="uid://bumb3mexa7ckv" path="res://common/shaders/flash.gdshader" id="2_46wro"]
+[ext_resource type="Shader" uid="uid://c1y17g2b7xjpq" path="res://common/shaders/highlight.gdshader" id="2_kkr6y"]
+[ext_resource type="Texture2D" uid="uid://bagav6dpji8tn" path="res://content/resource_piles/ore_pile/ore_pile.svg" id="3_wvihn"]
+[ext_resource type="AudioStream" uid="uid://cnrc75swivduv" path="res://common/sfx/hit/stone_hit_light.wav" id="5_gx6q1"]
+[ext_resource type="AudioStream" uid="uid://3vxi4mqanytv" path="res://common/sfx/hit/stone_hit_heavy.wav" id="6_nnil6"]
+[ext_resource type="PackedScene" uid="uid://deahsha3celd1" path="res://components/general_components/health/health.tscn" id="7_42pnt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8d4bf"]
+shader = ExtResource("2_kkr6y")
+shader_parameter/size_effect = 0.4
+shader_parameter/speed = 0.5
+shader_parameter/highlight_strength = 0.2
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t6d45"]
+shader = ExtResource("2_46wro")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ayje1"]
+radius = 33.541
+
+[sub_resource type="Animation" id="Animation_2a04s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureButton/HighlightSprite:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureButton/HighlightSprite:instance_shader_parameters/flash_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1usds"]
+resource_name = "mine_failed"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureButton/HighlightSprite:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureButton/HighlightSprite:instance_shader_parameters/flash_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.44, 0.44, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ily0u"]
+resource_name = "mined"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureButton/HighlightSprite:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureButton/HighlightSprite:instance_shader_parameters/flash_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_katw0"]
+_data = {
+&"RESET": SubResource("Animation_2a04s"),
+&"mine_failed": SubResource("Animation_1usds"),
+&"mined": SubResource("Animation_ily0u")
+}
+
+[node name="ResourcePile" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_5l7qu")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+material = SubResource("ShaderMaterial_8d4bf")
+offset_left = -80.0
+offset_top = -86.0
+offset_bottom = -6.0
+scale = Vector2(2, 2)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_wvihn")
+
+[node name="HighlightSprite" type="Sprite2D" parent="TextureButton"]
+self_modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_t6d45")
+instance_shader_parameters/flash_color = Color(1, 1, 1, 1)
+instance_shader_parameters/flash_strength = 1.0
+position = Vector2(59.5, 81)
+texture = ExtResource("3_wvihn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ayje1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_katw0")
+}
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gx6q1")
+bus = &"SFX"
+
+[node name="HarvestedSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_nnil6")
+bus = &"SFX"
+
+[node name="TotalHealth" parent="." instance=ExtResource("7_42pnt")]
+_max = 5
+
+[node name="HealthPerResource" parent="." instance=ExtResource("7_42pnt")]
+_max = 1

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://67ive6hwrc5s"
+path="res://.godot/imported/Casual 11.wav-34dbf1744ba04b070061d2f5835fda4a.sample"
+
+[deps]
+
+source_file="res://common/music/Casual 11.wav"
+dest_files=["res://.godot/imported/Casual 11.wav-34dbf1744ba04b070061d2f5835fda4a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

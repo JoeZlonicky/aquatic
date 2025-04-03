@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="44.035789"
+   height="72.689529"
+   viewBox="0 0 44.035791 72.68953"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="mining_laser.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="5.8083614"
+     inkscape:cx="72.051302"
+     inkscape:cy="32.797546"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="34.205637,68.772443"
+       end_point="78.241426,68.772443"
+       center_point="56.223532,68.772443"
+       id="path-effect1"
+       is_visible="true"
+       lpeversion="1.2"
+       lpesatellites=""
+       mode="horizontal"
+       discard_orig_path="false"
+       fuse_paths="true"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false"
+       link_styles="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-34.205637,-32.427678)">
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#2e222f;stroke-width:8;stroke-linecap:round;stroke-dasharray:none"
+       d="m 40.560547,37.296875 c 0,0 8.634811,20.780035 9.105469,31.474609 -0.470658,10.694575 -9.105469,31.476566 -9.105469,31.476566 L 73.878906,95.871094 73.123047,88.242187 62.78125,85.794922 62.65625,70.228516 c 0,0 -1.137213,-0.661489 -2.738281,-1.457032 1.601068,-0.795542 2.738281,-1.455078 2.738281,-1.455078 L 62.78125,51.75 73.123047,49.302734 73.878906,41.673828 Z"
+       id="path5"
+       sodipodi:nodetypes="scccccss"
+       inkscape:path-effect="#path-effect1"
+       inkscape:original-d="m 49.685868,67.854142 c 0.02575,10.370157 -9.124776,32.394378 -9.124776,32.394378 L 73.878622,95.870613 73.12331,88.242988 62.780956,85.794217 62.656375,70.227999 c 0,0 -12.983324,-7.534612 -12.97051,-2.373857 z" />
+  </g>
+</svg>

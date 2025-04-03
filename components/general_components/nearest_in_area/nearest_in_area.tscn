@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cikuv1asqnpit"]
+
+[ext_resource type="Script" uid="uid://dk2l4wtt884n6" path="res://components/general_components/nearest_in_area/nearest_in_area.gd" id="1_8eg34"]
+
+[node name="NearestInArea" type="Area2D"]
+collision_layer = 0
+collision_mask = 104
+script = ExtResource("1_8eg34")
+line_of_sight_blockers = 1
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

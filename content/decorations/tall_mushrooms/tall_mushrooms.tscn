@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxq7c8mnqfmth"]
+
+[ext_resource type="Material" uid="uid://dm2lxa8fkw8s7" path="res://common/materials/sway.tres" id="1_c07xn"]
+[ext_resource type="Texture2D" uid="uid://ccem7es72aaec" path="res://content/decorations/tall_mushrooms/tall_mushroom_stems.svg" id="2_fj71u"]
+[ext_resource type="Texture2D" uid="uid://04b54sii7yo4" path="res://content/decorations/tall_mushrooms/tall_mushroom_tops.svg" id="3_10x60"]
+
+[node name="TallMushrooms" type="Sprite2D"]
+self_modulate = Color(0.0431373, 0.368627, 0.396078, 1)
+material = ExtResource("1_c07xn")
+texture = ExtResource("2_fj71u")
+
+[node name="Tops" type="Sprite2D" parent="."]
+self_modulate = Color(0.0431373, 0.541176, 0.560784, 1)
+use_parent_material = true
+position = Vector2(7, -38)
+texture = ExtResource("3_10x60")

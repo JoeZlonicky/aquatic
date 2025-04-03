@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://qnvbadseo16m"]
+
+[ext_resource type="Material" uid="uid://dm2lxa8fkw8s7" path="res://common/materials/sway.tres" id="1_aqyxr"]
+[ext_resource type="Texture2D" uid="uid://dun6je7jvuydj" path="res://content/decorations/shriveled_mushroom/shriveled_mushroom_stem.svg" id="2_4oaio"]
+[ext_resource type="Texture2D" uid="uid://ban01ninpw6je" path="res://content/decorations/shriveled_mushroom/shriveled_mushroom_top.svg" id="3_wqk54"]
+
+[node name="ShriveledMushroom" type="Sprite2D"]
+self_modulate = Color(0.411765, 0.309804, 0.384314, 1)
+material = ExtResource("1_aqyxr")
+position = Vector2(-12, 49)
+texture = ExtResource("2_4oaio")
+offset = Vector2(0, -20)
+
+[node name="Top" type="Sprite2D" parent="."]
+self_modulate = Color(0.458824, 0.235294, 0.329412, 1)
+use_parent_material = true
+position = Vector2(12, -98)
+texture = ExtResource("3_wqk54")

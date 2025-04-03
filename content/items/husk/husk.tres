@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bjyuhgfah8ie1"]
+
+[ext_resource type="Script" uid="uid://yjfcbekw4iwt" path="res://content/items/item_data.gd" id="1_004co"]
+[ext_resource type="Texture2D" uid="uid://co1vtr5q3irf0" path="res://content/items/husk/husk.svg" id="2_mv4b1"]
+
+[resource]
+script = ExtResource("1_004co")
+name = "Husk"
+texture = ExtResource("2_mv4b1")
+modulate = Color(0.941176, 0.309804, 0.470588, 1)

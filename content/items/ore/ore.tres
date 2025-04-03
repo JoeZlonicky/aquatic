@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://d4m6s41bs2t2x"]
+
+[ext_resource type="Script" uid="uid://yjfcbekw4iwt" path="res://content/items/item_data.gd" id="1_tekvf"]
+[ext_resource type="Texture2D" uid="uid://1xscf4x4ucni" path="res://content/items/ore/ore.svg" id="2_ipf2f"]
+
+[resource]
+script = ExtResource("1_tekvf")
+name = "Ore"
+texture = ExtResource("2_ipf2f")
+modulate = Color(0.560784, 0.972549, 0.886275, 1)

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PodUpgradeData" load_steps=7 format=3 uid="uid://gtu33yf0bre7"]
+
+[ext_resource type="Script" uid="uid://blwc4no86q1je" path="res://components/pod_components/pod_upgrade/pod_upgrade_data.gd" id="1_vdt0l"]
+[ext_resource type="Script" uid="uid://b0sv352hjjvba" path="res://components/pod_components/pod_upgrade/pod_upgrade_tier_data.gd" id="2_buju1"]
+[ext_resource type="Resource" uid="uid://chkie3rd4pesf" path="res://content/pods/mining_pod/upgrades/damage/t1.tres" id="3_0raiu"]
+[ext_resource type="Resource" uid="uid://d1nu621iokx2b" path="res://content/pods/mining_pod/upgrades/damage/t2.tres" id="4_a08bc"]
+[ext_resource type="Resource" uid="uid://ci1qn151vjiw0" path="res://content/pods/mining_pod/upgrades/damage/t3.tres" id="5_ut4hu"]
+[ext_resource type="Resource" uid="uid://cust6vhu5uxyv" path="res://content/pods/mining_pod/upgrades/ability_speed/ability_speed.tres" id="6_xn88h"]
+
+[resource]
+script = ExtResource("1_vdt0l")
+name = "Extra Punch"
+description = "Increased damage"
+tiers = Array[ExtResource("2_buju1")]([ExtResource("3_0raiu"), ExtResource("4_a08bc"), ExtResource("5_ut4hu")])
+unlock_prereq = ExtResource("6_xn88h")
+unlock_prereq_tier = 1

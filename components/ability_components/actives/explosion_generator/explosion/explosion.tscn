@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1nbpd0openmg"]
+
+[ext_resource type="Script" uid="uid://cnh1d0m4qdqxh" path="res://components/ability_components/actives/explosion_generator/explosion/explosion.gd" id="1_5lubk"]
+
+[node name="Explosion" type="Area2D"]
+script = ExtResource("1_5lubk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

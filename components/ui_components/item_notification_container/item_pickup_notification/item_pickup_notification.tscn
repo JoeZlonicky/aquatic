@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3q5b7hm5t5t4"]
+
+[ext_resource type="FontFile" uid="uid://ckpayvei06oo2" path="res://common/fonts/playpen_sans.ttf" id="1_njjk4"]
+[ext_resource type="Script" uid="uid://c7001fuoun7pk" path="res://components/ui_components/item_notification_container/item_pickup_notification/item_pickup_notification.gd" id="2_m16cg"]
+
+[sub_resource type="Animation" id="Animation_7ced5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ml1t8"]
+resource_name = "fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sgr1d"]
+_data = {
+&"RESET": SubResource("Animation_7ced5"),
+&"fade": SubResource("Animation_ml1t8")
+}
+
+[node name="ItemPickupNotification" type="Label"]
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_njjk4")
+theme_override_font_sizes/font_size = 42
+text = "1x Something"
+horizontal_alignment = 1
+script = ExtResource("2_m16cg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sgr1d")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
