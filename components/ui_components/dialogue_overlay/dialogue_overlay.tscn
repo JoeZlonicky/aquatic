@@ -1,15 +1,15 @@
 [gd_scene load_steps=8 format=3 uid="uid://by7j4iutullnw"]
 
 [ext_resource type="Script" uid="uid://dk7jh1t0ksq5j" path="res://components/ui_components/dialogue_overlay/dialogue_overlay.gd" id="1_nfr8a"]
-[ext_resource type="FontFile" uid="uid://df0q7rc81s0bu" path="res://common/fonts/kaushan_script.ttf" id="2_nfr8a"]
 [ext_resource type="StyleBox" uid="uid://bud50rkm8v14f" path="res://common/styles/horizontal_nine_patch.tres" id="2_xv0ki"]
+[ext_resource type="FontFile" uid="uid://buu4o88i88vre" path="res://common/fonts/titan_one.ttf" id="3_xv0ki"]
 [ext_resource type="StyleBox" uid="uid://uribf4upf68k" path="res://common/styles/box_nine_patch.tres" id="4_xv0ki"]
 [ext_resource type="PackedScene" uid="uid://jylldslf8ft6" path="res://components/ui_components/typed_label/typed_label.tscn" id="5_xv0ki"]
 [ext_resource type="PackedScene" uid="uid://ctc4suo7iwk1o" path="res://components/ui_components/dialogue_overlay/next_prompt/next_prompt.tscn" id="6_xv0ki"]
 
-[sub_resource type="FontVariation" id="FontVariation_nfr8a"]
-base_font = ExtResource("2_nfr8a")
-spacing_glyph = 3
+[sub_resource type="FontVariation" id="FontVariation_xv0ki"]
+base_font = ExtResource("3_xv0ki")
+spacing_glyph = 8
 
 [node name="DialogueOverlay" type="CanvasLayer"]
 script = ExtResource("1_nfr8a")
@@ -53,8 +53,8 @@ theme_override_constants/margin_bottom = -8
 [node name="TitleLabel" type="Label" parent="MarginContainer/DialogueContainer/DialogueBoxContainer/TitleBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_nfr8a")
-theme_override_font_sizes/font_size = 42
+theme_override_fonts/font = SubResource("FontVariation_xv0ki")
+theme_override_font_sizes/font_size = 60
 text = "The Scientist"
 horizontal_alignment = 1
 uppercase = true
@@ -75,6 +75,7 @@ theme_override_constants/margin_bottom = 50
 [node name="DialogueLabel" parent="MarginContainer/DialogueContainer/DialogueBoxContainer/TextBoxContainer/MarginContainer" instance=ExtResource("5_xv0ki")]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 56
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/DialogueContainer"]
 layout_mode = 2

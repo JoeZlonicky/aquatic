@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ciyua6j5d8shu"]
+[gd_scene load_steps=7 format=3 uid="uid://ciyua6j5d8shu"]
 
 [ext_resource type="Script" uid="uid://cmi5j8ftq3kfy" path="res://content/overlays/hud/hud.gd" id="1_f7eks"]
-[ext_resource type="FontFile" uid="uid://df0q7rc81s0bu" path="res://common/fonts/kaushan_script.ttf" id="2_kl6q8"]
+[ext_resource type="FontFile" uid="uid://buu4o88i88vre" path="res://common/fonts/titan_one.ttf" id="2_k25im"]
+
+[sub_resource type="FontVariation" id="FontVariation_k25im"]
+base_font = ExtResource("2_k25im")
+spacing_glyph = 8
 
 [sub_resource type="Animation" id="Animation_k230a"]
 length = 0.001
@@ -50,7 +54,7 @@ anchor_right = 1.0
 offset_top = 229.0
 offset_bottom = 466.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_kl6q8")
+theme_override_fonts/font = SubResource("FontVariation_k25im")
 theme_override_font_sizes/font_size = 160
 text = "New Biome"
 horizontal_alignment = 1
@@ -58,5 +62,5 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnnouncementText"]
 libraries = {
-"": SubResource("AnimationLibrary_722hs")
+&"": SubResource("AnimationLibrary_722hs")
 }

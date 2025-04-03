@@ -56,7 +56,7 @@ folder_colors={
 
 [gui]
 
-theme/custom_font="res://common/fonts/playpen_sans.ttf"
+theme/custom_font="uid://iwcslmk6rbyl"
 
 [input]
 

@@ -2,27 +2,27 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ckpayvei06oo2"
-path="res://.godot/imported/playpen_sans.ttf-39368ed0375b60782fac13f82169b3b4.fontdata"
+uid="uid://buu4o88i88vre"
+path="res://.godot/imported/titan_one.ttf-95ac4a8caf89700986c26746a9d647bf.fontdata"
 
 [deps]
 
-source_file="res://common/fonts/playpen_sans.ttf"
-dest_files=["res://.godot/imported/playpen_sans.ttf-39368ed0375b60782fac13f82169b3b4.fontdata"]
+source_file="res://common/fonts/titan_one.ttf"
+dest_files=["res://.godot/imported/titan_one.ttf-95ac4a8caf89700986c26746a9d647bf.fontdata"]
 
 [params]
 
 Rendering=null
-antialiasing=1
-generate_mipmaps=false
+antialiasing=2
+generate_mipmaps=true
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=true
-msdf_pixel_range=16
-msdf_size=64
+msdf_pixel_range=8
+msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
-hinting=1
-subpixel_positioning=0
+hinting=2
+subpixel_positioning=3
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
@@ -33,8 +33,7 @@ preload=[{
 "chars": [],
 "glyphs": [],
 "name": "New Configuration",
-"size": Vector2i(16, 0),
-"variation_embolden": 0.0
+"size": Vector2i(16, 0)
 }]
 language_support={}
 script_support={}

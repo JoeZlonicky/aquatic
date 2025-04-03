@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bakwr4c717cru"]
 
 [ext_resource type="Script" uid="uid://xek1spl1tvr1" path="res://content/menus/main_menu/main_menu.gd" id="1_s8csb"]
-[ext_resource type="FontFile" uid="uid://df0q7rc81s0bu" path="res://common/fonts/kaushan_script.ttf" id="3_jikh0"]
+[ext_resource type="FontFile" uid="uid://buu4o88i88vre" path="res://common/fonts/titan_one.ttf" id="2_de2nj"]
 [ext_resource type="AudioStream" uid="uid://vldgbv5kqw5j" path="res://common/music/Casual 10.wav" id="5_d805l"]
 [ext_resource type="PackedScene" uid="uid://sncxai6gcgji" path="res://component_packages/biome_package/biome_package.tscn" id="5_x7jlf"]
 [ext_resource type="PackedScene" uid="uid://b6id00jfv0lda" path="res://components/biome_components/parallax_layers/tunnels/parallax_tunnels.tscn" id="6_085pc"]
@@ -61,7 +61,7 @@ offset_right = 466.0
 offset_bottom = 2.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_jikh0")
+theme_override_fonts/font = ExtResource("2_de2nj")
 theme_override_font_sizes/font_size = 320
 text = "Aquatic"
 horizontal_alignment = 1
@@ -95,7 +95,6 @@ offset_right = 672.5
 offset_bottom = -71.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_jikh0")
 theme_override_font_sizes/font_size = 120
 text = "Press Anything to Start"
 horizontal_alignment = 1

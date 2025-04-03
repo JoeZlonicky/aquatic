@@ -81,7 +81,7 @@ func _animate_first_dialogue() -> void:
 	
 	var tween := create_tween()
 	tween.tween_property(margin_container, "scale", Vector2.ONE,
-		0.15).from(Vector2.ZERO)
+		0.2).from(Vector2.ZERO)
 
 
 func _on_dialogue_label_finished() -> void:

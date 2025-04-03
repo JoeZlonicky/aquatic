@@ -4,7 +4,7 @@
 
 [node name="TypedLabel" type="Label"]
 custom_minimum_size = Vector2(1000, 73)
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 50
 text = "Lorem ipsum."
 autowrap_mode = 3
 visible_characters_behavior = 1
