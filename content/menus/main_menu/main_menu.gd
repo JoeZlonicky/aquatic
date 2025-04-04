@@ -8,7 +8,7 @@ var is_fading: bool = false
 
 
 func _ready() -> void:
-	_subtitle_label.text = ProjectConfig.get_release_name()
+	_subtitle_label.text = ProjectUtility.get_release_name()
 
 
 func _input(event: InputEvent) -> void:

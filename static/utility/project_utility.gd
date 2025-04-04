@@ -1,4 +1,4 @@
-class_name ProjectConfig
+class_name ProjectUtility
 
 
 static func get_release_name() -> String:
