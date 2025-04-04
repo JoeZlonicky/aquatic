@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7btidc8x10mr"]
+
+[ext_resource type="Script" uid="uid://cytww486jkr11" path="res://game/launcher/launcher.gd" id="1_m3vdr"]
+[ext_resource type="PackedScene" uid="uid://x8lmoly7d6ei" path="res://game/game.tscn" id="2_3omdf"]
+[ext_resource type="PackedScene" uid="uid://bakwr4c717cru" path="res://content/menus/main_menu/main_menu.tscn" id="3_2gpoh"]
+
+[node name="Launcher" type="Node"]
+script = ExtResource("1_m3vdr")
+_debug_main_scene = ExtResource("2_3omdf")
+_release_main_scene = ExtResource("3_2gpoh")

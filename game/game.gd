@@ -18,7 +18,6 @@ var pause_input_counter: int = 0
 
 
 func _ready() -> void:
-	RenderingServer.set_default_clear_color(Color.BLACK)
 	for pod_data in pod_setup:
 		owned_pods[pod_data] = TechTree.new()
 

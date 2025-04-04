@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Aquatic"
-run/main_scene="res://game/game.tscn"
+run/main_scene="uid://b7btidc8x10mr"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
