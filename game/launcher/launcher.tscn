@@ -8,3 +8,4 @@
 script = ExtResource("1_m3vdr")
 _debug_main_scene = ExtResource("2_3omdf")
 _release_main_scene = ExtResource("3_2gpoh")
+_min_window_size = Vector2i(640, 640)

@@ -4,6 +4,7 @@ extends Node
 
 @export var _debug_main_scene: PackedScene
 @export var _release_main_scene: PackedScene
+@export var _min_window_size: Vector2i
 @export_color_no_alpha var _render_clear_color: Color = Color.BLACK
 
 
@@ -14,6 +15,7 @@ func _ready() -> void:
 
 func _initial_config() -> void:
 	RenderingServer.set_default_clear_color(_render_clear_color)
+	get_window().min_size = _min_window_size
 
 
 func _launch_start_scene() -> void:
