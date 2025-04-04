@@ -4,8 +4,8 @@ extends Area2D
 
 
 @export var interactor: Node2D:
-	set(i):
-		interactor = i
+	set(value):
+		interactor = value
 		update_configuration_warnings()
 
 var _interactables_in_range: Array[InteractableArea] = []

@@ -6,8 +6,8 @@ extends Button
 signal used(new_tier: int)
 
 @export var upgrade: PodUpgradeData:
-	set(u):
-		upgrade = u
+	set(value):
+		upgrade = value
 		if is_node_ready():
 			update_static_text()
 			update_tier_text()

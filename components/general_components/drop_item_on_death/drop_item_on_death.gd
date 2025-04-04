@@ -3,12 +3,12 @@ extends Node2D
 
 
 @export var _health: Health:
-	set(h):
-		_health = h
+	set(value):
+		_health = value
 		update_configuration_warnings()
 @export var item_data: ItemData:
-	set(i):
-		item_data = i
+	set(value):
+		item_data = value
 		update_configuration_warnings()
 
 @export_range(1, 999) var quantity: int = 1

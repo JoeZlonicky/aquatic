@@ -5,8 +5,8 @@ extends Node
 
 @export_category("Required")
 @export var pod: Pod:
-	set(p):
-		pod = p
+	set(value):
+		pod = value
 		update_configuration_warnings()
 
 @export_category("Optional")

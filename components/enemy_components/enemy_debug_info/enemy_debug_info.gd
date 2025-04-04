@@ -3,8 +3,8 @@ extends VBoxContainer
 
 
 @export var _enemy: Enemy:
-	set(e):
-		_enemy = e
+	set(value):
+		_enemy = value
 		update_configuration_warnings()
 
 @export_range(1, 100) var max_damage_notifications: int = 10

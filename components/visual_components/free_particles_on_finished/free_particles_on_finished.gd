@@ -3,8 +3,8 @@ extends Node
 
 
 @export var _particles: GPUParticles2D:
-	set(p):
-		_particles = p
+	set(value):
+		_particles = value
 		update_configuration_warnings()
 @export var _emit_on_ready: bool = false
 

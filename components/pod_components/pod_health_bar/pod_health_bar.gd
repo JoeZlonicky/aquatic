@@ -4,12 +4,12 @@ extends TextureRect
 
 
 @export var _pod: Pod:
-	set(p):
-		_pod = p
+	set(value):
+		_pod = value
 		update_configuration_warnings()
 @export_color_no_alpha var _color: Color = Color.WHITE:
-	set(c):
-		_color = c
+	set(value):
+		_color = value
 		_update_filled_color()
 
 

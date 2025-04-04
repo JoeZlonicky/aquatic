@@ -4,16 +4,16 @@ extends Node
 
 
 @export var pod: Pod:
-	set(p):
-		pod = p
+	set(value):
+		pod = value
 		update_configuration_warnings()
 @export var player_move_controller: PlayerMoveController:
-	set(pmc):
-		player_move_controller = pmc
+	set(value):
+		player_move_controller = value
 		update_configuration_warnings()
 @export var ability_indicator: PodAbilityIndicator:
-	set(ai):
-		ability_indicator = ai
+	set(value):
+		ability_indicator = value
 		update_configuration_warnings()
 @export_color_no_alpha var ability_color: Color = Color.WHITE:
 	set(value):

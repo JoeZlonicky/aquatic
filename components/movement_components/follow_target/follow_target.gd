@@ -4,8 +4,8 @@ extends Node
 
 
 @export var node: Node2D:
-	set(n):
-		node = n
+	set(value):
+		node = value
 		update_configuration_warnings()
 @export var target: Node2D
 

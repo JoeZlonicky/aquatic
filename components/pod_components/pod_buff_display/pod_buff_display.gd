@@ -5,8 +5,8 @@ extends HBoxContainer
 const BUFF_ICON_SCENE := preload("uid://knyghv1e7i77")
 
 @export var _pod: Pod:
-	set(p):
-		_pod = p
+	set(value):
+		_pod = value
 		update_configuration_warnings()
 
 

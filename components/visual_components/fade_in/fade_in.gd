@@ -3,8 +3,8 @@ extends Node
 
 
 @export var _canvas_item: CanvasItem:
-	set(ci):
-		_canvas_item = ci
+	set(value):
+		_canvas_item = value
 		update_configuration_warnings()
 
 @export_range(0.1, 1.0, 0.001, "suffix:s") var _duration: float = 0.2

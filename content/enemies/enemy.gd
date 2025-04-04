@@ -3,12 +3,12 @@ class_name Enemy
 extends CharacterBody2D
 
 @export var health: Health:
-	set(h):
-		health = h
+	set(value):
+		health = value
 		update_configuration_warnings()
 @export var statuses: Statuses:
-	set(s):
-		statuses = s
+	set(value):
+		statuses = value
 		update_configuration_warnings()
 
 

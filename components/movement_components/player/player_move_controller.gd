@@ -4,8 +4,8 @@ extends Node
 
 
 @export var pod: Pod:
-	set(p):
-		pod = p
+	set(value):
+		pod = value
 		update_configuration_warnings()
 @export var pod_capsule: PodCapsule
 @export var emit_particles_while_moving: GPUParticles2D

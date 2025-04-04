@@ -6,29 +6,29 @@ extends Sprite2D
 const DESTROYED_MODULATE := Color(0.2, 0.2, 0.2)
 
 @export var _pod: Pod:
-	set(p):
-		_pod = p
+	set(value):
+		_pod = value
 		update_configuration_warnings()
 
 @export_color_no_alpha var primary_color: Color = Color.WHITE:
-	set(pc):
-		primary_color = pc
+	set(value):
+		primary_color = value
 		update_appearance()
 @export_color_no_alpha var pilot_color: Color = Color.WHITE:
-	set(pc):
-		pilot_color = pc
+	set(value):
+		pilot_color = value
 		update_appearance()
 @export var armor_sprite: Texture:
-	set(a):
-		armor_sprite = a
+	set(value):
+		armor_sprite = value
 		update_appearance()
 @export var costume_sprite: Texture:
-	set(cs):
-		costume_sprite = cs
+	set(value):
+		costume_sprite = value
 		update_appearance()
 @export_range(-20.0, 20.0, 1.0, "suffix:px") var pilot_y_offset: float = 0.0:
-	set(pyo):
-		pilot_y_offset = pyo
+	set(value):
+		pilot_y_offset = value
 		update_appearance()
 
 var pilot_move_radius: float = 20.0

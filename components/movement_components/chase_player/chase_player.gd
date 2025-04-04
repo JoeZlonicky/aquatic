@@ -4,12 +4,12 @@ extends Node2D
 
 
 @export var _character: CharacterBody2D:
-	set(c):
-		_character = c
+	set(value):
+		_character = value
 		update_configuration_warnings()
 @export var _statuses: Statuses:
-	set(s):
-		_statuses = s
+	set(value):
+		_statuses = value
 		update_configuration_warnings()
 
 @export_range(0.0, 1000.0, 0.001, "or_greater", "suffix:px/s") var move_speed: float = 300.0

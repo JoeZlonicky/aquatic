@@ -4,8 +4,8 @@ extends StaticBody2D
 
 
 @export var dropped_resource: ItemData:
-	set(dr):
-		dropped_resource = dr
+	set(value):
+		dropped_resource = value
 		update_configuration_warnings()
 
 @export_range(1, 999, 1) var total_resources: int = 3

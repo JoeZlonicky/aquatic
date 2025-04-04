@@ -3,8 +3,8 @@ extends GPUParticles2D
 
 
 @export var _health: Health:
-	set(h):
-		_health = h
+	set(value):
+		_health = value
 		update_configuration_warnings()
 
 
