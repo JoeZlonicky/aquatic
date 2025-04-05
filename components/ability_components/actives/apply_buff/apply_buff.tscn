@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctvhnsrupshum"]
-
-[ext_resource type="Script" uid="uid://lf5facxtpydn" path="res://components/ability_components/actives/apply_buff/apply_buff.gd" id="1_4khiw"]
-
-[node name="ApplyBuff" type="Node2D"]
-script = ExtResource("1_4khiw")

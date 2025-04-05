@@ -1,87 +1,15 @@
-[gd_scene load_steps=21 format=4 uid="uid://ci0ggrlxt1531"]
+[gd_scene load_steps=6 format=4 uid="uid://ci0ggrlxt1531"]
 
-[ext_resource type="Script" uid="uid://d1im3np7bb740" path="res://content/biomes/mushroom_forest/mushroom_forest.gd" id="1_nuw8y"]
-[ext_resource type="PackedScene" uid="uid://2ah2rqdrab34" path="res://content/mission_types/protect_mission/protect_mission.tscn" id="2_lidfx"]
-[ext_resource type="PackedScene" uid="uid://bh6av2205m8te" path="res://components/mission_components/enemy_spawner/enemy_spawner.tscn" id="3_yicws"]
-[ext_resource type="Script" uid="uid://wery6rjup6ff" path="res://content/enemies/enemy_data.gd" id="4_qudej"]
-[ext_resource type="Resource" uid="uid://ce5yxsqrhm5mc" path="res://content/enemies/rusher/rusher.tres" id="5_u3ie8"]
-[ext_resource type="Resource" uid="uid://d00xdsoarvb3" path="res://content/enemies/walker/walker.tres" id="6_k5mik"]
-[ext_resource type="Resource" uid="uid://c140h02gr1d6i" path="res://content/enemies/tank/tank.tres" id="7_3l7ml"]
-[ext_resource type="PackedScene" uid="uid://kpkbitc0tsga" path="res://components/mission_components/mission_reward/mission_reward.tscn" id="8_e5vlp"]
-[ext_resource type="Resource" uid="uid://d4m6s41bs2t2x" path="res://content/items/ore/ore.tres" id="9_7bero"]
-[ext_resource type="PackedScene" uid="uid://kel86f0b8nov" path="res://components/general_components/interactable_area/interactable_area.tscn" id="10_g4b76"]
-[ext_resource type="PackedScene" uid="uid://drb2imi4bsiwr" path="res://components/ui_components/dialogue_popup/dialogue_popup.tscn" id="11_ooec7"]
+[ext_resource type="Script" uid="uid://clvqw4xvxciup" path="res://content/biomes/biome.gd" id="1_b26bc"]
 [ext_resource type="PackedScene" uid="uid://1jc7jor572cm" path="res://components/biome_components/passage/passage.tscn" id="12_h85ng"]
-[ext_resource type="PackedScene" uid="uid://dqd7mehbhk6ku" path="res://content/structures/corrupted_gate/corrupted_gate.tscn" id="13_34eb6"]
 [ext_resource type="PackedScene" uid="uid://sncxai6gcgji" path="res://component_packages/biome_package/biome_package.tscn" id="14_5qibr"]
 [ext_resource type="PackedScene" uid="uid://b6id00jfv0lda" path="res://components/biome_components/parallax_layers/tunnels/parallax_tunnels.tscn" id="15_fw5gj"]
-
-[sub_resource type="Curve" id="Curve_42r21"]
-_limits = [0.99, 4.0, 0.0, 1.0]
-_data = [Vector2(0, 1.48387), 0.0, 0.0, 0, 0, Vector2(1, 2.50334), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_nv3qv"]
-_limits = [0.99, 3.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 2.00222), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_53nk2"]
-_limits = [0.0, 2.0, 0.0, 1.0]
-_data = [Vector2(0.40413, 0), 0.0, 0.0, 0, 0, Vector2(1, 1.03115), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_kchle"]
-radius = 427.126
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0cq41"]
 size = Vector2(122, 432)
 
-[node name="MushroomForest" type="Node2D" node_paths=PackedStringArray("bounds", "spawn_positions")]
-script = ExtResource("1_nuw8y")
-bounds = NodePath("BiomePackage/Bounds")
-spawn_positions = [NodePath("Passage/SpawnPos")]
-
-[node name="ProtectMission" parent="." node_paths=PackedStringArray("enemy_spawners", "mission_reward", "corrupted_gate") instance=ExtResource("2_lidfx")]
-position = Vector2(-1232, -698)
-duration_seconds = 60.0
-enemy_spawners = [NodePath("EnemySpawner")]
-mission_reward = NodePath("MissionReward")
-corrupted_gate = NodePath("../CorruptedGate")
-
-[node name="EnemySpawner" parent="ProtectMission" instance=ExtResource("3_yicws")]
-_enemies = Array[ExtResource("4_qudej")]([ExtResource("5_u3ie8"), ExtResource("6_k5mik"), ExtResource("7_3l7ml")])
-_weevil_spawns_per_second = SubResource("Curve_42r21")
-_soldier_spawns_per_second = SubResource("Curve_nv3qv")
-_titan_spawns_per_second = SubResource("Curve_53nk2")
-
-[node name="MissionReward" parent="ProtectMission" instance=ExtResource("8_e5vlp")]
-position = Vector2(5, 304)
-item_data = ExtResource("9_7bero")
-quantity = 10
-
-[node name="NPCInteractableArea" parent="ProtectMission" node_paths=PackedStringArray("show_when_prioritized") instance=ExtResource("10_g4b76")]
-show_when_prioritized = NodePath("Label")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ProtectMission/NPCInteractableArea"]
-shape = SubResource("CircleShape2D_kchle")
-
-[node name="Label" type="Label" parent="ProtectMission/NPCInteractableArea"]
-offset_left = -92.0
-offset_top = -251.0
-offset_right = 105.0
-offset_bottom = -178.25
-theme_override_font_sizes/font_size = 48
-text = "Talk [E]"
-
-[node name="DialoguePopup" parent="ProtectMission" instance=ExtResource("11_ooec7")]
-offset_left = -591.0
-offset_top = -682.0
-offset_right = 602.0
-offset_bottom = -181.0
-theme_override_font_sizes/font_size = 48
-min_cooldown = 10
-max_cooldown = 30
+[node name="MushroomForest" type="Node2D"]
+script = ExtResource("1_b26bc")
 
 [node name="Passage" parent="." instance=ExtResource("12_h85ng")]
 position = Vector2(-3891, -922)
@@ -94,10 +22,6 @@ shape = SubResource("RectangleShape2D_0cq41")
 
 [node name="SpawnPos" type="Marker2D" parent="Passage"]
 position = Vector2(918, 90)
-
-[node name="CorruptedGate" parent="." instance=ExtResource("13_34eb6")]
-position = Vector2(-3714, -574)
-rotation = -1.5708
 
 [node name="BiomePackage" parent="." instance=ExtResource("14_5qibr")]
 
@@ -136,8 +60,5 @@ offset_top = -4003.0
 offset_right = 4221.0
 offset_bottom = 2366.0
 color = Color(0.301961, 0.607843, 0.901961, 1)
-
-[connection signal="completed" from="ProtectMission" to="." method="_on_protect_mission_completed"]
-[connection signal="interacted_with" from="ProtectMission/NPCInteractableArea" to="." method="_on_npc_interactable_area_interacted_with"]
 
 [editable path="BiomePackage"]

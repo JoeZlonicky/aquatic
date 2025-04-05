@@ -1,22 +1,15 @@
-[gd_scene load_steps=11 format=4 uid="uid://i1tiiwwcsx4k"]
+[gd_scene load_steps=7 format=4 uid="uid://i1tiiwwcsx4k"]
 
 [ext_resource type="Script" uid="uid://clvqw4xvxciup" path="res://content/biomes/biome.gd" id="1_7owus"]
 [ext_resource type="PackedScene" uid="uid://1jc7jor572cm" path="res://components/biome_components/passage/passage.tscn" id="3_qr48a"]
 [ext_resource type="PackedScene" uid="uid://sncxai6gcgji" path="res://component_packages/biome_package/biome_package.tscn" id="4_n08u6"]
 [ext_resource type="PackedScene" uid="uid://b6id00jfv0lda" path="res://components/biome_components/parallax_layers/tunnels/parallax_tunnels.tscn" id="5_byudc"]
-[ext_resource type="PackedScene" uid="uid://bh6av2205m8te" path="res://components/mission_components/enemy_spawner/enemy_spawner.tscn" id="7_fcli7"]
-[ext_resource type="Script" uid="uid://wery6rjup6ff" path="res://content/enemies/enemy_data.gd" id="8_wou7f"]
-[ext_resource type="Resource" uid="uid://ce5yxsqrhm5mc" path="res://content/enemies/rusher/rusher.tres" id="9_df6qi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tq5xq"]
 size = Vector2(419, 174)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1c3x"]
 size = Vector2(138, 410)
-
-[sub_resource type="Curve" id="Curve_g1o1y"]
-_data = [Vector2(0, 0.247493), 0.0, 0.0, 0, 0]
-point_count = 1
 
 [node name="Reef" type="Node2D" node_paths=PackedStringArray("bounds", "spawn_positions")]
 script = ExtResource("1_7owus")
@@ -86,12 +79,5 @@ offset_top = -314.0
 offset_right = 5115.0
 offset_bottom = 7175.0
 color = Color(0.301961, 0.607843, 0.901961, 1)
-
-[node name="EnemySpawner" parent="." instance=ExtResource("7_fcli7")]
-_enemies = Array[ExtResource("8_wou7f")]([ExtResource("9_df6qi")])
-_spawn_interval = 20.0
-_max_cluster_size = 3
-_autostart = true
-_weevil_spawns_per_second = SubResource("Curve_g1o1y")
 
 [editable path="BiomePackage"]

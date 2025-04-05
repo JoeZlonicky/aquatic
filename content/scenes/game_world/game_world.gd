@@ -48,10 +48,7 @@ func get_biome() -> Biome:
 
 func add_to_biome(node: Node2D, pos: Vector2) -> void:
 	node.position = pos
-	if node is Enemy:
-		_biome.add_enemy(node as Enemy)
-	else:
-		_biome.add_child(node)
+	_biome.add_child(node)
 
 
 func change_biome(new_biome_data: BiomeData, spawn_pos_index: int) -> void:

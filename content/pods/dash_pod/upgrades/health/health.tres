@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://blwc4no86q1je" path="res://components/pod_components/pod_upgrade/pod_upgrade_data.gd" id="1_sjpu5"]
 [ext_resource type="Script" uid="uid://b0sv352hjjvba" path="res://components/pod_components/pod_upgrade/pod_upgrade_tier_data.gd" id="2_r1o1n"]
-[ext_resource type="Resource" uid="uid://dwast4ncme7ax" path="res://content/pods/mining_pod/upgrades/health/t1.tres" id="3_ke3x4"]
-[ext_resource type="Resource" uid="uid://d60j0qmyj865" path="res://content/pods/mining_pod/upgrades/health/t2.tres" id="4_ryv5i"]
+[ext_resource type="Resource" uid="uid://bff8w4umuk8e7" path="res://content/pods/dash_pod/upgrades/health/t1.tres" id="3_6vq0h"]
+[ext_resource type="Resource" uid="uid://igly5dsxhw0c" path="res://content/pods/dash_pod/upgrades/health/t2.tres" id="4_4wvti"]
 
 [resource]
 script = ExtResource("1_sjpu5")
 name = "Plating"
 description = "Increased durability"
-tiers = Array[ExtResource("2_r1o1n")]([ExtResource("3_ke3x4"), ExtResource("4_ryv5i")])
+tiers = Array[ExtResource("2_r1o1n")]([ExtResource("3_6vq0h"), ExtResource("4_4wvti")])
 unlock_prereq_tier = 1

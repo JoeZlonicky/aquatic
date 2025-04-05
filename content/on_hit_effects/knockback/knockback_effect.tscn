@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwhgn6yqcc0w8"]
-
-[ext_resource type="Script" uid="uid://dfulogq87ehbo" path="res://content/on_hit_effects/knockback/knockback_effect.gd" id="1_sec0u"]
-
-[node name="KnockbackEffect" type="Node"]
-script = ExtResource("1_sec0u")

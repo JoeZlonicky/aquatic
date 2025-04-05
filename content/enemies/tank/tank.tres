@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://c140h02gr1d6i"]
-
-[ext_resource type="PackedScene" uid="uid://b5ys0hoyy6hyv" path="res://content/enemies/tank/tank.tscn" id="1_ahvow"]
-[ext_resource type="Script" uid="uid://wery6rjup6ff" path="res://content/enemies/enemy_data.gd" id="1_yj6m1"]
-
-[resource]
-script = ExtResource("1_yj6m1")
-scene = ExtResource("1_ahvow")
-type = 2

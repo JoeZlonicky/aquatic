@@ -22,7 +22,6 @@ const POD_BUFF_SCENE := preload("uid://cpqnncoharhyw")
 
 var train: PodTrain = null
 var train_index: int = 0
-var on_hit_effects: Array[OnHitData] = []
 
 
 func _ready() -> void:
