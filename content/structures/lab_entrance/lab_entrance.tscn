@@ -1,43 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cu3xiq1x661cw"]
+[gd_scene load_steps=3 format=3 uid="uid://cu3xiq1x661cw"]
 
 [ext_resource type="Texture2D" uid="uid://cmr4tn8a0abq" path="res://content/structures/lab_entrance/lab_entrance.svg" id="1_nlotc"]
-[ext_resource type="Script" uid="uid://daua8ou0tis5p" path="res://content/structures/lab_entrance/lab_entrance.gd" id="2_8w4p1"]
-[ext_resource type="Script" uid="uid://dkxoxwmg08x7g" path="res://components/general_components/interactable_area/interactable_area.gd" id="2_bua0j"]
 [ext_resource type="Texture2D" uid="uid://brohogkoacl8l" path="res://content/structures/lab_entrance/lab_entrance_gems.svg" id="3_8pi54"]
-[ext_resource type="PackedScene" uid="uid://ch56dvfw6m3sn" path="res://components/pod_components/pod_light/pod_light.tscn" id="5_g3css"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ei3g7"]
-radius = 453.689
 
 [node name="LabEntrance" type="Sprite2D"]
 self_modulate = Color(0.137255, 0.564706, 0.388235, 1)
 z_index = -1
 texture = ExtResource("1_nlotc")
-script = ExtResource("2_8w4p1")
-
-[node name="InteractableArea" type="Area2D" parent="." node_paths=PackedStringArray("show_when_prioritized")]
-collision_layer = 32
-collision_mask = 0
-script = ExtResource("2_bua0j")
-show_when_prioritized = NodePath("../Label")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
-shape = SubResource("CircleShape2D_ei3g7")
-
-[node name="Label" type="Label" parent="."]
-offset_left = -292.0
-offset_top = -367.0
-offset_right = 288.0
-offset_bottom = -300.0
-theme_override_font_sizes/font_size = 48
-text = "Enter the lab? [E]"
-horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.188235, 0.882353, 0.72549, 1)
 texture = ExtResource("3_8pi54")
-
-[node name="PodLight" parent="." instance=ExtResource("5_g3css")]
-visible = false
-
-[connection signal="interacted_with" from="InteractableArea" to="." method="_on_interactable_area_interacted_with"]

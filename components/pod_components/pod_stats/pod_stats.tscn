@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bow7keh8y0ylp"]
-
-[ext_resource type="Script" uid="uid://bepgvm8w2ev3" path="res://components/pod_components/pod_stats/pod_stats.gd" id="1_1fo4i"]
-
-[node name="PodStats" type="Node"]
-script = ExtResource("1_1fo4i")

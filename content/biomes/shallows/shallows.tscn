@@ -26,23 +26,12 @@ offset_top = 1223.0
 offset_right = 2136.0
 offset_bottom = 1263.0
 
-[node name="LabTutorialText" type="Label" parent="TutorialText"]
-layout_mode = 0
-offset_left = 1191.0
-offset_top = 190.0
-offset_right = 2025.0
-offset_bottom = 339.0
-theme_override_font_sizes/font_size = 48
-text = "The Lab lets you spend resources to
-improve your pods!"
-horizontal_alignment = 1
-
 [node name="ControlsTutorialText" type="Label" parent="TutorialText"]
 layout_mode = 0
-offset_left = 2814.0
-offset_top = 359.0
-offset_right = 3905.0
-offset_bottom = 584.0
+offset_left = 2137.0
+offset_top = 408.0
+offset_right = 3228.0
+offset_bottom = 633.0
 theme_override_font_sizes/font_size = 48
 text = "WASD to move.
 Hold space bar to temporarily accelerate.

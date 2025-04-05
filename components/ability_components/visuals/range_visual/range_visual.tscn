@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0kx8qrwsyvqk"]
-
-[ext_resource type="Script" uid="uid://o2qnphovt0rn" path="res://components/ability_components/visuals/range_visual/range_visual.gd" id="1_sf2en"]
-
-[node name="RangeVisual" type="Node2D"]
-script = ExtResource("1_sf2en")

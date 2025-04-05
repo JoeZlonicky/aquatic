@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://br11hw42cki67"]
-
-[ext_resource type="Script" uid="uid://dtjbmc28kwj2m" path="res://components/ability_components/triggers/ability_timer/ability_timer.gd" id="1_d7ind"]
-
-[node name="AbilityTimer" type="Node"]
-script = ExtResource("1_d7ind")

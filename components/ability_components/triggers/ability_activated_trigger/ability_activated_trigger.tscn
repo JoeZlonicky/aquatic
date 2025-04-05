@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dou73b2vrdu0f"]
-
-[ext_resource type="Script" uid="uid://bt5lks7dx73yy" path="res://components/ability_components/triggers/ability_activated_trigger/ability_activated_trigger.gd" id="1_ar3v8"]
-
-[node name="AbilityActivatedTrigger" type="Node"]
-script = ExtResource("1_ar3v8")

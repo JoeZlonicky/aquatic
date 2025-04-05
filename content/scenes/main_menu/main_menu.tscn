@@ -1,0 +1,161 @@
+[gd_scene load_steps=10 format=3 uid="uid://bakwr4c717cru"]
+
+[ext_resource type="Script" uid="uid://xek1spl1tvr1" path="res://content/scenes/main_menu/main_menu.gd" id="1_s8csb"]
+[ext_resource type="FontFile" uid="uid://buu4o88i88vre" path="res://common/fonts/titan_one.ttf" id="2_de2nj"]
+[ext_resource type="AudioStream" uid="uid://ceadi2l1376x6" path="res://common/music/ObservingTheStar.ogg" id="3_de2nj"]
+[ext_resource type="PackedScene" uid="uid://sncxai6gcgji" path="res://component_packages/biome_package/biome_package.tscn" id="5_x7jlf"]
+[ext_resource type="PackedScene" uid="uid://b6id00jfv0lda" path="res://components/biome_components/parallax_layers/tunnels/parallax_tunnels.tscn" id="6_085pc"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_lefwt"]
+stream_count = 1
+stream_0 = ExtResource("3_de2nj")
+
+[sub_resource type="Animation" id="Animation_xpxww"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hr010"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_32fud"]
+_data = {
+&"RESET": SubResource("Animation_xpxww"),
+&"fade_to_black": SubResource("Animation_hr010")
+}
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_s8csb")
+
+[node name="TitleLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -466.0
+offset_top = -230.5
+offset_right = 466.0
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_de2nj")
+theme_override_font_sizes/font_size = 320
+text = "Aquatic"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="TitleLabel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -672.0
+offset_top = -15.0
+offset_right = 673.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 96
+text = "<Release Name>"
+horizontal_alignment = 1
+
+[node name="PressAnythingLabel" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -672.5
+offset_top = -113.0
+offset_right = 672.5
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 120
+text = "Press Anything to Start"
+horizontal_alignment = 1
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_lefwt")
+volume_db = -6.0
+autoplay = true
+bus = &"Music"
+
+[node name="FadeScreen" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FadeScreen"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeScreen"]
+libraries = {
+&"": SubResource("AnimationLibrary_32fud")
+}
+
+[node name="BiomePackage" parent="." instance=ExtResource("5_x7jlf")]
+
+[node name="BiomeTheme" parent="BiomePackage" index="0"]
+light_color = Color(0.301961, 0.607843, 0.901961, 1)
+dark_color = Color(0.301961, 0.396078, 0.705882, 1)
+
+[node name="Bounds" parent="BiomePackage" index="1"]
+offset_left = -3765.0
+offset_top = -2570.0
+offset_right = 7650.0
+offset_bottom = 4229.0
+
+[node name="BackgroundColor" parent="BiomePackage/Background" index="0"]
+color = Color(0.301961, 0.607843, 0.901961, 1)
+
+[node name="ParallaxTunnels" parent="BiomePackage/ParallaxBackground" index="1" instance=ExtResource("6_085pc")]
+
+[node name="WaterParticles" parent="BiomePackage" index="4"]
+modulate = Color(0.301961, 0.607843, 0.901961, 1)
+
+[node name="TerrainLayer" parent="BiomePackage" index="7"]
+modulate = Color(0.301961, 0.396078, 0.705882, 1)
+
+[node name="SilhouetteLayer" parent="BiomePackage" index="8"]
+modulate = Color(0.301961, 0.396078, 0.705882, 1)
+
+[node name="WaterShader" parent="BiomePackage" index="9"]
+offset_left = -3765.0
+offset_top = -2570.0
+offset_right = 7650.0
+offset_bottom = 4229.0
+color = Color(0.301961, 0.607843, 0.901961, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1920, 1080)
+
+[editable path="BiomePackage"]

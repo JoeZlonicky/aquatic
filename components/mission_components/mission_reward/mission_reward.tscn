@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://kpkbitc0tsga"]
-
-[ext_resource type="Script" uid="uid://5q4q1h0mqe1d" path="res://components/mission_components/mission_reward/mission_reward.gd" id="1_jxu72"]
-
-[node name="MissionReward" type="Node2D"]
-script = ExtResource("1_jxu72")

@@ -16,7 +16,6 @@ var pods: Array[Pod] = []  # Goes from head to tail
 
 
 func construct(setup: Array[PodData], pos: Vector2) -> void:
-	var pod_progression := GameUtility.get_game().owned_pods
 	var pod_index: int = 0
 	var previous_pod: Pod = null
 	
@@ -38,12 +37,6 @@ func construct(setup: Array[PodData], pos: Vector2) -> void:
 			if pod_index == 1:
 				follow_distance = FIRST_FOLLOW_DISTANCE
 			_add_follow_target(pod, previous_pod, follow_distance)
-		
-		var tech_tree: TechTree = pod_progression.get(pod_data, null)
-		var upgrades := tech_tree.get_all_tiered_upgrades() if tech_tree else []
-		for upgrade: PodUpgradeData in upgrades:
-			var tier := tech_tree.get_current_tier(upgrade)
-			upgrade.apply(pod, tier)
 		
 		previous_pod = pod
 		pod_index += 1

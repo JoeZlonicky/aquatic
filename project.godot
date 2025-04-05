@@ -50,7 +50,6 @@ folder_colors={
 "res://components/": "orange",
 "res://content/": "green",
 "res://dev/": "teal",
-"res://game/": "blue",
 "res://static/": "pink"
 }
 

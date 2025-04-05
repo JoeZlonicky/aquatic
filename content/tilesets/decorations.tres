@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=25 format=3 uid="uid://b5l8p2uowbxyr"]
+[gd_resource type="TileSet" load_steps=20 format=3 uid="uid://b5l8p2uowbxyr"]
 
 [ext_resource type="PackedScene" uid="uid://cbi4j5o23dnk6" path="res://content/decorations/seagrass/seagrass.tscn" id="1_lhkkl"]
 [ext_resource type="PackedScene" uid="uid://clq4b8nwsp3yp" path="res://content/decorations/seagrass/seagrass_silhouette.tscn" id="2_g1qny"]
@@ -12,13 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://d3q2dtxhpucex" path="res://content/decorations/shriveled_mushroom/shriveled_mushroom_silhouette.tscn" id="8_60lg6"]
 [ext_resource type="PackedScene" uid="uid://c2n04jro02fsi" path="res://content/decorations/tall_mushrooms/tall_mushrooms_silhouette.tscn" id="9_r8wac"]
 [ext_resource type="PackedScene" uid="uid://dbeh3mhbft1og" path="res://content/decorations/round_mushroom/round_mushroom_silhouette.tscn" id="10_nb5tq"]
-[ext_resource type="PackedScene" uid="uid://bvqqiamhh2ca4" path="res://content/decorations/corrupted_hint/corrupted_hint_down.tscn" id="10_phso0"]
 [ext_resource type="PackedScene" uid="uid://6m7oejiiehqy" path="res://content/decorations/crystals/crystals_silhouette.tscn" id="10_pklxe"]
-[ext_resource type="PackedScene" uid="uid://bbrx566vnunl1" path="res://content/decorations/corrupted_hint/corrupted_hint_left.tscn" id="11_axrev"]
 [ext_resource type="PackedScene" uid="uid://bqis0x4xsfpnm" path="res://content/decorations/ruins/ruins_silhouette.tscn" id="11_in65n"]
-[ext_resource type="PackedScene" uid="uid://d31g6ekrgwk5n" path="res://content/decorations/corrupted_hint/corrupted_hint_right.tscn" id="12_adqb2"]
 [ext_resource type="PackedScene" uid="uid://cnbdkly4mcpga" path="res://content/decorations/school_of_fish/school_of_fish.tscn" id="12_cvim5"]
-[ext_resource type="PackedScene" uid="uid://cwtkle1dl7ajg" path="res://content/decorations/corrupted_hint/corrupted_hint_up.tscn" id="13_pn46f"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_07hie"]
 resource_name = "Nature"
@@ -43,13 +39,6 @@ scenes/2/scene = ExtResource("3_fqevr")
 scenes/3/scene = ExtResource("10_pklxe")
 scenes/4/scene = ExtResource("11_in65n")
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7omb5"]
-resource_name = "Corrupted"
-scenes/1/scene = ExtResource("10_phso0")
-scenes/2/scene = ExtResource("11_axrev")
-scenes/3/scene = ExtResource("12_adqb2")
-scenes/4/scene = ExtResource("13_pn46f")
-
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_wgf2t"]
 resource_name = "Fauna"
 scenes/1/scene = ExtResource("12_cvim5")
@@ -59,5 +48,4 @@ tile_size = Vector2i(80, 80)
 sources/0 = SubResource("TileSetScenesCollectionSource_07hie")
 sources/1 = SubResource("TileSetScenesCollectionSource_13iou")
 sources/2 = SubResource("TileSetScenesCollectionSource_u6iml")
-sources/3 = SubResource("TileSetScenesCollectionSource_7omb5")
 sources/4 = SubResource("TileSetScenesCollectionSource_wgf2t")

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://rhm8eg0f6om2" path="res://component_packages/standard_pod_package/standard_pod_package.tscn" id="2_0vjbo"]
 [ext_resource type="Shader" uid="uid://xa3qoxlvdsyx" path="res://common/shaders/radial_bar.gdshader" id="4_i2abk"]
 [ext_resource type="PackedScene" uid="uid://dcnepg4bi2vfi" path="res://component_packages/primary_pod_package/primary_pod_package.tscn" id="5_4dl0x"]
-[ext_resource type="PackedScene" uid="uid://4ybj2c54jfvr" path="res://components/ability_components/passives/sprint/sprint_ability.tscn" id="6_4vc0i"]
+[ext_resource type="PackedScene" uid="uid://4ybj2c54jfvr" path="res://content/pods/dash_pod/sprint/sprint_ability.tscn" id="6_4vc0i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ro4ji"]
 shader = ExtResource("4_i2abk")
@@ -12,36 +12,32 @@ shader = ExtResource("4_i2abk")
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebppg"]
 radius = 98.7369
 
-[node name="DashPod" type="CharacterBody2D" node_paths=PackedStringArray("_health", "_stats")]
+[node name="DashPod" type="CharacterBody2D" node_paths=PackedStringArray("_health")]
 collision_layer = 2
 script = ExtResource("1_q4x2i")
 _health = NodePath("StandardPodPackage/Health")
-_stats = NodePath("StandardPodPackage/PodStats")
 
 [node name="StandardPodPackage" parent="." instance=ExtResource("2_0vjbo")]
 
 [node name="Health" parent="StandardPodPackage" index="0"]
 _max = 100
 
-[node name="Capsule" parent="StandardPodPackage" index="3" node_paths=PackedStringArray("_pod")]
+[node name="Capsule" parent="StandardPodPackage" index="1" node_paths=PackedStringArray("_pod")]
 self_modulate = Color(0.117647, 0.737255, 0.45098, 1)
 _pod = NodePath("../..")
 primary_color = Color(0.117647, 0.737255, 0.45098, 1)
 pilot_color = Color(0.568627, 0.858824, 0.411765, 1)
 
-[node name="PodDestroyedParticles" parent="StandardPodPackage" index="4" node_paths=PackedStringArray("_pod")]
+[node name="PodDestroyedParticles" parent="StandardPodPackage" index="2" node_paths=PackedStringArray("_pod")]
 _pod = NodePath("../..")
 
-[node name="PodHealthBar" parent="StandardPodPackage" index="5" node_paths=PackedStringArray("_pod")]
+[node name="PodHealthBar" parent="StandardPodPackage" index="3" node_paths=PackedStringArray("_pod")]
 material = SubResource("ShaderMaterial_ro4ji")
 instance_shader_parameters/filled_color = Color(0.568627, 0.858824, 0.411765, 1)
 _pod = NodePath("../..")
 _color = Color(0.568627, 0.858824, 0.411765, 1)
 
-[node name="PodBuffDisplay" parent="StandardPodPackage" index="6" node_paths=PackedStringArray("_pod")]
-_pod = NodePath("../..")
-
-[node name="PodAbilityIndicator" parent="StandardPodPackage" index="7"]
+[node name="PodAbilityIndicator" parent="StandardPodPackage" index="4"]
 modulate = Color(0.568627, 0.858824, 0.411765, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
