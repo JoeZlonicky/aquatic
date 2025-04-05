@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_35wxe")
-name = "Reef"
+name = "The Reef"
 scene = ExtResource("1_y5b5e")
 light_tint = Color(0.560784, 0.827451, 1, 1)

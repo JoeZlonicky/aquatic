@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://blbh87qbhtjyi"]
 
-[ext_resource type="Texture2D" uid="uid://c4ivtt28m52cb" path="res://content/biomes/inner_reef/hermit/hermit_body.svg" id="1_2sxg6"]
-[ext_resource type="Texture2D" uid="uid://c2pntnio5f1a0" path="res://content/biomes/inner_reef/hermit/hermit_eyes.svg" id="2_rp6fo"]
-[ext_resource type="Script" uid="uid://ct2gqqedvi8yj" path="res://content/biomes/inner_reef/hermit/hermit.gd" id="2_tx2n8"]
-[ext_resource type="Texture2D" uid="uid://cpko0tfun0de1" path="res://content/biomes/inner_reef/hermit/hermit_shell.svg" id="3_tx2n8"]
+[ext_resource type="Texture2D" uid="uid://c4ivtt28m52cb" path="res://content/biomes/shallows/hermit/hermit_body.svg" id="1_2sxg6"]
+[ext_resource type="Texture2D" uid="uid://c2pntnio5f1a0" path="res://content/biomes/shallows/hermit/hermit_eyes.svg" id="2_rp6fo"]
+[ext_resource type="Script" uid="uid://ct2gqqedvi8yj" path="res://content/biomes/shallows/hermit/hermit.gd" id="2_tx2n8"]
+[ext_resource type="Texture2D" uid="uid://cpko0tfun0de1" path="res://content/biomes/shallows/hermit/hermit_shell.svg" id="3_tx2n8"]
 [ext_resource type="PackedScene" uid="uid://kel86f0b8nov" path="res://components/general_components/interactable_area/interactable_area.tscn" id="4_1d4tr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lt20l"]

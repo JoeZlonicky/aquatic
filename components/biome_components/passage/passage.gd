@@ -5,7 +5,7 @@ extends Area2D
 enum PassageTo {
 	INNER_REEF,
 	REEF,
-	CORRUPTED_REEF
+	MUSHROOM_REEF
 }
 
 @export var passage_to: PassageTo
@@ -26,7 +26,7 @@ func _on_body_entered(pod: Pod) -> void:
 			data = load("uid://bsbh3wtb4m8dr")
 		PassageTo.REEF:
 			data = load("uid://dcgpipiva54lm")
-		PassageTo.CORRUPTED_REEF:
+		PassageTo.MUSHROOM_REEF:
 			data = load("uid://bac7ard2csc7")
 	
 	world.change_biome(data, spawn_pos_index)

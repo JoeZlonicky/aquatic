@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4ivtt28m52cb"
-path="res://.godot/imported/hermit_body.svg-545b44a2d055b25df1b95b852dcd9ada.ctex"
+path="res://.godot/imported/hermit_body.svg-8f69eef0575e47a575bb3e6c6a4986dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/biomes/inner_reef/hermit/hermit_body.svg"
-dest_files=["res://.godot/imported/hermit_body.svg-545b44a2d055b25df1b95b852dcd9ada.ctex"]
+source_file="res://content/biomes/shallows/hermit/hermit_body.svg"
+dest_files=["res://.godot/imported/hermit_body.svg-8f69eef0575e47a575bb3e6c6a4986dc.ctex"]
 
 [params]
 
