@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://xek1spl1tvr1" path="res://content/menus/main_menu/main_menu.gd" id="1_s8csb"]
 [ext_resource type="FontFile" uid="uid://buu4o88i88vre" path="res://common/fonts/titan_one.ttf" id="2_de2nj"]
-[ext_resource type="AudioStream" uid="uid://vldgbv5kqw5j" path="res://common/music/Casual 10.wav" id="5_d805l"]
+[ext_resource type="AudioStream" uid="uid://ceadi2l1376x6" path="res://common/music/ObservingTheStar.ogg" id="3_de2nj"]
 [ext_resource type="PackedScene" uid="uid://sncxai6gcgji" path="res://component_packages/biome_package/biome_package.tscn" id="5_x7jlf"]
 [ext_resource type="PackedScene" uid="uid://b6id00jfv0lda" path="res://components/biome_components/parallax_layers/tunnels/parallax_tunnels.tscn" id="6_085pc"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_lefwt"]
 stream_count = 1
-stream_0 = ExtResource("5_d805l")
+stream_0 = ExtResource("3_de2nj")
 
 [sub_resource type="Animation" id="Animation_xpxww"]
 length = 0.001

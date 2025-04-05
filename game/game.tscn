@@ -1,28 +1,17 @@
-[gd_scene load_steps=18 format=3 uid="uid://x8lmoly7d6ei"]
+[gd_scene load_steps=11 format=3 uid="uid://x8lmoly7d6ei"]
 
 [ext_resource type="Script" uid="uid://c2mucyahtpnkt" path="res://game/game.gd" id="1_1rtor"]
 [ext_resource type="Script" uid="uid://wtpilr7afan0" path="res://content/pods/pod_data.gd" id="2_x5l3e"]
 [ext_resource type="Resource" uid="uid://dh7l238v820fx" path="res://content/pods/dash_pod/dash_pod.tres" id="3_d5aos"]
-[ext_resource type="Resource" uid="uid://dagtcpr3aslxv" path="res://content/pods/mining_pod/mining_pod.tres" id="3_s0pjx"]
-[ext_resource type="Resource" uid="uid://dtn3k8xcnn5dm" path="res://content/pods/cluster_pod/cluster_pod.tres" id="4_ug6pd"]
-[ext_resource type="Resource" uid="uid://do24ufpal8red" path="res://content/pods/frostlink_pod/frostlink_pod.tres" id="4_y7wn2"]
-[ext_resource type="AudioStream" uid="uid://3g8yenbbu222" path="res://common/music/Casual 5.wav" id="6_3enpu"]
 [ext_resource type="PackedScene" uid="uid://d12ummtmpg0gj" path="res://content/scenes/game_world/game_world.tscn" id="6_5tkbw"]
-[ext_resource type="AudioStream" uid="uid://dnui0lngvud2h" path="res://common/music/Casual 9.wav" id="7_7je1q"]
-[ext_resource type="AudioStream" uid="uid://vldgbv5kqw5j" path="res://common/music/Casual 10.wav" id="8_dio75"]
-[ext_resource type="AudioStream" uid="uid://67ive6hwrc5s" path="res://common/music/Casual 11.wav" id="9_jkqhc"]
-[ext_resource type="AudioStream" uid="uid://w36stoe8qto1" path="res://common/music/Casual 12.wav" id="10_apeyo"]
+[ext_resource type="AudioStream" uid="uid://ceadi2l1376x6" path="res://common/music/ObservingTheStar.ogg" id="8_3vho3"]
 [ext_resource type="PackedScene" uid="uid://dcr8wf7ic6r8e" path="res://components/ui_components/transition_screen/transition_screen.tscn" id="14_hb504"]
 [ext_resource type="PackedScene" uid="uid://d34o2g1va8dgh" path="res://content/menus/pause_menu/pause_menu.tscn" id="15_pkjl6"]
 [ext_resource type="PackedScene" uid="uid://by7j4iutullnw" path="res://components/ui_components/dialogue_overlay/dialogue_overlay.tscn" id="16_ee6o4"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_bi85h"]
-stream_count = 5
-stream_0 = ExtResource("6_3enpu")
-stream_1 = ExtResource("7_7je1q")
-stream_2 = ExtResource("8_dio75")
-stream_3 = ExtResource("9_jkqhc")
-stream_4 = ExtResource("10_apeyo")
+stream_count = 1
+stream_0 = ExtResource("8_3vho3")
 
 [sub_resource type="Environment" id="Environment_pyrio"]
 background_mode = 3
@@ -31,7 +20,7 @@ glow_bloom = 0.1
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_1rtor")
-pod_setup = Array[ExtResource("2_x5l3e")]([ExtResource("3_d5aos"), ExtResource("4_ug6pd"), ExtResource("4_y7wn2"), ExtResource("3_s0pjx")])
+pod_setup = Array[ExtResource("2_x5l3e")]([ExtResource("3_d5aos")])
 
 [node name="GameWorld" parent="." instance=ExtResource("6_5tkbw")]
 
