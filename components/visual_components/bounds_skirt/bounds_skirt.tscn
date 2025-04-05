@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6ahc38chi0w4"]
+
+[ext_resource type="Script" uid="uid://bkvkh27xl3n0i" path="res://components/visual_components/bounds_skirt/bounds_skirt.gd" id="1_1dlr1"]
+
+[node name="BoundsSkirt" type="Node2D"]
+script = ExtResource("1_1dlr1")

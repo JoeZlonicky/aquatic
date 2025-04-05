@@ -9,19 +9,19 @@ const POD_TRAIN_SCENE := preload("uid://c2lhusb0r1cs1")
 var prohibit_biome_change: bool = false
 var biome_data: BiomeData = load("uid://bsbh3wtb4m8dr")
 var player_train: PodTrain = null
-var _camera_padding: int = 80
 
 @onready var _biome: Biome = $InnerReef
+@onready var _bounds_skirt: BoundsSkirt = $BoundsSkirt
 @onready var hud: HUD = $HUD
 @onready var spawn_marker: Marker2D = $SpawnMarker
 @onready var darkness: CanvasModulate = $Darkness
-@onready var camera: Camera2D = $Camera
+@onready var game_camera: GameCamera = $GameCamera
 
 
 func _ready() -> void:
 	darkness.show()
 	construct_player_train()
-	camera.reset_smoothing()
+	game_camera.reset_smoothing()
 	
 	var inventory := PlayerUtility.get_inventory()
 	inventory.item_added.connect(_on_inventory_item_added)
@@ -37,9 +37,9 @@ func construct_player_train() -> void:
 	
 	var remote_transform := RemoteTransform2D.new()
 	player_train.get_primary_pod().add_child(remote_transform)
-	remote_transform.remote_path = remote_transform.get_path_to(camera)
+	remote_transform.remote_path = remote_transform.get_path_to(game_camera)
 	
-	update_camera_limits()
+	_update_camera_limits()
 
 
 func get_biome() -> Biome:
@@ -89,16 +89,14 @@ func change_biome(new_biome_data: BiomeData, spawn_pos_index: int) -> void:
 	prohibit_biome_change = false
 	
 	# Needs to wait for remote transform to update
-	update_camera_limits()
-	camera.reset_smoothing()
+	_update_camera_limits()
+	game_camera.reset_smoothing()
 
 
-func update_camera_limits() -> void:
-	var bounds := _biome.bounds.get_rect()
-	camera.limit_left = int(bounds.position.x) + _camera_padding
-	camera.limit_right = int(bounds.position.x + bounds.size.x) - _camera_padding
-	camera.limit_top = int(bounds.position.y) + _camera_padding
-	camera.limit_bottom = int(bounds.position.y + bounds.size.y) - _camera_padding
+func _update_camera_limits() -> void:
+	var bounds := _biome.bounds.get_global_rect()
+	game_camera.update_limits(bounds)
+	_bounds_skirt.update_bounds(bounds)
 
 
 func _on_player_train_primary_pod_destroyed() -> void:
