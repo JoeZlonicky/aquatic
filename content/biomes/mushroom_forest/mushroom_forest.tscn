@@ -8,8 +8,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0cq41"]
 size = Vector2(122, 432)
 
-[node name="MushroomForest" type="Node2D"]
+[node name="MushroomForest" type="Node2D" node_paths=PackedStringArray("bounds", "spawn_positions")]
 script = ExtResource("1_b26bc")
+bounds = NodePath("BiomePackage/Bounds")
+spawn_positions = [NodePath("Passage/SpawnPos")]
 
 [node name="Passage" parent="." instance=ExtResource("12_h85ng")]
 position = Vector2(-3891, -922)
