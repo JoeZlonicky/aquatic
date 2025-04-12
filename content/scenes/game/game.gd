@@ -2,24 +2,25 @@ class_name Game
 extends Node2D
 
 
-const GAME_WORLD_SCENE_PATH := "uid://d12ummtmpg0gj"
-
 var inventory := Inventory.new()
 var pause_input_counter: int = 0
 
 @export_color_no_alpha var light_tint: Color
 
-@onready var biome: Biome = $InnerReef
+@onready var player: Player = $Player
+@onready var bounds: ColorRect = $World/Bounds
 @onready var _bounds_skirt: BoundsSkirt = $World/BoundsSkirt
-@onready var transition_screen: TransitionScreen = $TransitionScreen
-@onready var pause_menu: CanvasLayer = $PauseMenu
-@onready var dialogue_overlay: DialogueOverlay = $DialogueOverlay
-@onready var game_camera: GameCamera = $Player/GameCamera
+@onready var transition_screen: TransitionScreen = %TransitionScreen
+@onready var pause_menu: CanvasLayer = %PauseMenu
+@onready var dialogue_overlay: DialogueOverlay = %DialogueOverlay
+@onready var game_camera: GameCamera = %GameCamera
+@onready var darkness: CanvasModulate = $World/Global/Darkness
 
 
 func _ready() -> void:
 	_update_camera_limits()
 	game_camera.reset_smoothing()
+	darkness.show()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -30,11 +31,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func add_to_world(node: Node2D, pos: Vector2) -> void:
-	add_child(node)
 	node.global_position = pos
+	add_child(node)
 
 
 func _update_camera_limits() -> void:
-	var bounds := biome.bounds.get_global_rect()
-	game_camera.update_limits(bounds)
-	_bounds_skirt.update_bounds(bounds)
+	var world_bounds := bounds.get_global_rect()
+	game_camera.update_limits(world_bounds)
+	_bounds_skirt.update_bounds(world_bounds)

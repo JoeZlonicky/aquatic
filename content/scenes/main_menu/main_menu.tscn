@@ -1,10 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://bakwr4c717cru"]
+[gd_scene load_steps=24 format=3 uid="uid://bakwr4c717cru"]
 
 [ext_resource type="Script" uid="uid://xek1spl1tvr1" path="res://content/scenes/main_menu/main_menu.gd" id="1_s8csb"]
 [ext_resource type="FontFile" uid="uid://buu4o88i88vre" path="res://common/fonts/titan_one.ttf" id="2_de2nj"]
 [ext_resource type="AudioStream" uid="uid://ceadi2l1376x6" path="res://common/music/ObservingTheStar.ogg" id="3_de2nj"]
-[ext_resource type="PackedScene" uid="uid://sncxai6gcgji" path="res://component_packages/biome_package/biome_package.tscn" id="5_x7jlf"]
+[ext_resource type="PackedScene" uid="uid://dkykvcchksyqn" path="res://components/biome_components/biome_theme/biome_theme.tscn" id="4_tlq5h"]
 [ext_resource type="PackedScene" uid="uid://b6id00jfv0lda" path="res://components/biome_components/parallax_layers/tunnels/parallax_tunnels.tscn" id="6_085pc"]
+[ext_resource type="PackedScene" uid="uid://bsd6i7yddm1a4" path="res://components/biome_components/layers/water_particles/water_particles.tscn" id="6_yim88"]
+[ext_resource type="PackedScene" uid="uid://bo5om08d88ded" path="res://components/biome_components/layers/background_decorations/background_decorations.tscn" id="7_k3cm5"]
+[ext_resource type="PackedScene" uid="uid://bwpglxampuib0" path="res://components/biome_components/layers/resource_piles/resource_piles.tscn" id="8_1nuu6"]
+[ext_resource type="PackedScene" uid="uid://b53hjf2y7ds5f" path="res://components/biome_components/layers/terrain/terrain.tscn" id="9_byuyp"]
+[ext_resource type="PackedScene" uid="uid://ca8u7dsohg6ef" path="res://components/biome_components/layers/foreground_decorations/foreground_decorations.tscn" id="10_p5f2v"]
+[ext_resource type="PackedScene" uid="uid://lvh4i6fsducp" path="res://components/biome_components/water_shader/water_shader.tscn" id="11_b2ng0"]
+[ext_resource type="Shader" uid="uid://d3fsme1viks3s" path="res://common/shaders/water.gdshader" id="12_ofiy6"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_lefwt"]
 stream_count = 1
@@ -45,6 +52,39 @@ _data = {
 &"RESET": SubResource("Animation_xpxww"),
 &"fade_to_black": SubResource("Animation_hr010")
 }
+
+[sub_resource type="GDScript" id="GDScript_4js4y"]
+script/source = "@tool
+extends ColorRect
+"
+
+[sub_resource type="GDScript" id="GDScript_w7lkg"]
+script/source = "@tool
+extends ColorRect
+"
+
+[sub_resource type="GDScript" id="GDScript_iipmy"]
+script/source = "@tool
+extends TileMapLayer
+"
+
+[sub_resource type="GDScript" id="GDScript_depqc"]
+script/source = "@tool
+extends TileMapLayer
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2ju5k"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_054td"]
+seamless = true
+noise = SubResource("FastNoiseLite_2ju5k")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_haw1l"]
+shader = ExtResource("12_ofiy6")
+shader_parameter/refraction_map = SubResource("NoiseTexture2D_054td")
+shader_parameter/refraction_stretch = Vector2(1, 1)
+shader_parameter/refraction_strength = 0.005
+shader_parameter/speed = 0.05
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_s8csb")
@@ -122,40 +162,72 @@ libraries = {
 &"": SubResource("AnimationLibrary_32fud")
 }
 
-[node name="BiomePackage" parent="." instance=ExtResource("5_x7jlf")]
+[node name="BiomePackage" type="Node2D" parent="."]
 
-[node name="BiomeTheme" parent="BiomePackage" index="0"]
+[node name="BiomeTheme" parent="BiomePackage" node_paths=PackedStringArray("background_color", "water_particles", "terrain_layer", "silhouette_layer", "water_shader") instance=ExtResource("4_tlq5h")]
 light_color = Color(0.301961, 0.607843, 0.901961, 1)
 dark_color = Color(0.301961, 0.396078, 0.705882, 1)
+background_color = NodePath("../Background/BackgroundColor")
+water_particles = NodePath("../WaterParticles")
+terrain_layer = NodePath("../TerrainLayer")
+silhouette_layer = NodePath("../SilhouetteLayer")
+water_shader = NodePath("../WaterShader")
 
-[node name="Bounds" parent="BiomePackage" index="1"]
+[node name="Bounds" type="ColorRect" parent="BiomePackage"]
 offset_left = -3765.0
 offset_top = -2570.0
 offset_right = 7650.0
 offset_bottom = 4229.0
+color = Color(1, 1, 1, 0)
+script = SubResource("GDScript_4js4y")
 
-[node name="BackgroundColor" parent="BiomePackage/Background" index="0"]
+[node name="Background" type="CanvasLayer" parent="BiomePackage"]
+layer = -3
+
+[node name="BackgroundColor" type="ColorRect" parent="BiomePackage/Background"]
+modulate = Color(0.2, 0.2, 0.2, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.301961, 0.607843, 0.901961, 1)
+script = SubResource("GDScript_w7lkg")
 
-[node name="ParallaxTunnels" parent="BiomePackage/ParallaxBackground" index="1" instance=ExtResource("6_085pc")]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="BiomePackage"]
+layer = -1
 
-[node name="WaterParticles" parent="BiomePackage" index="4"]
+[node name="CanvasModulate" type="CanvasModulate" parent="BiomePackage/ParallaxBackground"]
+color = Color(0, 0, 0, 0.15)
+
+[node name="ParallaxTunnels" parent="BiomePackage/ParallaxBackground" instance=ExtResource("6_085pc")]
+
+[node name="WaterParticles" parent="BiomePackage" node_paths=PackedStringArray("bounds") instance=ExtResource("6_yim88")]
 modulate = Color(0.301961, 0.607843, 0.901961, 1)
+bounds = NodePath("../Bounds")
 
-[node name="TerrainLayer" parent="BiomePackage" index="7"]
+[node name="BackgroundDecorationsLayer" parent="BiomePackage" instance=ExtResource("7_k3cm5")]
+
+[node name="ResourcePilesLayer" parent="BiomePackage" instance=ExtResource("8_1nuu6")]
+z_index = -1
+
+[node name="TerrainLayer" parent="BiomePackage" instance=ExtResource("9_byuyp")]
 modulate = Color(0.301961, 0.396078, 0.705882, 1)
+z_index = -1
+script = SubResource("GDScript_iipmy")
 
-[node name="SilhouetteLayer" parent="BiomePackage" index="8"]
+[node name="SilhouetteLayer" parent="BiomePackage" instance=ExtResource("10_p5f2v")]
 modulate = Color(0.301961, 0.396078, 0.705882, 1)
+script = SubResource("GDScript_depqc")
 
-[node name="WaterShader" parent="BiomePackage" index="9"]
+[node name="WaterShader" parent="BiomePackage" node_paths=PackedStringArray("bounds") instance=ExtResource("11_b2ng0")]
+z_index = 2
+material = SubResource("ShaderMaterial_haw1l")
 offset_left = -3765.0
 offset_top = -2570.0
 offset_right = 7650.0
 offset_bottom = 4229.0
-color = Color(0.301961, 0.607843, 0.901961, 1)
+bounds = NodePath("../Bounds")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1920, 1080)
-
-[editable path="BiomePackage"]
