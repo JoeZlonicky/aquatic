@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpko0tfun0de1"
-path="res://.godot/imported/hermit_shell.svg-c8d8e6bae7bc0f41b30afd8a2ecbb997.ctex"
+uid="uid://c2pntnio5f1a0"
+path="res://.godot/imported/hermit_eyes.svg-199f3d10e016d6c6826748319b207898.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/biomes/shallows/hermit/hermit_shell.svg"
-dest_files=["res://.godot/imported/hermit_shell.svg-c8d8e6bae7bc0f41b30afd8a2ecbb997.ctex"]
+source_file="res://content/npcs/hermit/hermit_eyes.svg"
+dest_files=["res://.godot/imported/hermit_eyes.svg-199f3d10e016d6c6826748319b207898.ctex"]
 
 [params]
 

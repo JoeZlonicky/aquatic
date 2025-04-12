@@ -26,7 +26,7 @@ var _velocity := Vector2.ZERO
 static func create(item_data: ItemData, pos: Vector2) -> ItemPickup:
 	var pickup := SCENE.instantiate() as ItemPickup
 	pickup._item_data = item_data
-	GameUtility.add_to_biome(pickup, pos)
+	GameUtility.add_to_game(pickup, pos)
 	return pickup
 
 
@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 
 
 func collect() -> void:
-	var inventory := PlayerUtility.get_inventory()
+	var inventory := GameUtility.get_inventory()
 	inventory.add_item(_item_data)
 	
 	GameUtility.one_shot_and_reparent_particles(trail_particles)
@@ -71,7 +71,7 @@ func _on_pickup_radius_body_entered(_body: Node2D) -> void:
 	if _target:
 		return
 	
-	_target = PlayerUtility.get_player()
+	_target = GameUtility.get_player()
 	z_index = Z_INDEX_AFTER_PICKUP
 	trail_particles.show()
 	fade_player.play("fade_out")

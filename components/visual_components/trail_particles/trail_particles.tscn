@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cr6uct0oaber6"]
+[gd_scene load_steps=7 format=3 uid="uid://cr6uct0oaber6"]
 
 [ext_resource type="Texture2D" uid="uid://daefwxou2v824" path="res://common/art/particles/circle.png" id="1_eht2u"]
-[ext_resource type="Script" uid="uid://qwtrnheeoygc" path="res://components/visual_components/trail_particles/trail_particles.gd" id="2_4l6cs"]
 
 [sub_resource type="Curve" id="Curve_nc130"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -29,7 +28,6 @@ alpha_curve = SubResource("CurveTexture_d1olc")
 [node name="TrailParticles" type="GPUParticles2D"]
 z_index = -1
 amount = 48
-process_material = SubResource("ParticleProcessMaterial_yeavd")
 texture = ExtResource("1_eht2u")
 lifetime = 2.0
-script = ExtResource("2_4l6cs")
+process_material = SubResource("ParticleProcessMaterial_yeavd")

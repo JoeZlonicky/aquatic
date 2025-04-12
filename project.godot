@@ -46,7 +46,6 @@ enabled=PackedStringArray()
 
 folder_colors={
 "res://common/": "red",
-"res://component_packages/": "yellow",
 "res://components/": "orange",
 "res://content/": "green",
 "res://dev/": "teal",

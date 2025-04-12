@@ -17,7 +17,7 @@ func _ready() -> void:
 func spawn_school() -> void:
 	for point: Node2D in spawn_points.get_children():
 		var fish := FISH_SCENE.instantiate() as Fish
-		GameUtility.add_to_biome(fish, point.global_position)
+		GameUtility.add_to_game(fish, point.global_position)
 		school.append(fish)
 
 
