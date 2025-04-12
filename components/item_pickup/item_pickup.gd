@@ -71,7 +71,7 @@ func _on_pickup_radius_body_entered(_body: Node2D) -> void:
 	if _target:
 		return
 	
-	_target = PlayerUtility.get_primary_pod()
+	_target = PlayerUtility.get_player()
 	z_index = Z_INDEX_AFTER_PICKUP
 	trail_particles.show()
 	fade_player.play("fade_out")

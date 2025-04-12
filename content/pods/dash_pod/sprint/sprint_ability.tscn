@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://4ybj2c54jfvr"]
-
-[ext_resource type="Script" uid="uid://cb87jw3hjln5c" path="res://content/pods/dash_pod/sprint/sprint_ability.gd" id="1_dm8um"]
-
-[node name="SprintAbility" type="Node"]
-script = ExtResource("1_dm8um")

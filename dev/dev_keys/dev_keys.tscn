@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://6ln6q0f6kp3f"]
-
-[ext_resource type="Script" uid="uid://cqpt3xn7amqp1" path="res://dev/dev_keys/dev_keys.gd" id="1_mqngb"]
-
-[node name="DevKeys" type="Node"]
-script = ExtResource("1_mqngb")

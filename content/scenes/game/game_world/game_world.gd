@@ -4,42 +4,25 @@ extends Node2D
 
 signal biome_changed(new_biome: BiomeData)
 
-const POD_TRAIN_SCENE := preload("uid://c2lhusb0r1cs1")
-
 var prohibit_biome_change: bool = false
 var biome_data: BiomeData = load("uid://bsbh3wtb4m8dr")
-var player_train: PodTrain = null
 
 @onready var _biome: Biome = $InnerReef
 @onready var _bounds_skirt: BoundsSkirt = $BoundsSkirt
 @onready var hud: HUD = $HUD
-@onready var spawn_marker: Marker2D = $SpawnMarker
 @onready var darkness: CanvasModulate = $Darkness
-@onready var game_camera: GameCamera = $GameCamera
+@onready var game_camera: GameCamera = $Player/GameCamera
+@onready var player: Player = $Player
 
 
 func _ready() -> void:
 	darkness.show()
-	construct_player_train()
+	_update_camera_limits()
 	game_camera.reset_smoothing()
 	
 	var inventory := PlayerUtility.get_inventory()
 	inventory.item_added.connect(_on_inventory_item_added)
 	inventory.item_removed.connect(_on_inventory_item_removed)
-
-
-func construct_player_train() -> void:
-	player_train = POD_TRAIN_SCENE.instantiate()
-	add_child(player_train)
-	
-	var pod_setup := PlayerUtility.get_pod_setup()
-	player_train.construct(pod_setup, spawn_marker.global_position)
-	
-	var remote_transform := RemoteTransform2D.new()
-	player_train.get_primary_pod().add_child(remote_transform)
-	remote_transform.remote_path = remote_transform.get_path_to(game_camera)
-	
-	_update_camera_limits()
 
 
 func get_biome() -> Biome:
@@ -51,7 +34,7 @@ func add_to_biome(node: Node2D, pos: Vector2) -> void:
 	_biome.add_child(node)
 
 
-func change_biome(new_biome_data: BiomeData, spawn_pos_index: int) -> void:
+func change_biome(new_biome_data: BiomeData, _spawn_pos_index: int) -> void:
 	if prohibit_biome_change:
 		return
 	
@@ -69,12 +52,6 @@ func change_biome(new_biome_data: BiomeData, spawn_pos_index: int) -> void:
 	move_child(new_biome, _biome.get_index())
 	_biome.queue_free()
 	_biome = new_biome
-	
-	var primary_pod := player_train.get_primary_pod()
-	var position_difference := _biome.get_spawn_position(spawn_pos_index) - primary_pod.global_position
-	for pod in player_train.get_all_pods():
-		pod.global_position += position_difference
-	primary_pod.velocity = Vector2.ZERO
 	
 	var announcement := biome_data.name
 	hud.display_announcement(announcement)
@@ -96,14 +73,9 @@ func _update_camera_limits() -> void:
 	_bounds_skirt.update_bounds(bounds)
 
 
-func _on_player_train_primary_pod_destroyed() -> void:
-	var game := GameUtility.get_game()
-	game.game_over()
-
-
 func _on_inventory_item_added(item_data: ItemData, count: int) -> void:
-	player_train.notification_container.display_notification(item_data, count)
+	player.notification_container.display_notification(item_data, count)
 
 
 func _on_inventory_item_removed(item_data: ItemData, count: int) -> void:
-	player_train.notification_container.display_notification(item_data, -count)
+	player.notification_container.display_notification(item_data, -count)

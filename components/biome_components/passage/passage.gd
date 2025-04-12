@@ -12,8 +12,8 @@ enum PassageTo {
 @export var spawn_pos_index: int = 0
 
 
-func _on_body_entered(pod: Pod) -> void:
-	if not pod or pod.train_index != 0:
+func _on_body_entered(player: Player) -> void:
+	if not player:
 		return
 	
 	await get_tree().process_frame

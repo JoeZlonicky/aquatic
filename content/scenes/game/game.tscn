@@ -1,8 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://x8lmoly7d6ei"]
+[gd_scene load_steps=9 format=3 uid="uid://x8lmoly7d6ei"]
 
 [ext_resource type="Script" uid="uid://c2mucyahtpnkt" path="res://content/scenes/game/game.gd" id="1_1rtor"]
-[ext_resource type="Script" uid="uid://wtpilr7afan0" path="res://content/pods/pod_data.gd" id="2_x5l3e"]
-[ext_resource type="Resource" uid="uid://dh7l238v820fx" path="res://content/pods/dash_pod/dash_pod.tres" id="3_d5aos"]
 [ext_resource type="PackedScene" uid="uid://d12ummtmpg0gj" path="res://content/scenes/game/game_world/game_world.tscn" id="6_5tkbw"]
 [ext_resource type="AudioStream" uid="uid://ceadi2l1376x6" path="res://common/music/ObservingTheStar.ogg" id="8_3vho3"]
 [ext_resource type="PackedScene" uid="uid://dcr8wf7ic6r8e" path="res://components/ui_components/transition_screen/transition_screen.tscn" id="14_hb504"]
@@ -20,7 +18,6 @@ glow_bloom = 0.1
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_1rtor")
-pod_setup = Array[ExtResource("2_x5l3e")]([ExtResource("3_d5aos")])
 
 [node name="GameWorld" parent="." instance=ExtResource("6_5tkbw")]
 
