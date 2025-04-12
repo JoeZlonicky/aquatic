@@ -1,19 +1,14 @@
-[gd_scene load_steps=8 format=4 uid="uid://cgg8586s6l5xr"]
+[gd_scene load_steps=6 format=4 uid="uid://cgg8586s6l5xr"]
 
 [ext_resource type="Script" uid="uid://clvqw4xvxciup" path="res://content/biomes/biome.gd" id="1_xvtrt"]
 [ext_resource type="PackedScene" uid="uid://cu3xiq1x661cw" path="res://content/structures/lab_entrance/lab_entrance.tscn" id="2_iu67x"]
-[ext_resource type="PackedScene" uid="uid://1jc7jor572cm" path="res://components/biome_components/passage/passage.tscn" id="3_xvmbm"]
 [ext_resource type="PackedScene" uid="uid://sncxai6gcgji" path="res://component_packages/biome_package/biome_package.tscn" id="4_02por"]
 [ext_resource type="PackedScene" uid="uid://b6id00jfv0lda" path="res://components/biome_components/parallax_layers/tunnels/parallax_tunnels.tscn" id="5_qk7wj"]
 [ext_resource type="PackedScene" uid="uid://blbh87qbhtjyi" path="res://content/biomes/shallows/hermit/hermit.tscn" id="6_h8ur0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3auc"]
-size = Vector2(494, 215)
-
-[node name="Shallows" type="Node2D" node_paths=PackedStringArray("bounds", "spawn_positions")]
+[node name="Shallows" type="Node2D" node_paths=PackedStringArray("bounds")]
 script = ExtResource("1_xvtrt")
 bounds = NodePath("BiomePackage/Bounds")
-spawn_positions = [NodePath("Passage/SpawnMarker")]
 
 [node name="LabEntrance" parent="." instance=ExtResource("2_iu67x")]
 position = Vector2(3698, 2027)
@@ -37,17 +32,6 @@ text = "WASD to move.
 Hold space bar to temporarily accelerate.
 Press E to interact."
 horizontal_alignment = 1
-
-[node name="Passage" parent="." instance=ExtResource("3_xvmbm")]
-position = Vector2(3527, 4174)
-passage_to = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Passage"]
-position = Vector2(69, 188.5)
-shape = SubResource("RectangleShape2D_b3auc")
-
-[node name="SpawnMarker" type="Marker2D" parent="Passage"]
-position = Vector2(69, -165)
 
 [node name="BiomePackage" parent="." instance=ExtResource("4_02por")]
 

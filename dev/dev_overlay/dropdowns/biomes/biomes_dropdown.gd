@@ -20,14 +20,5 @@ func setup() -> void:
 		add_to_menu(data.name, _change_to_biome.bind(data))
 
 
-func _change_to_biome(biome_data: BiomeData) -> void:
-	while not GameUtility.is_in_game_world():
-		var game_scene := load("uid://x8lmoly7d6ei") as PackedScene
-		get_tree().change_scene_to_packed(game_scene)
-		
-		await get_tree().process_frame
-		await get_tree().process_frame
-		await get_tree().process_frame
-		
-	var game_world := GameUtility.get_game_world()
-	game_world.change_biome(biome_data, 0)
+func _change_to_biome(_biome_data: BiomeData) -> void:
+	pass

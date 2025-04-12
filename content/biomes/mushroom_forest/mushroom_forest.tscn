@@ -1,29 +1,12 @@
-[gd_scene load_steps=6 format=4 uid="uid://ci0ggrlxt1531"]
+[gd_scene load_steps=4 format=4 uid="uid://ci0ggrlxt1531"]
 
 [ext_resource type="Script" uid="uid://clvqw4xvxciup" path="res://content/biomes/biome.gd" id="1_b26bc"]
-[ext_resource type="PackedScene" uid="uid://1jc7jor572cm" path="res://components/biome_components/passage/passage.tscn" id="12_h85ng"]
 [ext_resource type="PackedScene" uid="uid://sncxai6gcgji" path="res://component_packages/biome_package/biome_package.tscn" id="14_5qibr"]
 [ext_resource type="PackedScene" uid="uid://b6id00jfv0lda" path="res://components/biome_components/parallax_layers/tunnels/parallax_tunnels.tscn" id="15_fw5gj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cq41"]
-size = Vector2(122, 432)
-
-[node name="MushroomForest" type="Node2D" node_paths=PackedStringArray("bounds", "spawn_positions")]
+[node name="MushroomForest" type="Node2D" node_paths=PackedStringArray("bounds")]
 script = ExtResource("1_b26bc")
 bounds = NodePath("BiomePackage/Bounds")
-spawn_positions = [NodePath("Passage/SpawnPos")]
-
-[node name="Passage" parent="." instance=ExtResource("12_h85ng")]
-position = Vector2(-3891, -922)
-passage_to = 1
-spawn_pos_index = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Passage"]
-position = Vector2(7, 99)
-shape = SubResource("RectangleShape2D_0cq41")
-
-[node name="SpawnPos" type="Marker2D" parent="Passage"]
-position = Vector2(918, 90)
 
 [node name="BiomePackage" parent="." instance=ExtResource("14_5qibr")]
 

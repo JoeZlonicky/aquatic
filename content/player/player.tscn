@@ -41,7 +41,6 @@ interactor = NodePath("..")
 shape = SubResource("CircleShape2D_oecq7")
 
 [node name="TrailParticles" parent="." instance=ExtResource("5_vx4xa")]
-_restart_on_biome_change = true
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
