@@ -1,4 +1,3 @@
-@tool
 class_name Player
 extends CharacterBody2D
 
@@ -7,9 +6,6 @@ extends CharacterBody2D
 
 
 func _ready() -> void:
-	if Engine.is_editor_hint():
-		return
-	
 	var inventory := GameUtility.get_inventory()
 	inventory.item_added.connect(_on_inventory_item_added)
 	inventory.item_removed.connect(_on_inventory_item_removed)

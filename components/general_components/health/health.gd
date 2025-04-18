@@ -1,36 +1,48 @@
 class_name Health
 extends Node
+## Encapsulates a health value between 0 and a maximum.
 
 
+## Emitted when health decreases to 0.
 signal died
+
+## Emitted when health increases from 0.
 signal revived
+
+## Emitted when health decreases by a positive amount.
 signal damaged(amount: int)
+
+## Emitted when health increases by a positive amount.
 signal healed(amount: int)
+
+## Emitted when max values changes.
 signal max_changed
 
 @export_range(1, 100, 1, "or_greater") var _max: int = 10
-@export_range(0, 100, 1, "or_greater") var regen: int = 0
-@export var regen_while_dead: bool = false
 
 @onready var _current: int = _max
 
 
+## Get current health.
 func get_current() -> int:
 	return _current
 
 
+## Get max health.
 func get_max() -> int:
 	return _max
 
 
-func get_ratio(clamp_value: bool = false) -> float:
+## Get current health as a ratio of max health (0 to 1).
+func get_ratio() -> float:
 	var ratio := float(_current) / float(_max)
-	if clamp_value:
-		return clampf(ratio, 0.0, 1.0)
-	return ratio
+	return clampf(ratio, 0.0, 1.0)
 
 
-func deal_damage(amount: int) -> void:
+## Decrease health by a positive amount.[br]
+## Emits [signal damaged] if decreased by >0.[br]
+## Emits [signal died] if damage resulted in reaching 0 health.
+func damage(amount: int) -> void:
 	assert(amount >= 0)
 	
 	if _current <= 0 || amount == 0:
@@ -44,7 +56,10 @@ func deal_damage(amount: int) -> void:
 		died.emit()
 
 
-func heal_damage(amount: int) -> void:
+## Increases health by a positive amount that doesn't increase past max health.[br]
+## Emits [signal healed] if increased by >0.[br]
+## Emits [signal revived] if increased from 0.
+func heal(amount: int) -> void:
 	assert(amount >= 0)
 	
 	if _current == _max or amount == 0:
@@ -55,39 +70,31 @@ func heal_damage(amount: int) -> void:
 	healed.emit(_current - before)
 
 
+## Heals to full health. See [method heal] for more details.
 func heal_to_full() -> void:
-	heal_damage(_max - _current)
+	heal(_max - _current)
 
 
+## Returns true if current health is greater than 0.
 func is_alive() -> bool:
 	return _current > 0
 
 
-func revive(to_full: bool) -> void:
-	assert(_current == 0)
-	if to_full:
-		heal_to_full()
-		return
-		
-	heal_damage(1)
-	revived.emit()
-
-
+## Damages by current health. See [method damage] for more details.
 func kill() -> void:
-	deal_damage(_current)
+	damage(_current)
 
 
-func update_max_health(new_value: int, restore_to_full: bool = true) -> void:
+## Modifies max health.[br]
+## Emits [signal max_changed] if changed to a new value.
+func update_max_health(new_value: int) -> void:
+	assert(new_value >= 1)
+	
 	var changed: bool = new_value != _max
+	
 	_max = new_value
-	if _current > _max or restore_to_full:
+	if _current > _max:
 		_current = _max
+	
 	if changed:
 		max_changed.emit()
-
-
-func _on_regen_timer_timeout() -> void:
-	if not regen or (not is_alive() and not regen_while_dead):
-		return
-	
-	heal_damage(regen)

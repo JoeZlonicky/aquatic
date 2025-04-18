@@ -29,13 +29,13 @@ func try_to_mine(power: int) -> void:
 		return
 	
 	animation_player.play("mined")
-	health_per_resource.deal_damage(power)
+	health_per_resource.damage(power)
 	
 	if health_per_resource.is_alive():
 		hit_sfx.play()
 		return
 	
-	total_health.deal_damage(1)
+	total_health.damage(1)
 	ItemPickup.create.call_deferred(dropped_resource, global_position)
 	
 	if total_health.is_alive():

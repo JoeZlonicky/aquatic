@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv410aoswxj30"]
+
+[ext_resource type="Script" uid="uid://dw010noyyacn6" path="res://components/general_components/drop_items_on_death/drop_items_on_death.gd" id="1_y0ji2"]
+
+[node name="DropItemsOnDeath" type="Node2D"]
+script = ExtResource("1_y0ji2")

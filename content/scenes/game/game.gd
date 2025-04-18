@@ -2,6 +2,8 @@ class_name Game
 extends Node2D
 
 
+const CAMERA_BOUNDS_PADDING: int = -80
+
 var inventory := Inventory.new()
 var pause_input_counter: int = 0
 
@@ -37,5 +39,6 @@ func add_to_world(node: Node2D, pos: Vector2) -> void:
 
 func _update_camera_limits() -> void:
 	var world_bounds := bounds.get_global_rect()
-	game_camera.update_limits(world_bounds)
-	_bounds_skirt.update_bounds(world_bounds)
+	var padded_bounds := world_bounds.grow(CAMERA_BOUNDS_PADDING)
+	game_camera.update_limits(padded_bounds)
+	_bounds_skirt.update_bounds(padded_bounds)

@@ -1,15 +1,14 @@
-@tool
+class_name SFXOnDamaged
 extends AudioStreamPlayer2D
+## [AudioStreamPlayer2D] that starts playing when [Health] is damaged
 
 
-@export var _health: Health:
-	set(value):
-		_health = value
-		update_configuration_warnings()
+@export var _health: Health
 
 
 func _ready() -> void:
-	if Engine.is_editor_hint():
+	if not _health:
+		push_warning(ConfigurationWarnings.missing_required_properties(self, owner))
 		return
 	
 	_health.damaged.connect(_on_health_damaged)
@@ -17,7 +16,3 @@ func _ready() -> void:
 
 func _on_health_damaged(_amount: int) -> void:
 	playing = true
-
-
-func _get_configuration_warnings() -> PackedStringArray:
-	return ConfigurationWarnings.any_properties_not_set(self, ["_health"])

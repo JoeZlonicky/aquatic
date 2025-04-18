@@ -1,6 +1,10 @@
 class_name ConfigurationWarnings
 
 
+static func missing_required_properties(node: Node, owner: Node) -> String:
+	return owner.name + "/" + node.name + " missing required properties"
+
+
 static func any_properties_not_set(obj: Object, properties: Array[String]) -> PackedStringArray:
 	var messages: PackedStringArray = []
 	for p in properties:
