@@ -1,4 +1,6 @@
+class_name FullscreenToggle
 extends Node
+## Toggles between windowed and fullscreen when input action is pressed
 
 
 func _input(event: InputEvent) -> void:

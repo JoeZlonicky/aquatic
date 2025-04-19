@@ -1,9 +1,9 @@
 class_name GameCamera
 extends Camera2D
-## Camera2D with additional utility.
+## [Camera2D] with additional utility.
 
 
-## Update camera limits to match a Rect2.
+## Update [Camera2D] limits to match the bounds of a [Rect2].
 func update_limits(bounds: Rect2) -> void:
 	limit_left = floori(bounds.position.x)
 	limit_right = ceili(bounds.position.x + bounds.size.x)

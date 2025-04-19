@@ -4,10 +4,11 @@ extends Node2D
 
 const CAMERA_BOUNDS_PADDING: int = -80
 
-var inventory := Inventory.new()
-var pause_input_counter: int = 0
-
 @export_color_no_alpha var light_tint: Color
+
+
+var pause_input_counter: int = 0
+var inventory := Inventory.new()
 
 @onready var player: Player = $Player
 @onready var bounds: ColorRect = $World/Bounds

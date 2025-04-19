@@ -6,5 +6,5 @@ var dialogue: Array[String] = [
 	"Don't mind me, I'm just enjoying my new shell!"
 ]
 
-func _on_interactable_area_interacted_with(_by: Node2D) -> void:
+func _on_interactable_area_interacted_with() -> void:
 	NarrativeUtility.queue_dialogue(dialogue, "Hermit")

@@ -1,12 +1,8 @@
-@tool
 class_name FollowTarget
 extends Node
 
 
-@export var node: Node2D:
-	set(value):
-		node = value
-		update_configuration_warnings()
+@export var node: Node2D
 @export var target: Node2D
 
 @export_range(0.0, 1000.0, 0.001, "or_greater", "suffix:px") var follow_distance: float = 100.0
@@ -14,8 +10,14 @@ extends Node
 @export_range(0.0, 100.0, 0.001, "or_greater", "suffix:px") var distance_to_reach_max_move_speed: float = 50.0
 
 
+func _ready() -> void:
+	if not node:
+		push_warning(ConfigurationWarnings.missing_required_properties(self))
+		set_physics_process(false)
+
+
 func _physics_process(_delta: float) -> void:
-	if Engine.is_editor_hint() or not target or not is_far_enough_to_follow():
+	if not target or not is_far_enough_to_follow():
 		return
 	
 	var to_target := target.global_position - node.global_position
@@ -33,7 +35,3 @@ func _physics_process(_delta: float) -> void:
 
 func is_far_enough_to_follow() -> bool:
 	return node.global_position.distance_to(target.global_position) > follow_distance
-
-
-func _get_configuration_warnings() -> PackedStringArray:
-	return ConfigurationWarnings.any_properties_not_set(self, ['node'])

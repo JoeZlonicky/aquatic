@@ -1,0 +1,173 @@
+[gd_scene load_steps=14 format=3 uid="uid://di6br3x7ub1t2"]
+
+[ext_resource type="Script" uid="uid://bwo3vo8gyvlcy" path="res://components/instancing/item_pickup/item_pickup.gd" id="1_f5gnn"]
+[ext_resource type="PackedScene" uid="uid://cr6uct0oaber6" path="res://components/visual_components/trail_particles/trail_particles.tscn" id="2_l47be"]
+[ext_resource type="Texture2D" uid="uid://cru057r4jaksp" path="res://components/instancing/item_pickup/pickup_ring.svg" id="3_gjoq6"]
+
+[sub_resource type="Animation" id="Animation_c1w7a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_r2hl7"]
+resource_name = "hover"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e3q8x"]
+_data = {
+&"RESET": SubResource("Animation_c1w7a"),
+&"hover": SubResource("Animation_r2hl7")
+}
+
+[sub_resource type="Animation" id="Animation_n1tro"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1h6hy"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1ct5q"]
+resource_name = "fade_out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.47451)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_40t7i"]
+_data = {
+&"RESET": SubResource("Animation_n1tro"),
+&"fade_in": SubResource("Animation_1h6hy"),
+&"fade_out": SubResource("Animation_1ct5q")
+}
+
+[sub_resource type="Gradient" id="Gradient_l4oc5"]
+offsets = PackedFloat32Array(0, 0.150943, 0.313208, 0.713208)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.364706, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5hiyu"]
+gradient = SubResource("Gradient_l4oc5")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3yu76"]
+radius = 300.0
+
+[node name="ItemPickup" type="Sprite2D"]
+z_index = 1
+script = ExtResource("1_f5gnn")
+
+[node name="TrailParticles" parent="." instance=ExtResource("2_l47be")]
+amount = 16
+
+[node name="Ring" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.313726)
+texture = ExtResource("3_gjoq6")
+
+[node name="HoverPlayer" type="AnimationPlayer" parent="Ring"]
+libraries = {
+&"": SubResource("AnimationLibrary_e3q8x")
+}
+autoplay = "hover"
+
+[node name="FadePlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Ring")
+libraries = {
+&"": SubResource("AnimationLibrary_40t7i")
+}
+autoplay = "fade_in"
+
+[node name="Glow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+scale = Vector2(0.4, 0.4)
+texture = SubResource("GradientTexture2D_5hiyu")
+
+[node name="PickupRadius" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRadius"]
+shape = SubResource("CircleShape2D_3yu76")
+
+[connection signal="body_entered" from="PickupRadius" to="." method="_on_pickup_radius_body_entered"]

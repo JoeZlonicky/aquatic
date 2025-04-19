@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkykvcchksyqn"]
+
+[ext_resource type="Script" uid="uid://dvhrr6tmkgsr" path="res://components/world_components/biome_theme/biome_theme.gd" id="1_hflij"]
+
+[node name="BiomeTheme" type="Node"]
+script = ExtResource("1_hflij")

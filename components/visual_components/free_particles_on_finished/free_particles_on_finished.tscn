@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://biosjegmflpnj"]
-
-[ext_resource type="Script" uid="uid://bt3m1dhvunbut" path="res://components/visual_components/free_particles_on_finished/free_particles_on_finished.gd" id="1_2p33s"]
-
-[node name="FreeParticlesOnFinished" type="Node"]
-script = ExtResource("1_2p33s")

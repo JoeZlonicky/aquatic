@@ -18,6 +18,7 @@ signal healed(amount: int)
 ## Emitted when max values changes.
 signal max_changed
 
+## Maximum health
 @export_range(1, 100, 1, "or_greater") var _max: int = 10
 
 @onready var _current: int = _max
@@ -39,7 +40,7 @@ func get_ratio() -> float:
 	return clampf(ratio, 0.0, 1.0)
 
 
-## Decrease health by a positive amount.[br]
+## Decreases health by a positive amount.[br]
 ## Emits [signal damaged] if decreased by >0.[br]
 ## Emits [signal died] if damage resulted in reaching 0 health.
 func damage(amount: int) -> void:
@@ -67,6 +68,9 @@ func heal(amount: int) -> void:
 	
 	var before := _current
 	_current = mini(_current + amount, _max)
+	
+	if before == 0:
+		revived.emit()
 	healed.emit(_current - before)
 
 

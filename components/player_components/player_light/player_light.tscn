@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch56dvfw6m3sn"]
+
+[ext_resource type="Texture2D" uid="uid://dhigucfi0buip" path="res://common/art/light/two_tier_point_light.png" id="1_riup3"]
+[ext_resource type="Script" uid="uid://cp442g4vkpqfx" path="res://components/player_components/player_light/player_light.gd" id="2_dst1l"]
+
+[node name="PlayerLight" type="PointLight2D"]
+energy = 1.3
+texture = ExtResource("1_riup3")
+texture_scale = 14.0
+script = ExtResource("2_dst1l")

@@ -4,4 +4,4 @@
 
 ## Development
 
-**Godot version:** 4.4.stable
+**Godot version:** 4.4.1.stable

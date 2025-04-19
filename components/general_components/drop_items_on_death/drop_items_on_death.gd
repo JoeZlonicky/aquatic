@@ -3,14 +3,19 @@ extends Node2D
 ## Creates [ItemPickup] drops when [Health] dies.
 
 
+## [Health] to watch for death
 @export var _health: Health
+
+## [ItemData] that will be dropped
 @export var _item_data: ItemData
+
+## Number of [ItemData] to create
 @export_range(1, 999) var quantity: int = 1
 
 
 func _ready() -> void:
 	if not _health or not _item_data:
-		push_warning(ConfigurationWarnings.missing_required_properties(self, owner))
+		push_warning(ConfigurationWarnings.missing_required_properties(self))
 		return
 	
 	_health.died.connect(_on_health_died)

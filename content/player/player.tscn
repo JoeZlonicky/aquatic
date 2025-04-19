@@ -1,26 +1,25 @@
 [gd_scene load_steps=10 format=3 uid="uid://c7xn7uk5h1ldd"]
 
 [ext_resource type="Script" uid="uid://c5r52mai2x5v4" path="res://content/player/player.gd" id="1_gdtqi"]
-[ext_resource type="PackedScene" uid="uid://xljt1kvw57lj" path="res://components/pod_components/pod_capsule/pod_capsule.tscn" id="2_rmk25"]
-[ext_resource type="PackedScene" uid="uid://buo5ifa2ymwub" path="res://components/movement_components/player/player_move_controller.tscn" id="3_bkj32"]
-[ext_resource type="PackedScene" uid="uid://ctetnw3oksm7f" path="res://components/general_components/interact_handler/interact_handler.tscn" id="4_cvehv"]
+[ext_resource type="PackedScene" uid="uid://xljt1kvw57lj" path="res://components/player_components/player_capsule/player_capsule.tscn" id="2_rmk25"]
+[ext_resource type="PackedScene" uid="uid://buo5ifa2ymwub" path="res://components/movement_components/player_move_controller/player_move_controller.tscn" id="3_bkj32"]
+[ext_resource type="PackedScene" uid="uid://ctetnw3oksm7f" path="res://components/player_components/interact_handler/interact_handler.tscn" id="4_cvehv"]
 [ext_resource type="PackedScene" uid="uid://cr6uct0oaber6" path="res://components/visual_components/trail_particles/trail_particles.tscn" id="5_vx4xa"]
-[ext_resource type="PackedScene" uid="uid://ch56dvfw6m3sn" path="res://components/pod_components/pod_light/pod_light.tscn" id="6_5unhu"]
+[ext_resource type="PackedScene" uid="uid://ch56dvfw6m3sn" path="res://components/player_components/player_light/player_light.tscn" id="6_5unhu"]
 [ext_resource type="PackedScene" uid="uid://bnryjyjuyc6jk" path="res://components/ui_components/item_notification_container/item_notification_container.tscn" id="7_tpspr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebppg"]
 radius = 98.7369
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oecq7"]
-radius = 305.984
+radius = 76.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_gdtqi")
 
-[node name="PlayerMoveController" parent="." node_paths=PackedStringArray("character", "pod_capsule", "emit_particles_while_moving") instance=ExtResource("3_bkj32")]
+[node name="PlayerMoveController" parent="." node_paths=PackedStringArray("character", "emit_particles_while_moving") instance=ExtResource("3_bkj32")]
 character = NodePath("..")
-pod_capsule = NodePath("../Capsule")
 emit_particles_while_moving = NodePath("../TrailParticles")
 decceleration = 400.0
 max_speed = 800.0
@@ -34,13 +33,13 @@ pilot_color = Color(0.301961, 0.607843, 0.901961, 1)
 scale = Vector2(0.7, 0.7)
 shape = SubResource("CircleShape2D_ebppg")
 
-[node name="InteractHandler" parent="." node_paths=PackedStringArray("interactor") instance=ExtResource("4_cvehv")]
-interactor = NodePath("..")
+[node name="InteractHandler" parent="." instance=ExtResource("4_cvehv")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractHandler"]
 shape = SubResource("CircleShape2D_oecq7")
 
 [node name="TrailParticles" parent="." instance=ExtResource("5_vx4xa")]
+emitting = false
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true

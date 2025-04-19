@@ -3,10 +3,7 @@ class_name ResourcePile
 extends StaticBody2D
 
 
-@export var dropped_resource: ItemData:
-	set(value):
-		dropped_resource = value
-		update_configuration_warnings()
+@export var dropped_resource: ItemData
 
 @export_range(1, 999, 1) var total_resources: int = 3
 @export_range(1, 999, 1) var required_mine_strength: int = 1
@@ -21,6 +18,10 @@ extends StaticBody2D
 @onready var total_health: Health = $TotalHealth
 @onready var health_per_resource: Health = $HealthPerResource
 
+
+func _ready() -> void:
+	if not dropped_resource:
+		push_warning(ConfigurationWarnings.missing_required_properties(self))
 
 
 func try_to_mine(power: int) -> void:
@@ -45,7 +46,3 @@ func try_to_mine(power: int) -> void:
 	
 	GameUtility.one_shot_and_reparent_audio_player_2d(harvested_sfx)
 	queue_free()
-
-
-func _get_configuration_warnings() -> PackedStringArray:
-	return ConfigurationWarnings.any_properties_not_set(self, ["dropped_resource"])
